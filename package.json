@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "microbundle": "^0.15.1",
     "prettier": "^2.8.8"
   }
 }
