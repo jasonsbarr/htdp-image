@@ -1,4 +1,4 @@
-# HTDP/image
+# HTDP/image.js
 
 A JavaScript port of the Racket Image library used in How To Design Programs
 
