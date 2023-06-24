@@ -1,4 +1,30 @@
 {
+  "name": "@jasonsbarr/htdp-image",
+  "description": "A JavaScript port of the Racket Image library used in How To Design Programs",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jasonsbarr/htdp-image.git"
+  },
+  "keywords": [
+    "images",
+    "htdp",
+    "canvas"
+  ],
+  "author": "Jason Barr <jason@jasonsbarr.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonsbarr/htdp-image/issues"
+  },
+  "homepage": "https://github.com/jasonsbarr/htdp-image#readme",
   "devDependencies": {
     "microbundle": "^0.15.1",
     "prettier": "^2.8.8"
