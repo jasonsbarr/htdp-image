@@ -36,12 +36,15 @@ export const clone = (obj) => {
   }
 
   // if it's an object, continue on
-  let proto = obj.__proto__
+  const p = Object.getPrototypeOf(obj);
+  let proto = p
+    ? p
+    : obj.__proto__
     ? Object.create(obj.__proto__)
     : obj.constructor
     ? Object.create(obj.constructor.prototype)
-    // as a last resort, just copy the damned thing as its own prototype
-    : Object.create(obj);
+    : // as a last resort, just copy the damned thing as its own prototype
+      Object.create(obj);
   let newObj = {};
 
   Object.setPrototypeOf(newObj, proto);
