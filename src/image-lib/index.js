@@ -24,4 +24,80 @@ for (let [name, value] of Object.entries(Colors)) {
   }
 }
 
+/**
+ * Base class for all images
+ * @class
+ * @prop {number} height
+ * @prop {number} width
+ * @prop {number} pinholeX
+ * @prop {number} pinholeY
+ * @prop {number} alphaBaseline
+ */
+class BaseImage {
+  /**
+   * @returns {number}
+   */
+  get alphaBaseline() {
+    return typeof this._alphaBaseline !== "undefined"
+      ? this._alphaBaseline
+      : this.height;
+  }
+
+  /**
+   * Image height
+   * @returns {number}
+   */
+  get height() {
+    return Math.round(this._height);
+  }
+
+  /**
+   * Image pinholeX value
+   * @returns {number}
+   */
+  get pinholeX() {
+    return typeof this._pinholeX !== "undefined" ? this._pinholeX : 0;
+  }
+
+  /**
+   * Image pinholeY value
+   * @returns {number}
+   */
+  get pinholeY() {
+    return typeof this._pinholeY !== "undefined" ? this._pinholeY : 0;
+  }
+
+  /**
+   * Image width
+   * @returns {number}
+   */
+  get width() {
+    return Math.round(this._width);
+  }
+  /**
+   * Calculates a new pinhole value
+   * @param {number} dx
+   * @param {number} dy
+   * @returns {BaseImage}
+   */
+  offsetPinhole(dx, dy) {
+    let copy = clone(this);
+    copy.pinholeX += dx;
+    copy.pinholeY += dy;
+    return copy;
+  }
+  /**
+   * Updates pinhole value and returns a new image
+   * @param {number} x
+   * @param {number} y
+   * @returns {BaseImage}
+   */
+  updatePinhole(x, y) {
+    let copy = clone(this);
+    copy.pinholeX = x;
+    copy.pinholeY = y;
+    return copy;
+  }
+}
+
 export { FillMode, FontFamily, FontStyle, FontWeight, XPlace, YPlace };
