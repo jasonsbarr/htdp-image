@@ -3,6 +3,7 @@ import { XPlace } from "./XPlace.js";
 import { YPlace } from "./YPlace.js";
 import { FillMode } from "./types.js";
 import { FontFamily } from "./FontFamily.js";
+import { FontStyle } from "./FontStyle.js";
 
 export const Types = {
   Point,
@@ -10,4 +11,5 @@ export const Types = {
   YPlace,
   FillMode,
   FontFamily,
+  FontStyle,
 };
