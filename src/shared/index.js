@@ -1,4 +1,4 @@
-import * as Point from "./types/Point.js";
+import * as P from "./types/Point.js";
 import { XPlace } from "./types/XPlace.js";
 import { YPlace } from "./types/YPlace.js";
 import { FillMode } from "./types/FillMode.js";
@@ -8,8 +8,14 @@ import { FontWeight } from "./types/FontWeight.js";
 import * as Colors from "./colors.js";
 import * as Utils from "./utils.js";
 
-export const Types = {
-  ...Point,
+const Point = P.Point;
+const Point2D = P.Point2D;
+const point = P.point;
+
+export {
+  Point,
+  Point2D,
+  point,
   XPlace,
   YPlace,
   FillMode,
@@ -17,5 +23,5 @@ export const Types = {
   FontStyle,
   FontWeight,
   Colors,
-  ...Utils,
+  Utils,
 };
