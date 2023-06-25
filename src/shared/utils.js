@@ -10,8 +10,9 @@ export const clamp = (num, min, max) =>
 
 /**
  * Clones an object recursively and preserves prototype/instanceof semantics
- * @param {any} obj
- * @returns {Object}
+ * @template T
+ * @param {T} obj
+ * @returns {T}
  */
 export const clone = (obj) => {
   // if it's not an object, return it for a recursive base case
