@@ -33,3 +33,27 @@ export const Point = {
     return { type: "polar", h, theta };
   },
 };
+
+export const point = Point.XY;
+export const Point2D = Point;
+
+/**
+ * @enum {string}
+ */
+export const XPlace = {
+  XLeft: "XLeft",
+  XMiddle: "XMiddle",
+  XPinhole: "XPinhole",
+  XRight: "XRight",
+};
+
+/**
+ * @enum {string}
+ */
+export const YPlace = {
+  YTop: "YTop",
+  YCenter: "YCenter",
+  YPinhole: "YPinhole",
+  YBaseline: "YBaseline",
+  YBottom: "YBottom",
+};
