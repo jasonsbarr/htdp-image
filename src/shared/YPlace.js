@@ -1,7 +1,6 @@
 /**
  * @enum {string}
  */
-
 export const YPlace = {
   YTop: "YTop",
   YCenter: "YCenter",

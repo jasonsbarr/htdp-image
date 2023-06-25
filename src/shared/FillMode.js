@@ -37,4 +37,13 @@ export const FillMode = {
   Fade(n) {
     return { type: "mode-fade", n };
   },
+  /**
+   * FillMode constructor
+   * @param {"mode-solid"|"mode-outline"|"mode-fade"} type
+   * @param {number?} n
+   * @returns {FillMode}
+   */
+  new(type, n = null) {
+    return typeof n === "number" ? { type, n } : { type };
+  },
 };

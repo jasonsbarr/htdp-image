@@ -2,8 +2,8 @@
  * @enum {string}
  */
 export const XPlace = {
-  XLeft: "XLeft",
-  XMiddle: "XMiddle",
-  XPinhole: "XPinhole",
-  XRight: "XRight",
+  XLeft: "x-left",
+  XMiddle: "x-middle",
+  XPinhole: "x-pinhole",
+  XRight: "x-right",
 };
