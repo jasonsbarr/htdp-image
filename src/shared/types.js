@@ -72,7 +72,7 @@ export const YPlace = {
  * @prop {number} n
  */
 /**
- * @typedef {ModeSolid|ModeOutline|ModeFade} FillModeType
+ * @typedef {ModeSolid|ModeOutline|ModeFade} FillMode
  */
 export const FillMode = {
   /**
