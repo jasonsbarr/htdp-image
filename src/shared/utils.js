@@ -36,7 +36,11 @@ export const clone = (obj) => {
   }
 
   // if it's an object, continue on
-  let proto = obj.constructor ? Object.create(obj.constructor.prototype) : {};
+  let proto = obj.constructor
+    ? Object.create(obj.constructor.prototype)
+    : obj.__proto__
+    ? Object.create(obj.__proto__)
+    : Object.create(obj);
   let newObj = {};
 
   Object.setPrototypeOf(newObj, proto);
@@ -54,7 +58,7 @@ export const clone = (obj) => {
       } else if (v instanceof Set) {
         let set = new Set();
         for (let v2 of v) {
-          set.add(clone(v2))
+          set.add(clone(v2));
         }
         newObj[k] = set;
       } else {
