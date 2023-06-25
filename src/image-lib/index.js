@@ -89,6 +89,7 @@ class BaseImage {
   get width() {
     return Math.round(this._width);
   }
+
   /**
    * Calculates a new pinhole value
    * @param {number} dx
@@ -101,6 +102,15 @@ class BaseImage {
     copy.pinholeY += dy;
     return copy;
   }
+
+  /**
+   * Renders the image in its local coordinate system
+   * @param {CanvasRenderingContext2D} ctx
+   */
+  render(ctx) {
+    throw new Error("render method not implemented");
+  }
+
   /**
    * Updates pinhole value and returns a new image
    * @param {number} x
