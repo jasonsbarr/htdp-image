@@ -15,6 +15,7 @@
  * @returns {Color}
  */
 export const color = (r, g, b, a = 1) => ({ type: "color", r, g, b, a });
+export const isColor = (o) => o?.type && o.type === "color";
 
 export const orange = color(255, 165, 0, 1)
 export const red = color(255, 0, 0, 1)
