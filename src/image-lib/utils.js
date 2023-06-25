@@ -29,4 +29,4 @@ export const colorBlue = (c) => clamp(c.b, 0, 255);
  * @param {Color} c
  * @returns {number}
  */
-export const colorAlpha = (c) => clamp(c.r, 0, 255);
+export const colorAlpha = (c) => clamp(c.a, 0, 255);
