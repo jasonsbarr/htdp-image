@@ -68,6 +68,21 @@ class BaseImage {
   }
 
   /**
+   * Vertices
+   * @returns {{x: number, y: number}[]}
+   */
+  get vertices() {
+    return typeof this._vertices !== "undefined"
+      ? this._vertices
+      : [
+          { x: 0, y: 0 },
+          { x: this.width, y: 0 },
+          { x: 0, y: this.height },
+          { x: this.width, y: this.height },
+        ];
+  }
+
+  /**
    * Image width
    * @returns {number}
    */
