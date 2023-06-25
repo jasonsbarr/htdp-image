@@ -7,3 +7,64 @@
  */
 export const clamp = (num, min, max) =>
   num > max ? max : num < min ? min : num;
+
+/**
+ * Clones an object recursively
+ * @param {any} obj
+ * @returns {Object}
+ */
+export const clone = (obj) => {
+  // if it's not an object, return it for a recursive base case
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  } else if (Array.isArray(obj)) {
+    return obj.map(clone);
+  } else if (obj instanceof Map) {
+    let map = new Map();
+    for (let [k, v] of obj) {
+      map.set(k, clone(v));
+    }
+    return map;
+  } else if (obj instanceof Set) {
+    let set = new Set();
+    for (let v of obj) {
+      set.add(clone(v));
+    }
+    return set;
+  } else if (obj instanceof Date || obj instanceof RegExp) {
+    return obj;
+  }
+
+  // if it's an object, continue on
+  let proto = obj.constructor ? Object.create(obj.constructor.prototype) : {};
+  let newObj = {};
+
+  Object.setPrototypeOf(newObj, proto);
+
+  for (let [k, v] of Object.entries(obj)) {
+    if (typeof v === "object" && v !== null) {
+      if (Array.isArray(v)) {
+        newObj[k] = v.map(clone);
+      } else if (v instanceof Map) {
+        let map = new Map();
+        for (let [k2, v2] of v) {
+          map.set(k2, clone(v2));
+        }
+        newObj[k] = map;
+      } else if (v instanceof Set) {
+        let set = new Set();
+        for (let v2 of v) {
+          set.add(clone(v2))
+        }
+        newObj[k] = set;
+      } else {
+        // for Date or RegExp just use the original value
+        newObj[k] = v;
+      }
+    } else {
+      newObj[k] = v;
+    }
+  }
+
+  return newObj;
+};
