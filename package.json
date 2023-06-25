@@ -6,7 +6,14 @@
     "access": "public"
   },
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "./dist/cjs.index.cjs",
+  "source": "./src/index.js",
+  "exports": {
+    "require": "./dist/cjs/index.cjs",
+    "default": "./dist/index.js"
+  },
+  "module": "./dist/esm/index.js",
+  "unpkg": "./dist/umd/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
