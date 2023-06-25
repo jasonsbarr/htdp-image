@@ -1,4 +1,4 @@
-import { Point } from "./Point.js";
+import * as Point from "./Point.js";
 import { XPlace } from "./XPlace.js";
 import { YPlace } from "./YPlace.js";
 import { FillMode } from "./types.js";
@@ -7,7 +7,7 @@ import { FontStyle } from "./FontStyle.js";
 import { FontWeight } from "./FontWeight.js";
 
 export const Types = {
-  Point,
+  ...Point,
   XPlace,
   YPlace,
   FillMode,
