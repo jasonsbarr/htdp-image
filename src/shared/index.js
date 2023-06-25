@@ -5,7 +5,7 @@ import { FillMode } from "./types/FillMode.js";
 import { FontFamily } from "./types/FontFamily.js";
 import { FontStyle } from "./types/FontStyle.js";
 import { FontWeight } from "./types/FontWeight.js";
-import * as colors from "./colors.js";
+import * as Colors from "./colors.js";
 
 export const Types = {
   ...Point,
@@ -15,5 +15,5 @@ export const Types = {
   FontFamily,
   FontStyle,
   FontWeight,
-  ...colors,
+  Colors,
 };
