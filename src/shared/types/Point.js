@@ -32,6 +32,14 @@ export const Point = {
   Polar(h, theta) {
     return { type: "polar", h, theta };
   },
+  /**
+   * Predicate to check if a type is a point
+   * @param {any} o
+   * @returns {boolean}
+   */
+  isPoint(o) {
+    return o?.type && (o.type === "cartesian" || o.type === "polar");
+  },
 };
 
 export const point = Point.XY;
