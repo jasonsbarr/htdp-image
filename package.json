@@ -16,7 +16,8 @@
   "unpkg": "./dist/umd/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier -w ./src"
+    "format": "prettier -w ./src",
+    "build": "microbundle"
   },
   "repository": {
     "type": "git",
