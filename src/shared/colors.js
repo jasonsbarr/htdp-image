@@ -1,5 +1,6 @@
 /**
  * @typedef Color
+ * @prop {"color"} type
  * @prop {number} r red
  * @prop {number} g green
  * @prop {number} b blue
@@ -13,7 +14,7 @@
  * @param {number} [a=1]
  * @returns {Color}
  */
-export const color = (r, g, b, a = 1) => ({ r, g, b, a });
+export const color = (r, g, b, a = 1) => ({ type: "color", r, g, b, a });
 
 export const orange = color(255, 165, 0, 1)
 export const red = color(255, 0, 0, 1)
