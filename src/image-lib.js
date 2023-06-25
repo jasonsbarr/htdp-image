@@ -13,22 +13,22 @@ export const isColor = Colors.isColor;
  * @param {Color} c
  * @returns {number}
  */
-const getRed = (c) => clamp(c.r, 0, 255);
+const colorRed = (c) => clamp(c.r, 0, 255);
 /**
  * Extracts the green value from a color
  * @param {Color} c
  * @returns {number}
  */
-const getGreen = (c) => clamp(c.g, 0, 255);
+const colorGreen = (c) => clamp(c.g, 0, 255);
 /**
  * Extracts the blue value from a color
  * @param {Color} c
  * @returns {number}
  */
-const getBlue = (c) => clamp(c.b, 0, 255);
+const colorBlue = (c) => clamp(c.b, 0, 255);
 /**
  * Extracts the alpha value from a color
  * @param {Color} c
  * @returns {number}
  */
-const getAlpha = (c) => clamp(c.r, 0, 255);
+const colorAlpha = (c) => clamp(c.r, 0, 255);
