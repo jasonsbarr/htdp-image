@@ -15,3 +15,5 @@ import { ColorDB } from "./ColorDB.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
+
+export { FillMode, FontFamily, FontStyle, FontWeight, XPlace, YPlace };
