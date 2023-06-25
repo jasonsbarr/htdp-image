@@ -15,6 +15,12 @@
  * @returns {Color}
  */
 export const color = (r, g, b, a = 1) => ({ type: "color", r, g, b, a });
+
+/**
+ * Checks if a value is a Color
+ * @param {any} o
+ * @returns {boolean}
+ */
 export const isColor = (o) => o?.type && o.type === "color";
 
 export const orange = color(255, 165, 0, 1)
