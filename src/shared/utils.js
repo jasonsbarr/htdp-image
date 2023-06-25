@@ -9,7 +9,7 @@ export const clamp = (num, min, max) =>
   num > max ? max : num < min ? min : num;
 
 /**
- * Clones an object recursively
+ * Clones an object recursively and preserves prototype/instanceof semantics
  * @param {any} obj
  * @returns {Object}
  */
