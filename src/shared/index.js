@@ -6,6 +6,7 @@ import { FontFamily } from "./types/FontFamily.js";
 import { FontStyle } from "./types/FontStyle.js";
 import { FontWeight } from "./types/FontWeight.js";
 import * as Colors from "./colors.js";
+import * as Utils from "./utils.js";
 
 export const Types = {
   ...Point,
@@ -16,4 +17,5 @@ export const Types = {
   FontStyle,
   FontWeight,
   Colors,
+  ...Utils,
 };
