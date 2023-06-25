@@ -2,9 +2,9 @@
  * @enum {string}
  */
 export const YPlace = {
-  YTop: "YTop",
-  YCenter: "YCenter",
-  YPinhole: "YPinhole",
-  YBaseline: "YBaseline",
-  YBottom: "YBottom",
+  YTop: "y-top",
+  YCenter: "y-center",
+  YPinhole: "y-pinhole",
+  YBaseline: "y-baseline",
+  YBottom: "y-bottom",
 };
