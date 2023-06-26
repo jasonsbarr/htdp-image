@@ -108,7 +108,9 @@ class BaseImage {
    * @param {CanvasRenderingContext2D} ctx
    */
   render(ctx) {
-    throw new Error("render method not implemented");
+    if (!this._vertices) {
+      throw new Error("render method not implemented for this type");
+    }
   }
 
   /**
