@@ -111,6 +111,11 @@ class BaseImage {
     if (!this._vertices) {
       throw new Error("render method not implemented for this type");
     }
+
+    ctx.save();
+    ctx.beginPath();
+
+    let isSolid = this.style.toString().toLowerCase() !== "outline";
   }
 
   /**
