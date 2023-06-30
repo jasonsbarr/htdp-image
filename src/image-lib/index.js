@@ -222,6 +222,36 @@ class BaseImage {
   }
 
   /**
+   * To displayed string
+   * @returns {string}
+   */
+  toDisplayedString(cache) {
+    return "<image>"
+  }
+
+  /**
+   * Images are expected to define a render method, used here to draw to the canvas
+   */
+  toDomNode(params) {
+    const width = this.width;
+    const height = this.height;
+    const canvas = makeCanvas(width, height);
+    const ctx = canvas.getContext("2d");
+
+    this.render(ctx);
+    canvas.ariaValueText = this.ariaText || "image";
+    return canvas;
+  }
+
+  /**
+   * To written string
+   * @returns {string}
+   */
+  toWrittenString(cache) {
+    return "<image>"
+  }
+
+  /**
    * Updates pinhole value and returns a new image
    * @param {number} x
    * @param {number} y
