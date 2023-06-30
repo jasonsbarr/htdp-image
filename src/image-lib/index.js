@@ -81,6 +81,21 @@ const translateVertices = (vertices, translation = null) => {
 };
 
 /**
+ * Constructs a canvas from a given width and height
+ * @param {number} width
+ * @param {number} height
+ * @returns {HTMLCanvasElement}
+ */
+const makeCanvas = (width, height) => {
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  canvas.style.width = `${width}px`;
+  canvas.style.height = `${height}px`;
+  return canvas;
+}
+
+/**
  * Base class for all images
  * @class
  * @prop {number} height
