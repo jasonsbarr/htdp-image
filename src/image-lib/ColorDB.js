@@ -52,3 +52,13 @@ export class ColorDB {
     }
   }
 }
+
+export const colorDb = new ColorDB();
+
+for (let [name, value] of Object.entries(Colors)) {
+  name = name.toUpperCase();
+
+  if (isColor(value)) {
+    colorDb.put(name, value);
+  }
+}
