@@ -1,3 +1,4 @@
+import { findHeight, findWidth } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
 /**
@@ -13,6 +14,8 @@ import { BaseImage } from "./BaseImage.js";
  * @prop {BaseImage} img2
  */
 export class OverlayImage extends BaseImage {
+  #vertices;
+
   /**
    * OverlayImage constructor
    * @param {BaseImage} img1
@@ -34,12 +37,15 @@ export class OverlayImage extends BaseImage {
     placeX2,
     placeY2
   ) {
+    // To find where to place the two images relative to one another
+    // start in a coordinate system with origin at top/left corners
     let x1 = 0,
       y1 = 0,
       x2 = 0,
       y2 = 0;
     let anchor1, anchor2;
 
+    // compute the x1/y1 and x2/y2 offsets, relative to the top/left of img1/img2:
     switch (placeX1.toLowerCase()) {
       case "left":
         x1 -= 0;
@@ -131,6 +137,76 @@ export class OverlayImage extends BaseImage {
       default:
         throw new Error(`Unknown YPlace option for image1: ${placeY1}`);
     }
+
+    // Next, offset x2/y2 by the given offsetX/Y
+    const xMax = Math.max(img1.width, img2.width);
+    const yMax = Math.max(img1.height, img2.height);
+
+    x1 += xMax;
+    x2 += xMax;
+    y1 += yMax;
+    y2 += yMax;
+
+    // Last, translate both offset pairs so that none are negative
+    const xMin = Math.min(x1, x2);
+    const yMin = Math.min(y1, y2);
+
+    x1 -= xMin;
+    x2 -= xMin;
+    y1 -= yMin;
+    y2 -= yMin;
+
+    // calculate the vertices of this image by translating the vertices of the sub-images
+    let i;
+    let v1 = img1.vertices;
+    let v2 = img2.vertices;
+    let xs = [];
+    let ys = [];
+
+    v1 = v1.map((v) => ({ x: v.x + x1, y: v.y + y1 }));
+    v2 = v2.map((v) => ({ x: v.x + x2, y: v.y + y2 }));
+
+    // store the vertices as something private, so this.vertices will still return null
+    this.#vertices = v1.concat(v2);
+
+    // store the offsets for rendering
+    this.x1 = x1;
+    this.y1 = y1;
+    this.x2 = x2;
+    this.y2 = y2;
+    this.img1 = img1;
+    this.img2 = img2;
+    this.pinholeX = img1.pinholeX + x1;
+    this.pinholeY = img1.pinholeY + y1;
+    this.alphaBaseline = img1._alphaBaseline
+      ? img1.alphaBaseline + y1
+      : img2.alphaBaseline + y2;
+
+    let shiftText = "";
+
+    if (offsetX > 0) {
+      shiftText += `shifted right by ${offsetX}`;
+    } else if (offsetX < 0) {
+      shiftText += `shifted left by ${-offsetX}`;
+    }
+
+    if (shiftText !== "") {
+      shiftText += ", and ";
+    }
+
+    if (offsetY > 0) {
+      shiftText += `shifted up by ${offsetY}`;
+    } else if (offsetY < 0) {
+      shiftText += `shifted down by ${-offsetY}`;
+    }
+
+    if (shiftText !== "") {
+      shiftText = `, and ${shiftText}`;
+    }
+
+    this.width = findWidth(this.#vertices);
+    this.height = findHeight(this.#vertices);
+    this.ariaText = `an overlay: first image is ${img1.ariaText}, second image is ${img2.ariaText}, aligning ${anchor1} of first image with ${anchor2} of second image${shiftText}`;
   }
 
   /**
