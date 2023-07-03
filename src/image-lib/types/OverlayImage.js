@@ -232,4 +232,46 @@ export class OverlayImage extends BaseImage {
       placeY2
     );
   }
+
+  /**
+   * @returns {{x: number; y: number}[]}
+   */
+  get vertices() {
+    return this.#vertices;
+  }
+
+  /**
+   * Equality check with other image
+   * @param {BaseImage} other
+   * @returns {boolean}
+   */
+  equals(other) {
+    return (
+      (other instanceof OverlayImage &&
+        this.width === other.width &&
+        this.height === other.height &&
+        this.x1 === other.x1 &&
+        this.y1 === other.y1 &&
+        this.x2 === other.x2 &&
+        this.y2 === other.y2 &&
+        imageEquals(this.img1, other.img1) &&
+        imageEquals(this.img2, other.img2)) ||
+      BaseImage.prototype.equals.call(this, other)
+    );
+  }
+
+  /**
+   * Renders an OverlayImage to the screen
+   * @param {CanvasRenderingContext2D} ctx
+   */
+  render(ctx) {
+    ctx.save();
+    ctx.translate(this.x2, this.y2);
+    this.img2.render();
+    ctx.restore();
+    ctx.save();
+    ctx.translate(this.x1, this.y1);
+    this.img1.render();
+    ctx.restore();
+  }
 }
