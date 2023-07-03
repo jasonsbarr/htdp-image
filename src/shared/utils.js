@@ -38,6 +38,7 @@ export const clone = (obj) => {
 
   // if it's an object, continue on
   const p = Object.getPrototypeOf(obj);
+  // this should always be p, but just in case...
   let proto = p
     ? p
     : obj.__proto__
