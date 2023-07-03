@@ -46,6 +46,31 @@ export class BaseImage {
     this._color = color;
     this._ariaText = ariaText;
   }
+
+  static new({
+    width = 0,
+    height = 0,
+    pinholeX = 0,
+    pinholeY = 0,
+    alphaBaseline = 0,
+    vertices = null,
+    style = "outline",
+    color = "black",
+    ariaText = "image",
+  } = {}) {
+    return new BaseImage({
+      width,
+      height,
+      pinholeX,
+      pinholeY,
+      alphaBaseline,
+      vertices,
+      style,
+      color,
+      ariaText,
+    });
+  }
+
   /**
    * @returns {number}
    */

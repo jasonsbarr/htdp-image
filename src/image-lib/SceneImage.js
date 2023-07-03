@@ -42,6 +42,18 @@ export class SceneImage extends BaseImage {
         .join(". ");
   }
 
+  /**
+   * Static onstructor for SceneImage
+   * @param {number} width
+   * @param {number} height
+   * @param {Child[]} children
+   * @param {boolean} withBorder
+   * @param {string} color
+   */
+  static new(width, height, children, withBorder, color) {
+    return new SceneImage(width, height, children, withBorder, color);
+  }
+
   static isSceneImage(other) {
     return other instanceof SceneImage;
   }
