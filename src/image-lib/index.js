@@ -9,91 +9,24 @@ import {
   YPlace,
 } from "../shared/index.js";
 import { ColorDB } from "./ColorDB.js";
-import { colorAlpha, colorBlue, colorGreen, colorRed } from "./utils.js";
+import {
+  colorAlpha,
+  colorBlue,
+  colorGreen,
+  colorRed,
+  unzipVertices,
+  findWidth,
+  findHeight,
+  translateVertices,
+  colorString,
+  makeCanvas,
+} from "./utils.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
 
 const clone = Utils.clone;
 const colorDb = new ColorDB();
-
-const isColorOrColorString = (val) =>
-  isColor(val) || typeof colorDb.get(val) !== "undefined";
-
-const colorString = (color, style) => {
-  const styleAlpha = isNaN(style) ? 1.0 : style;
-  const cAlpha = colorAlpha(color);
-
-  // note: flooring the numbers here to make sure it's a valid rgba string
-  return `rgba(${Math.floor(colorRed(color))}, ${Math.floor(
-    colorGreen(color)
-  )}, ${Math.floor(colorBlue(color))}, ${styleAlpha * cAlpha})`;
-};
-
-for (let [name, value] of Object.entries(Colors)) {
-  name = name.toUpperCase();
-
-  if (isColor(value)) {
-    colorDb.put(name, value);
-  }
-}
-
-/**
- * Given an array of {x, y} pairs, unzip them into separate arrays
- */
-const unzipVertices = (vertices) => {
-  return {
-    xs: vertices.map((v) => v.x),
-    ys: vertices.map((v) => v.y),
-  };
-};
-
-/**
- * Given an array of vertices, find the width of the shape
- */
-const findWidth = (vertices) => {
-  const { xs } = unzipVertices(vertices);
-  return Math.max(...xs) - Math.min(...xs);
-};
-
-/**
- * Given an array of vertices, find the height of the image
- */
-const findHeight = (vertices) => {
-  const { ys } = unzipVertices(vertices);
-  return Math.max(...ys) - Math.min(...ys);
-};
-
-/**
- * Given a list of vertices and a translation x/y, shift them
- */
-const translateVertices = (vertices, translation = null) => {
-  const vs = unzipVertices(vertices);
-  const translateX = -Math.min(...vs.xs);
-  const translateY = -Math.min(...vs.ys);
-
-  if (translation) {
-    translation.x = translateX;
-    translation.y = translateY;
-  }
-
-  return vertices.map((v) => ({ x: v.x + translateX, y: v.y + translateY }));
-};
-
-/**
- * Constructs a canvas from a given width and height
- * @param {number} width
- * @param {number} height
- * @returns {HTMLCanvasElement}
- */
-const makeCanvas = (width, height) => {
-  const canvas = document.createElement("canvas");
-  canvas.width = width;
-  canvas.height = height;
-  canvas.style.width = `${width}px`;
-  canvas.style.height = `${height}px`;
-  return canvas;
-};
 
 /**
  * Base class for all images
