@@ -72,6 +72,7 @@ export const clone = (obj) => {
         newObj[k] = v;
       }
     } else {
+      // is primitive
       newObj[k] = v;
     }
   }
