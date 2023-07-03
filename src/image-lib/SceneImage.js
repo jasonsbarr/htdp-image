@@ -6,6 +6,7 @@ import { colorString } from "./utils.js";
  */
 /**
  * Scene images box in a scene
+ * @class
  * @prop {Child[]} children
  * @prop {boolean} withBorder
  */
@@ -39,6 +40,10 @@ export class SceneImage extends BaseImage {
             `Child ${i + 1}: ${c[0].ariaText}, positioned at ${c[1]}, ${c[2]}`
         )
         .join(". ");
+  }
+
+  static isSceneImage(other) {
+    return other instanceof SceneImage;
   }
 
   get children() {
