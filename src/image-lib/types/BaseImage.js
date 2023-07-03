@@ -5,8 +5,8 @@ import {
   colorString,
   makeCanvas,
   verticesEqual,
-} from "./utils.js";
-import { Utils } from "../shared/index.js";
+} from "../utils.js";
+import { Utils } from "../../shared/index.js";
 
 const clone = Utils.clone;
 
