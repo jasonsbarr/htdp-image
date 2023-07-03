@@ -1,3 +1,4 @@
+import { BaseImage } from "./BaseImage.js";
 import {
   Colors,
   FillMode,
@@ -14,4 +15,12 @@ export const isColor = Colors.isColor;
 
 export const clone = Utils.clone;
 
-export { FillMode, FontFamily, FontStyle, FontWeight, XPlace, YPlace };
+export {
+  BaseImage,
+  FillMode,
+  FontFamily,
+  FontStyle,
+  FontWeight,
+  XPlace,
+  YPlace,
+};
