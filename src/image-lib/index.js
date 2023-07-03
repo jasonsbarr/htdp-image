@@ -12,7 +12,6 @@ import {
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
-
 export const clone = Utils.clone;
 
 export {
