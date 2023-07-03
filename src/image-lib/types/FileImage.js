@@ -80,7 +80,7 @@ export class FileImage extends BaseImage {
    * @returns {FileImage}
    */
   static new(src, rawImage) {
-    if (!path in FileImage.imageCache) {
+    if (!(path in FileImage.imageCache)) {
       FileImage.imageCache[src] = new FileImage(src, rawImage);
     }
 
