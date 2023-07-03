@@ -105,6 +105,19 @@ const makeCanvas = (width, height) => {
  * @prop {number} alphaBaseline
  */
 class BaseImage {
+  constructor(
+    width = 0,
+    height = 0,
+    pinholeX = 0,
+    pinholeY = 0,
+    alphaBaseline = 0
+  ) {
+    this._width = width;
+    this._height = height;
+    this._pinholeX = pinholeX;
+    this._pinholeY = pinholeY;
+    this._alphaBaseline = alphaBaseline;
+  }
   /**
    * @returns {number}
    */
@@ -112,6 +125,14 @@ class BaseImage {
     return typeof this._alphaBaseline !== "undefined"
       ? this._alphaBaseline
       : this.height;
+  }
+
+  /**
+   * Sets alpha baseline
+   * @param {number} val
+   */
+  set alphaBaseline(val) {
+    this._alphaBaseline = val;
   }
 
   /**
@@ -123,6 +144,14 @@ class BaseImage {
   }
 
   /**
+   * Sets height
+   * @param {number} val
+   */
+  set height(val) {
+    this._height = val;
+  }
+
+  /**
    * Image pinholeX value
    * @returns {number}
    */
@@ -131,11 +160,27 @@ class BaseImage {
   }
 
   /**
+   * Sets pinholeX
+   * @param {number} val
+   */
+  set pinholeX(val) {
+    this._pinholeX = val;
+  }
+
+  /**
    * Image pinholeY value
    * @returns {number}
    */
   get pinholeY() {
     return typeof this._pinholeY !== "undefined" ? this._pinholeY : 0;
+  }
+
+  /**
+   * Sets pinholeY
+   * @param {number} val
+   */
+  set pinholeY(val) {
+    this._pinholeY = val;
   }
 
   /**
@@ -154,11 +199,27 @@ class BaseImage {
   }
 
   /**
+   * Sets vertices
+   * @param {{x: number; y: number}[]} vs
+   */
+  set vertices(vs) {
+    this._vertices = vs;
+  }
+
+  /**
    * Image width
    * @returns {number}
    */
   get width() {
     return Math.round(this._width);
+  }
+
+  /**
+   * Setter for image width
+   * @param {number} val
+   */
+  set width(val) {
+    this._width = val;
   }
 
   /**
