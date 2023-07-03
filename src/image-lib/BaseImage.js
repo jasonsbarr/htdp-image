@@ -18,6 +18,10 @@ const clone = Utils.clone;
  * @prop {number} pinholeX
  * @prop {number} pinholeY
  * @prop {number} alphaBaseline
+ * @prop {{x: number; y: number}[]|null} vertices
+ * @prop {string} style
+ * @prop {string} color
+ * @prop {string} ariaText
  */
 
 export class BaseImage {
