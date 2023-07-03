@@ -1,5 +1,5 @@
 import { Utils } from "../shared/index.js";
-import { ColorDB } from "./ColorDB.js";
+import { ColorDB } from "./ColorDb.js";
 
 /**
  * @typedef {import("../shared/colors.js").Color} Color
