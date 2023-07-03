@@ -12,6 +12,7 @@ import { SceneImage } from "./types/SceneImage.js";
 import { FileImage } from "./types/FileImage.js";
 import { TextImage } from "./types/TextImage.js";
 import { FileVideo } from "./types/FileVideo.js";
+import { ImageDataImage } from "./types/ImageDataImage.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
@@ -22,6 +23,7 @@ export {
   FileImage,
   TextImage,
   FileVideo,
+  ImageDataImage,
   FillMode,
   FontFamily,
   FontStyle,
