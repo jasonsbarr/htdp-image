@@ -154,6 +154,66 @@ class BaseImage {
   }
 
   /**
+   * Calculates the difference between 2 images and returns the result. If a difference
+   * can be calculated, it returns it as a number. Otherwise, it returns a string
+   * of the reason why a difference cannot be calculated.
+   *
+   * Difference is calculated using the formula at @link http://stackoverflow.com/questions/9136524/are-there-any-javascript-libs-to-pixel-compare-images-using-html5-canvas-or-any
+   * @param {BaseImage} other
+   * @returns {string|number}
+   */
+  difference(other) {
+    if (
+      Math.floor(this.width) !== Math.floor(other.width) ||
+      Math.floor(this.height) !== Math.floor(other.height)
+    ) {
+      return `Cannot get difference of differently-sized images [${this.width}, ${this.height}], [${other.width}, ${other.height}]`;
+    }
+
+    const rmsDiff = (data1, data2) => {
+      let squares = 0;
+
+      for (let i = 0; i < data1.length; i++) {
+        squares += (data1[i] - data2[i]) * (data1[i] - data2[i]);
+      }
+
+      return Math.sqrt(squares / data1.length);
+    };
+
+    // if it's something more sophisticated, render both images to canvases
+    // First check canvas dimensions, then go pixel-by-pixel
+    const c1 = this.toDomNode();
+    const c2 = other.toDomNode();
+
+    c1.style.visibility = c2.style.visibility = "hidden";
+
+    const w1 = Math.floor(c1.width);
+    const w2 = Math.floor(c2.width);
+    const h1 = Math.floor(c1.height);
+    const h2 = Math.floor(c2.height);
+
+    if (w1 !== w2 || h1 !== h2) {
+      return `Cannot get difference of differently-sized DOM nodes [${w1}, ${h1}], [${w2}, ${h2}]`;
+    }
+
+    const ctx1 = c1.getContext("2d");
+    const ctx2 = c2.getContext("2d");
+    this.render(ctx1);
+    other.render(ctx2);
+
+    try {
+      const data1 = ctx1.getImageData(0, 0, w1, h1);
+      const data2 = ctx2.getImageData(0, 0, w2, h2);
+      const pixels1 = data1.data;
+      const pixels2 = data2.data;
+
+      return rmsDiff(pixels1, pixels2);
+    } catch (e) {
+      return `Error: ${e.message}`;
+    }
+  }
+
+  /**
    * Calculates a new pinhole value
    * @param {number} dx
    * @param {number} dy
