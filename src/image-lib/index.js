@@ -30,6 +30,14 @@ export const isColor = Colors.isColor;
 const clone = Utils.clone;
 const colorDb = new ColorDB();
 
+for (let [name, value] of Object.entries(Colors)) {
+  name = name.toUpperCase();
+
+  if (isColor(value)) {
+    colorDb.put(name, value);
+  }
+}
+
 /**
  * Base class for all images
  * @class
@@ -39,7 +47,7 @@ const colorDb = new ColorDB();
  * @prop {number} pinholeY
  * @prop {number} alphaBaseline
  */
-class BaseImage {
+export class BaseImage {
   constructor({
     width = 0,
     height = 0,

@@ -1,4 +1,5 @@
 import { Utils } from "../shared/index.js";
+import { ColorDB } from "./ColorDB.js";
 
 /**
  * @typedef {import("../shared/colors.js").Color} Color
@@ -31,7 +32,13 @@ export const colorBlue = (c) => clamp(c.b, 0, 255);
  */
 export const colorAlpha = (c) => clamp(c.a, 0, 1);
 
-export const isColorOrColorString = (val) =>
+/**
+ *
+ * @param {Color} val
+ * @param {ColorDB} colorDb
+ * @returns {boolean}
+ */
+export const isColorOrColorString = (val, colorDb) =>
   isColor(val) || typeof colorDb.get(val) !== "undefined";
 
 export const colorString = (color, style) => {
@@ -43,14 +50,6 @@ export const colorString = (color, style) => {
     colorGreen(color)
   )}, ${Math.floor(colorBlue(color))}, ${styleAlpha * cAlpha})`;
 };
-
-for (let [name, value] of Object.entries(Colors)) {
-  name = name.toUpperCase();
-
-  if (isColor(value)) {
-    colorDb.put(name, value);
-  }
-}
 
 /**
  * Checks if 2 sets of vertices are equal
