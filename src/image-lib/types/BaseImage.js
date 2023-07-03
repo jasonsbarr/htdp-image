@@ -40,7 +40,7 @@ export class BaseImage {
     this._height = height;
     this._pinholeX = pinholeX;
     this._pinholeY = pinholeY;
-    this._alphaBaseline = alphaBaseline;
+    this._alphaBaseline = alphaBaseline || height;
     this._vertices = vertices;
     this._style = style;
     this._color = color;
@@ -75,7 +75,9 @@ export class BaseImage {
    * @returns {number}
    */
   get alphaBaseline() {
-    return this._alphaBaseline !== 0 ? this._alphaBaseline : this.height;
+    return this._alphaBaseline !== 0
+      ? this._alphaBaseline
+      : Math.round(this.height);
   }
 
   /**
