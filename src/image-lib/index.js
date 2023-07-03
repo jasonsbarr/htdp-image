@@ -93,7 +93,7 @@ const makeCanvas = (width, height) => {
   canvas.style.width = `${width}px`;
   canvas.style.height = `${height}px`;
   return canvas;
-}
+};
 
 /**
  * Base class for all images
@@ -226,11 +226,12 @@ class BaseImage {
    * @returns {string}
    */
   toDisplayedString(cache) {
-    return "<image>"
+    return "<image>";
   }
 
   /**
    * Images are expected to define a render method, used here to draw to the canvas
+   * @returns {HTMLCanvasElement}
    */
   toDomNode(params) {
     const width = this.width;
@@ -248,7 +249,7 @@ class BaseImage {
    * @returns {string}
    */
   toWrittenString(cache) {
-    return "<image>"
+    return "<image>";
   }
 
   /**
