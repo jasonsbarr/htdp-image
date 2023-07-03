@@ -129,9 +129,7 @@ class BaseImage {
    * @returns {number}
    */
   get alphaBaseline() {
-    return typeof this._alphaBaseline !== "undefined"
-      ? this._alphaBaseline
-      : this.height;
+    return this._alphaBaseline !== 0 ? this._alphaBaseline : this.height;
   }
 
   /**
