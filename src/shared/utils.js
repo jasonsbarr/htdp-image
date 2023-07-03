@@ -15,7 +15,7 @@ export const clamp = (num, min, max) =>
  * @returns {T}
  */
 export const clone = (obj) => {
-  // if it's not an object, return it for a recursive base case
+  // if it's not an object, return its clone for a recursive base case
   if (typeof obj !== "object" || obj === null) {
     return obj;
   } else if (Array.isArray(obj)) {
