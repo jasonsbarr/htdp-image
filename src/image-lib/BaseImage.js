@@ -30,6 +30,7 @@ export class BaseImage {
     vertices = null,
     style = "outline",
     color = "black",
+    ariaText = "image",
   } = {}) {
     this._width = width;
     this._height = height;
@@ -39,6 +40,7 @@ export class BaseImage {
     this._vertices = vertices;
     this._style = style;
     this._color = color;
+    this._ariaText = ariaText;
   }
   /**
    * @returns {number}
@@ -53,6 +55,21 @@ export class BaseImage {
    */
   set alphaBaseline(val) {
     this._alphaBaseline = val;
+  }
+
+  /**
+   * Gets ariatext value
+   */
+  get ariaText() {
+    return this._ariaText;
+  }
+
+  /**
+   * Sets ariatext value
+   * @param {string} val
+   */
+  set ariaText(val) {
+    this._ariaText = val;
   }
 
   /**
