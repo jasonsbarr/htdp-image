@@ -37,5 +37,8 @@
   "devDependencies": {
     "microbundle": "^0.15.1",
     "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "object-hash": "^3.0.0"
   }
 }
