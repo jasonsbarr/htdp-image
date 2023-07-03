@@ -9,7 +9,7 @@ import { colorRed, colorGreen, colorBlue, colorAlpha } from "./utils.js";
  * @prop {Object} colors
  * @prop {Object} colorNames
  */
-export class ColorDB {
+class ColorDB {
   constructor() {
     this.colors = {};
     this.colorNames = {};
