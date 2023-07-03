@@ -1,5 +1,5 @@
 import { Utils } from "../shared/index.js";
-import { ColorDB } from "./ColorDb.js";
+import { colorDb } from "./colorDb.js";
 
 /**
  * @typedef {import("../shared/colors.js").Color} Color
@@ -35,10 +35,9 @@ export const colorAlpha = (c) => clamp(c.a, 0, 1);
 /**
  *
  * @param {Color} val
- * @param {ColorDB} colorDb
  * @returns {boolean}
  */
-export const isColorOrColorString = (val, colorDb) =>
+export const isColorOrColorString = (val) =>
   isColor(val) || typeof colorDb.get(val) !== "undefined";
 
 export const colorString = (color, style) => {

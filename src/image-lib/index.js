@@ -8,7 +8,6 @@ import {
   XPlace,
   YPlace,
 } from "../shared/index.js";
-import { ColorDB } from "./ColorDb.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
