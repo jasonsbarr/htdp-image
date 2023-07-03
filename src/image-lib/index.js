@@ -48,7 +48,7 @@ class BaseImage {
     alphaBaseline = 0,
     vertices = null,
     style = "outline",
-    color = "transparent",
+    color = "black",
   } = {}) {
     this._width = width;
     this._height = height;
