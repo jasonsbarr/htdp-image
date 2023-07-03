@@ -247,6 +247,8 @@ export class BaseImage {
   }
 
   /**
+   * Checks if current image is equal to other
+   *
    * Best-guess equivalence for images. If they're vertex-based we're in luck,
    * otherwise we go pixel-by-pixel. It's up to exotic image types to provide
    * more efficient ways of comparing to one another.
