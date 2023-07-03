@@ -80,6 +80,31 @@ export class SceneImage extends BaseImage {
   }
 
   /**
+   * Checks if other is equal to self
+   * @param {BaseImage} other
+   * @returns {boolean}
+   */
+  equals(other) {
+    return (
+      (other instanceof SceneImage &&
+        this.width === other.width &&
+        this.height === other.height &&
+        this.color === other.color &&
+        this.children.length === other.children.length &&
+        this.children.every((child1, i) => {
+          const child2 = other.children[i];
+
+          return (
+            child1[1] === child2[1] &&
+            child1[2] === child2[2] &&
+            child1[0].equals(child2[0])
+          );
+        })) ||
+      BaseImage.prototype.equals.call(this, other)
+    );
+  }
+
+  /**
    * Renders a SceneImage to the screen
    * @param {CanvasRenderingContext2D} ctx
    */
