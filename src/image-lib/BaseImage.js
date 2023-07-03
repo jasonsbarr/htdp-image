@@ -6,7 +6,9 @@ import {
   makeCanvas,
   verticesEqual,
 } from "./utils.js";
-import { clone } from "./index.js";
+import { Utils } from "../shared/index.js";
+
+const clone = Utils.clone;
 
 /**
  * Base class for all images

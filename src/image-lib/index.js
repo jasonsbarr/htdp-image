@@ -5,14 +5,12 @@ import {
   FontFamily,
   FontStyle,
   FontWeight,
-  Utils,
   XPlace,
   YPlace,
 } from "../shared/index.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
-export const clone = Utils.clone;
 
 export {
   BaseImage,
