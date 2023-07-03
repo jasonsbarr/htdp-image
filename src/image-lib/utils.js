@@ -31,7 +31,7 @@ export const colorBlue = (c) => clamp(c.b, 0, 255);
  */
 export const colorAlpha = (c) => clamp(c.a, 0, 1);
 
-const isColorOrColorString = (val) =>
+export const isColorOrColorString = (val) =>
   isColor(val) || typeof colorDb.get(val) !== "undefined";
 
 export const colorString = (color, style) => {
@@ -51,6 +51,30 @@ for (let [name, value] of Object.entries(Colors)) {
     colorDb.put(name, value);
   }
 }
+
+/**
+ * Checks if 2 sets of vertices are equal
+ * @param {{x: number; y: number}[]} v1
+ * @param {{x: number; y: number}[]} v2
+ * @returns {boolean}
+ */
+export const verticesEqual = function (v1, v2) {
+  if (v1.length !== v2.length) {
+    return false;
+  }
+  var v1_str = v1
+      .map(function (o) {
+        return "x:" + o.x + ",y:" + o.y;
+      })
+      .join(","),
+    v2_str = v2
+      .map(function (o) {
+        return "x:" + o.x + ",y:" + o.y;
+      })
+      .join(",");
+  // v1 == rot(v2) if append(v1,v1) includes v2
+  return (v1_str + "," + v1_str).includes(v2_str);
+};
 
 /**
  * Given an array of {x, y} pairs, unzip them into separate arrays
