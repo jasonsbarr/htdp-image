@@ -9,6 +9,7 @@ import {
 } from "../shared/index.js";
 import { BaseImage } from "./BaseImage.js";
 import { SceneImage } from "./SceneImage.js";
+import { TextImage } from "./TextImage.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
@@ -62,6 +63,28 @@ export class FileImage extends BaseImage {
     }
   }
 
+  static installBrokenImage(src) {
+    imageCache[path] = TextImage.new(
+      "Unable to load " + path,
+      10,
+      colorDb.get("red"),
+      "normal",
+      "Optimer",
+      "",
+      "",
+      false
+    );
+  }
+
+  /**
+   * Installs a FileImage in the cache
+   * @param {string} src
+   * @param {HTMLImageElement} rawImage
+   */
+  static installInstance(src, rawImage) {
+    FileImage.imageCache[src] = new FileImage(src, rawImage);
+  }
+
   /**
    * Static constructor that handles cache
    * @param {string} src
@@ -76,12 +99,11 @@ export class FileImage extends BaseImage {
     return FileImage.imageCache[src];
   }
 
+  /**
+   * @returns {HTMLImageElement}
+   */
   get animationHackImg() {
     return this._animationHackImg;
-  }
-
-  set animationHackImg(image) {
-    this._animationHackImg = image;
   }
 
   get img() {
@@ -95,11 +117,47 @@ export class FileImage extends BaseImage {
   get src() {
     return this._src;
   }
+
+  /**
+   * Equality check for FileImage
+   * @param {BaseImage} other
+   * @returns {boolean}
+   */
+  equals(other) {
+    return (
+      (other instanceof FileImage && other.src === this.src) ||
+      BaseImage.prototype.equals.call(this, other)
+    );
+  }
+
+  /**
+   * Hack to allow animated GIFs to show as animating on canvas
+   */
+  installHackToSupportAnimatedGifs() {
+    if (this.animationHackImg) {
+      return;
+    }
+
+    this._animationHackImg = this.img.cloneNode(true);
+    document.body.appendChild(this.animationHackImg);
+    this.animationHackImg.style.position = "absolute";
+    this.animationHackImg.style.top = "-50000px";
+  }
+
+  /**
+   * Render a FileImage to the screen
+   * @param {CanvasRenderingContext2D} ctx
+   */
+  render(ctx) {
+    this.installHackToSupportAnimatedGifs();
+    ctx.drawImage(this.animationHackImg, 0, 0);
+  }
 }
 
 export {
   BaseImage,
   SceneImage,
+  TextImage,
   FillMode,
   FontFamily,
   FontStyle,
