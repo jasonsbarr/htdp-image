@@ -105,18 +105,25 @@ const makeCanvas = (width, height) => {
  * @prop {number} alphaBaseline
  */
 class BaseImage {
-  constructor(
+  constructor({
     width = 0,
     height = 0,
     pinholeX = 0,
     pinholeY = 0,
-    alphaBaseline = 0
-  ) {
+    alphaBaseline = 0,
+    vertices = [
+      { x: 0, y: 0 },
+      { x: this.width, y: 0 },
+      { x: 0, y: this.height },
+      { x: this.width, y: this.height },
+    ],
+  } = {}) {
     this._width = width;
     this._height = height;
     this._pinholeX = pinholeX;
     this._pinholeY = pinholeY;
     this._alphaBaseline = alphaBaseline;
+    this._vertices = vertices;
   }
   /**
    * @returns {number}
@@ -156,7 +163,7 @@ class BaseImage {
    * @returns {number}
    */
   get pinholeX() {
-    return typeof this._pinholeX !== "undefined" ? this._pinholeX : 0;
+    return this._pinholeX;
   }
 
   /**
@@ -172,7 +179,7 @@ class BaseImage {
    * @returns {number}
    */
   get pinholeY() {
-    return typeof this._pinholeY !== "undefined" ? this._pinholeY : 0;
+    return this._pinholeY;
   }
 
   /**
@@ -188,14 +195,7 @@ class BaseImage {
    * @returns {{x: number, y: number}[]}
    */
   get vertices() {
-    return typeof this._vertices !== "undefined"
-      ? this._vertices
-      : [
-          { x: 0, y: 0 },
-          { x: this.width, y: 0 },
-          { x: 0, y: this.height },
-          { x: this.width, y: this.height },
-        ];
+    return this._vertices;
   }
 
   /**
