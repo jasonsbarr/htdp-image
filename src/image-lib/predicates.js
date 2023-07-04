@@ -49,3 +49,4 @@ export const isTextImage = (x) => x instanceof TextImage;
 export const isFileImage = (x) => x instanceof FileImage;
 export const isFileVideo = (x) => x instanceof FileVideo;
 export const isImageDataImage = (x) => x instanceof ImageDataImage;
+export const isScene = (x) => x != null && isSceneImage(x);

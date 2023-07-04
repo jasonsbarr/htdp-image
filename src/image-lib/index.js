@@ -1,12 +1,4 @@
-import {
-  Colors,
-  FillMode,
-  FontFamily,
-  FontStyle,
-  FontWeight,
-  XPlace,
-  YPlace,
-} from "../shared/index.js";
+import { Colors, Point } from "../shared/index.js";
 import { BaseImage } from "./types/BaseImage.js";
 import { SceneImage } from "./types/SceneImage.js";
 import { FileImage } from "./types/FileImage.js";
@@ -73,10 +65,31 @@ import {
   isFileImage,
   isFileVideo,
   isImageDataImage,
+  isScene,
 } from "./predicates.js";
+import { colorDb } from "./colorDb.js";
+import {
+  makeCanvas,
+  imageEquals,
+  imageDifference,
+  colorAtPosition,
+  imageToColorList,
+  colorListToImage,
+  colorRed,
+  colorGreen,
+  colorBlue,
+  colorAlpha,
+  colorString,
+  isColorOrColorString,
+  isAngle,
+  isSideCount,
+  isStepCount,
+  isPointsCount,
+} from "./utils.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
+export const isPoint = Point.isPoint;
 
 export {
   // image types
@@ -147,4 +160,26 @@ export {
   isFileImage,
   isFileVideo,
   isImageDataImage,
+  isScene,
+
+  // colorDb
+  colorDb,
+
+  // utils
+  makeCanvas,
+  imageEquals,
+  imageDifference,
+  colorAtPosition,
+  imageToColorList,
+  colorListToImage,
+  colorRed,
+  colorGreen,
+  colorBlue,
+  colorAlpha,
+  colorString,
+  isColorOrColorString,
+  isAngle,
+  isSideCount,
+  isStepCount,
+  isPointsCount,
 };

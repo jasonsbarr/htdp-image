@@ -71,6 +71,18 @@ export const imageEquals = function (left, right) {
   return left.equals(right);
 };
 
+export const imageDifference = (left, right) => {
+  if (!isImage(left) || !isImage(right)) {
+    return false;
+  }
+  return left.difference(right);
+};
+
+export const isAngle = (x) => typeof x === "number" && x >= 0 && x < 360;
+export const isSideCount = Number.isInteger(x) && x >= 3;
+export const isStepCount = Number.isInteger(x) && x >= 1;
+export const isPointsCount = Number.isInteger(x) && x >= 2;
+
 /**
  * Checks if 2 sets of vertices are equal
  * @param {{x: number; y: number}[]} v1
