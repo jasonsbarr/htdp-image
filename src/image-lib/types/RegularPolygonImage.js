@@ -10,6 +10,10 @@ import {
 const gcd = Utils.gcd;
 
 /**
+ * @typedef {import("../../shared/colors.js").Color} Color
+ */
+
+/**
  * See @link http://www.algebra.com/algebra/homework/Polygons/Inscribed-and-circumscribed-polygons.lesson
  * the polygon is inscribed in a circle, whose radius is length/2sin(pi/count)
  * another circle is inscribed in the polygon, whose radius is length/2tan(pi/count)
@@ -28,7 +32,7 @@ export class RegularPolygonImage extends BaseImage {
    * @param {number} count
    * @param {number} step
    * @param {string} style
-   * @param {string} color
+   * @param {Color} color
    * @param {boolean} flatBottom
    */
   constructor(length, count, step, style, color, flatBottom) {
@@ -103,7 +107,7 @@ export class RegularPolygonImage extends BaseImage {
    * @param {number} count
    * @param {number} step
    * @param {string} style
-   * @param {string} color
+   * @param {Color} color
    * @param {boolean} flatBottom
    * @returns {RegularPolygonImage}
    */

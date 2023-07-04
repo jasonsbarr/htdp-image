@@ -2,6 +2,10 @@ import { colorToSpokenString } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
 /**
+ * @typedef {import("../../shared/colors.js").Color} Color
+ */
+
+/**
  * Represents an image in the shape of a rhombus
  * @class
  */
@@ -11,7 +15,7 @@ export class RhombusImage extends BaseImage {
    * @param {number} side
    * @param {number} angle
    * @param {number} style
-   * @param {string} color
+   * @param {Color} color
    */
   constructor(side, angle, style, color) {
     super({
@@ -39,7 +43,7 @@ export class RhombusImage extends BaseImage {
    * @param {number} side
    * @param {number} angle
    * @param {number} style
-   * @param {string} color
+   * @param {Color} color
    * @returns {RhombusImage}
    */
   static new(side, angle, style, color) {

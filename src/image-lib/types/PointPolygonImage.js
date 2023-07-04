@@ -6,12 +6,16 @@ import {
   colorToSpokenString,
 } from "../utils.js";
 
+/**
+ * @typedef {import("../../shared/colors.js").Color} Color
+ */
+
 export class PointPolygonImage extends BaseImage {
   /**
    * PointPolygonImage constructor
    * @param {{x: number; y: number}[]} vertices
    * @param {string} style
-   * @param {string} color
+   * @param {Color} color
    */
   constructor(vertices, style, color) {
     super({
@@ -46,7 +50,7 @@ export class PointPolygonImage extends BaseImage {
    * PointPolygonImage static constructor
    * @param {{x: number; y: number}[]} vertices
    * @param {string} style
-   * @param {string} color
+   * @param {Color} color
    * @returns {PointPolygonImage}
    */
   static new(vertices, style, color) {

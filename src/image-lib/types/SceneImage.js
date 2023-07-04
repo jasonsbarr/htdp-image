@@ -6,6 +6,9 @@ import { colorString } from "./utils.js";
  * @typedef {[BaseImage number number]} Child
  */
 /**
+ * @typedef {import("../../shared/colors.js").Color} Color
+ */
+/**
  * Scene images box in a scene
  * @class
  * @prop {Child[]} children
@@ -19,7 +22,7 @@ export class SceneImage extends BaseImage {
    * @param {number} height
    * @param {Child[]} children
    * @param {boolean} withBorder
-   * @param {string} color
+   * @param {Color} color
    */
   constructor(width, height, children, withBorder, color) {
     super({
@@ -49,7 +52,7 @@ export class SceneImage extends BaseImage {
    * @param {number} height
    * @param {Child[]} children
    * @param {boolean} withBorder
-   * @param {string} color
+   * @param {Color} color
    */
   static new(width, height, children, withBorder, color) {
     return new SceneImage(width, height, children, withBorder, color);
