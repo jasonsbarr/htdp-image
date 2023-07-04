@@ -1,3 +1,4 @@
+import { XPlace, YPlace } from "../../shared/index.js";
 import { findHeight, findWidth, imageEquals } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
@@ -19,13 +20,13 @@ export class OverlayImage extends BaseImage {
   /**
    * OverlayImage constructor
    * @param {BaseImage} img1
-   * @param {"left"|"middle"|"pinhole"|"right"} placeX1
-   * @param {"top"|"center"|"pinhole"|"baseline"|"bottom"} placeY1
+   * @param {XPlace} placeX1
+   * @param {YPlace} placeY1
    * @param {number} offsetX
    * @param {number} offsetY
    * @param {BaseImage} img2
-   * @param {"left"|"middle"|"pinhole"|"right"} placeX2
-   * @param {"top"|"center"|"pinhole"|"baseline"|"bottom"} placeY2
+   * @param {XPlace} placeX2
+   * @param {YPlace} placeY2
    */
   constructor(
     img1,
@@ -49,19 +50,19 @@ export class OverlayImage extends BaseImage {
 
     // compute the x1/y1 and x2/y2 offsets, relative to the top/left of img1/img2:
     switch (placeX1.toLowerCase()) {
-      case "left":
+      case XPlace.Left:
         x1 -= 0;
         anchor1 = "left";
         break;
-      case "middle":
+      case XPlace.Middle:
         x1 -= img1.width / 2;
         anchor1 = "-middle";
         break;
-      case "pinhole":
+      case XPlace.Pinhole:
         x1 -= img1.pinholeX;
         anchor1 = "-pinhole";
         break;
-      case "right":
+      case XPlace.Right:
         x1 -= img1.width;
         anchor1 = "-right";
         break;
@@ -70,23 +71,23 @@ export class OverlayImage extends BaseImage {
     }
 
     switch (placeY1.toLowerCase()) {
-      case "top":
+      case YPlace.Top:
         y1 -= 0;
         anchor1 = "top" + anchor1;
         break;
-      case "center":
+      case YPlace.Center:
         y1 -= img1.height / 2;
         anchor1 = "center" + anchor1;
         break;
-      case "pinhole":
+      case YPlace.Pinhole:
         y1 -= img1.pinholeY;
         anchor1 = "pinhole" + anchor1;
         break;
-      case "baseline":
+      case YPlace.Baseline:
         y1 -= img1.alphaBaseline;
         anchor1 = "baseline" + anchor1;
         break;
-      case "bottom":
+      case YPlace.Bottom:
         y1 -= img1.height;
         anchor1 = "bottom" + anchor1;
         break;
@@ -95,19 +96,19 @@ export class OverlayImage extends BaseImage {
     }
 
     switch (placeX2.toLowerCase()) {
-      case "left":
+      case XPlace.Left:
         x2 -= 0;
         anchor2 = "left";
         break;
-      case "middle":
+      case XPlace.Middle:
         x2 -= img2.width / 2;
         anchor2 = "-middle";
         break;
-      case "pinhole":
+      case XPlace.Pinhole:
         x2 -= img2.pinholeX;
         anchor2 = "-pinhole";
         break;
-      case "right":
+      case XPlace.Right:
         x2 -= img2.width;
         anchor2 = "-right";
         break;
@@ -116,23 +117,23 @@ export class OverlayImage extends BaseImage {
     }
 
     switch (placeY2.toLowerCase()) {
-      case "top":
+      case YPlace.Top:
         y2 -= 0;
         anchor2 = "top" + anchor2;
         break;
-      case "center":
+      case YPlace.Center:
         y2 -= img2.height / 2;
         anchor2 = "center" + anchor2;
         break;
-      case "pinhole":
+      case YPlace.Pinhole:
         y2 -= img2.pinholeY;
         anchor2 = "pinhole" + anchor2;
         break;
-      case "baseline":
+      case YPlace.Baseline:
         y2 -= img2.alphaBaseline;
         anchor2 = "baseline" + anchor2;
         break;
-      case "bottom":
+      case YPlace.Bottom:
         y2 -= img2.height;
         anchor2 = "bottom" + anchor2;
         break;
@@ -213,14 +214,15 @@ export class OverlayImage extends BaseImage {
 
   /**
    * OverlayImage static constructor
-   * @param {HTMLImageElement} img1
-   * @param {"left"|"middle"|"pinhole"|"right"} placeX1
-   * @param {"top"|"center"|"pinhole"|"baseline"|"bottom"} placeY1
+   * @param {BaseImage} img1
+   * @param {XPlace} placeX1
+   * @param {YPlace} placeY1
    * @param {number} offsetX
    * @param {number} offsetY
-   * @param {HTMLImageElement} img2
-   * @param {"left"|"middle"|"pinhole"|"right"} placeX2
-   * @param {"top"|"center"|"pinhole"|"baseline"|"bottom"} placeY2
+   * @param {BaseImage} img2
+   * @param {XPlace} placeX2
+   * @param {YPlace} placeY2
+   * @returns {OverlayImage}
    */
   static new(img1, placeX1, placeY1, offsetX, offsetY, img2, placeX2, placeY2) {
     return new OverlayImage(
