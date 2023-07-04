@@ -7,7 +7,7 @@ import {
   makeCanvas,
   verticesEqual,
 } from "../utils.js";
-import { Utils } from "../../shared/index.js";
+import { Colors, Utils } from "../../shared/index.js";
 
 const clone = Utils.clone;
 
@@ -21,7 +21,7 @@ const clone = Utils.clone;
  * @prop {number} alphaBaseline
  * @prop {{x: number; y: number}[]|null} vertices
  * @prop {string} style
- * @prop {string} color
+ * @prop {Colors.Color} color
  * @prop {string} ariaText
  */
 
@@ -34,7 +34,7 @@ export class BaseImage {
     alphaBaseline = null,
     vertices = null,
     style = "outline",
-    color = "black",
+    color = Colors.black,
     ariaText = "image",
   } = {}) {
     this._width = width;
@@ -56,7 +56,7 @@ export class BaseImage {
     alphaBaseline = 0,
     vertices = null,
     style = "outline",
-    color = "black",
+    color = Colors.black,
     ariaText = "image",
   } = {}) {
     return new BaseImage({

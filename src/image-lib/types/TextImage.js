@@ -59,6 +59,10 @@ const getTextDimensions = function (str, font) {
 };
 
 /**
+ * @typedef {import("../../shared/colors.js").Color} Color
+ */
+
+/**
  * An image that is all text
  * @class
  * @prop {string} str
@@ -74,7 +78,7 @@ export class TextImage extends BaseImage {
    * TextImage constructor
    * @param {string} str
    * @param {number} size
-   * @param {string} color
+   * @param {Color} color
    * @param {string} face
    * @param {string} family
    * @param {string} style
@@ -120,7 +124,7 @@ export class TextImage extends BaseImage {
    * TextImage constructor
    * @param {string} str
    * @param {number} size
-   * @param {string} color
+   * @param {Color} color
    * @param {string} face
    * @param {string} family
    * @param {string} style
