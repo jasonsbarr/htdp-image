@@ -32,10 +32,4 @@ export {
   RotateImage,
   EllipseImage,
   CropImage,
-  FillMode,
-  FontFamily,
-  FontStyle,
-  FontWeight,
-  XPlace,
-  YPlace,
 };
