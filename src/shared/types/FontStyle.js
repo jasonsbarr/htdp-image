@@ -2,7 +2,7 @@
  * @enum {string}
  */
 export const FontStyle = {
-  FSNormal: "fs-normal",
-  FSItalic: "fs-italic",
-  FSSlant: "fs-slant",
+  Normal: "normal",
+  Italic: "italic",
+  Slant: "slant",
 };

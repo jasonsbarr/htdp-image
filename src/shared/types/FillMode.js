@@ -21,7 +21,7 @@ export const FillMode = {
    */
   Solid() {
     return {
-      type: "mode-solid",
+      type: "solid",
       toString() {
         return "solid";
       },
@@ -36,7 +36,7 @@ export const FillMode = {
    */
   Outline() {
     return {
-      type: "mode-outline",
+      type: "outline",
       toString() {
         return "outline";
       },
@@ -52,7 +52,7 @@ export const FillMode = {
    */
   Fade(n) {
     return {
-      type: "mode-fade",
+      type: "fade",
       n,
       toString() {
         return `fade ${n}`;
@@ -61,14 +61,5 @@ export const FillMode = {
         return n;
       },
     };
-  },
-  /**
-   * FillMode constructor
-   * @param {"mode-solid"|"mode-outline"|"mode-fade"} type
-   * @param {number?} n
-   * @returns {FillMode}
-   */
-  new(type, n = null) {
-    return typeof n === "number" ? { type, n } : { type };
   },
 };
