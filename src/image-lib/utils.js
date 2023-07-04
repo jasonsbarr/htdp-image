@@ -1,11 +1,14 @@
-import { Utils } from "../shared/index.js";
+import { Utils, Colors } from "../shared/index.js";
 import { colorDb } from "./colorDb.js";
+import { makeImageDataImage } from "./make.js";
+import { BaseImage } from "./types/BaseImage.js";
 
 /**
  * @typedef {import("../shared/colors.js").Color} Color
  */
 
 const clamp = Utils.clamp;
+const makeColor = Colors.color;
 
 /**
  * Extracts the red value from a color
@@ -239,4 +242,98 @@ export const colorToSpokenString = (aColor, aStyle) => {
       : "n outline"
     : " translucent ";
   return style + " " + match.toLowerCase();
+};
+
+/**
+ *
+ * @param {BaseImage} img
+ * @param {number} x
+ * @param {number} y
+ * @returns {Color}
+ */
+export const colorAtPosition = (img, x, y) => {
+  const width = img.width,
+    height = img.height,
+    canvas = makeCanvas(width, height),
+    ctx = canvas.getContext("2d");
+  let r, g, b, a;
+
+  img.render(ctx);
+
+  const imageData = ctx.getImageData(0, 0, width, height);
+  const data = imageData.data,
+    index = (y * width + x) * 4;
+
+  r = data[index];
+  g = data[index + 1];
+  b = data[index + 2];
+  a = data[index + 3] / 255;
+
+  return makeColor(r, g, b, a);
+};
+
+/**
+ * Extracts a list of colors from an image
+ * @param {BaseImage} img
+ * @returns {Color[]}
+ */
+export const imageToColorList = (img) => {
+  const width = img.width;
+  const height = img.height;
+  const canvas = makeCanvas(width, height);
+  const ctx = canvas.getContext("2d");
+  let imageData, data, r, g, b, a;
+
+  img.render(ctx);
+  imageData = ctx.getImageData(0, 0, width, height);
+  data = imageData.data;
+
+  let colors = [];
+
+  for (let i = 0; i < data.length; i += 4) {
+    r = data[i];
+    g = data[i + 1];
+    b = data[i + 2];
+    a = data[i + 3] / 255;
+    colors.push(makeColor(r, g, b, a));
+  }
+
+  return colors;
+};
+
+/**
+ * Converts a list of colors into an image
+ * @param {Color[]} listOfColors
+ * @param {number} width
+ * @param {number} height
+ * @param {number} pinholeX
+ * @param {number} pinholeY
+ * @returns {BaseImage}
+ */
+export const colorListToImage = (
+  listOfColors,
+  width,
+  height,
+  pinholeX,
+  pinholeY
+) => {
+  const canvas = makeCanvas(width, height),
+    ctx = canvas.getContext("2d"),
+    imageData = ctx.createImageData(width, height),
+    data = imageData.data;
+  let aColor;
+
+  for (var i = 0; i < jsLOC.length * 4; i += 4) {
+    aColor = listOfColors[i / 4];
+    // NOTE(ben): Flooring colors here to make this a proper RGBA image
+    data[i] = Math.floor(colorRed(aColor));
+    data[i + 1] = Math.floor(colorGreen(aColor));
+    data[i + 2] = Math.floor(colorBlue(aColor));
+    data[i + 3] = colorAlpha(aColor) * 255;
+  }
+
+  const ans = makeImageDataImage(imageData);
+  ans.pinholeX = pinholeX;
+  ans.pinholeY = pinholeY;
+  return ans;
 };

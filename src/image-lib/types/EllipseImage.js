@@ -9,7 +9,7 @@ import { BaseImage } from "./BaseImage.js";
 export class EllipseImage extends BaseImage {
   /**
    * EllipseImage constructor
-   * @param {number} widthk
+   * @param {number} width
    * @param {number} height
    * @param {string} style
    * @param {Color} color
@@ -32,7 +32,7 @@ export class EllipseImage extends BaseImage {
 
   /**
    * EllipseImage static constructor
-   * @param {number} widthk
+   * @param {number} width
    * @param {number} height
    * @param {string} style
    * @param {Color} color
