@@ -23,11 +23,37 @@ import { PointPolygonImage } from "./types/PointPolygonImage.js";
 import { StarImage } from "./types/StarImage.js";
 import { TriangleImage } from "./types/TriangleImage.js";
 import { WedgeImage } from "./types/WedgeImage.js";
+import {
+  makeSceneImage,
+  makeCircleImage,
+  makeStarImage,
+  makeRectangleImage,
+  makeRhombusImage,
+  makeRegularPolygonImage,
+  makePointPolygonImage,
+  makeSquareImage,
+  makeTriangleImage,
+  makeEllipseImage,
+  makeWedgeImage,
+  makeLineImage,
+  makeOverlayImage,
+  makeRotateImage,
+  makeScaleImage,
+  makeCropImage,
+  makeFrameImage,
+  makePinholeImage,
+  makeFlipImage,
+  makeTextImage,
+  makeImageDataImage,
+  makeFileImage,
+  makeFileVideo,
+} from "./make.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
 
 export {
+  // image types
   BaseImage,
   SceneImage,
   FileImage,
@@ -44,4 +70,29 @@ export {
   StarImage,
   TriangleImage,
   WedgeImage,
+
+  // constructor functions
+  makeSceneImage,
+  makeCircleImage,
+  makeStarImage,
+  makeRectangleImage,
+  makeRhombusImage,
+  makeRegularPolygonImage,
+  makePointPolygonImage,
+  makeSquareImage,
+  makeTriangleImage,
+  makeEllipseImage,
+  makeWedgeImage,
+  makeLineImage,
+  makeOverlayImage,
+  makeRotateImage,
+  makeScaleImage,
+  makeCropImage,
+  makeFrameImage,
+  makePinholeImage,
+  makeFlipImage,
+  makeTextImage,
+  makeImageDataImage,
+  makeFileImage,
+  makeFileVideo,
 };

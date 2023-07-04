@@ -18,9 +18,9 @@ import { FrameImage } from "./types/FrameImage.js";
 import { PinholeImage } from "./types/PinholeImage.js";
 import { FlipImage } from "./types/FlipImage.js";
 import { TextImage } from "./types/TextImage.js";
-import { FontFamily, FontStyle, FontWeight } from "../shared/index.js";
 import { FileImage } from "./types/FileImage.js";
 import { FileVideo } from "./types/FileVideo.js";
+import { FontFamily, FontStyle, FontWeight } from "../shared/index.js";
 
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
