@@ -25,6 +25,9 @@ export const FillMode = {
       toString() {
         return "solid";
       },
+      valueOf() {
+        return this.toString();
+      },
     };
   },
   /**
@@ -36,6 +39,9 @@ export const FillMode = {
       type: "mode-outline",
       toString() {
         return "outline";
+      },
+      valueOf() {
+        return this.toString();
       },
     };
   },
