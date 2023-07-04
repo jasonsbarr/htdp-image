@@ -52,6 +52,7 @@ export class ScaleImage extends BaseImage {
    * @param {number} xFactor
    * @param {number} yFactor
    * @param {BaseImage} img
+   * @returns {ScaleImage}
    */
   static new(xFactor, yFactor, img) {
     return new ScaleImage(xFactor, yFactor, img);

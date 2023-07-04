@@ -54,10 +54,6 @@ export class SceneImage extends BaseImage {
     return new SceneImage(width, height, children, withBorder, color);
   }
 
-  static isSceneImage(other) {
-    return other instanceof SceneImage;
-  }
-
   get children() {
     return this._children;
   }
