@@ -18,6 +18,8 @@ import { RotateImage } from "./types/RotateImage.js";
 import { EllipseImage } from "./types/EllipseImage.js";
 import { CropImage } from "./types/CropImage.js";
 import { PinholeImage } from "./types/PinholeImage.js";
+import { RegularPolygonImage } from "./types/RegularPolygonImage.js";
+import { PointPolygonImage } from "./types/PointPolygonImage.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
@@ -34,4 +36,6 @@ export {
   EllipseImage,
   CropImage,
   PinholeImage,
+  RegularPolygonImage,
+  PointPolygonImage,
 };
