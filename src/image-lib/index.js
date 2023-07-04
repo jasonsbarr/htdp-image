@@ -22,6 +22,7 @@ import { RegularPolygonImage } from "./types/RegularPolygonImage.js";
 import { PointPolygonImage } from "./types/PointPolygonImage.js";
 import { StarImage } from "./types/StarImage.js";
 import { TriangleImage } from "./types/TriangleImage.js";
+import { WedgeImage } from "./types/WedgeImage.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
@@ -42,4 +43,5 @@ export {
   PointPolygonImage,
   StarImage,
   TriangleImage,
+  WedgeImage,
 };
