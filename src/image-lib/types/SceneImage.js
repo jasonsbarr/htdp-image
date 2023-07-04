@@ -1,3 +1,4 @@
+import equals from "fast-deep-equal/es6/index.js";
 import { BaseImage } from "./BaseImage.js";
 import { colorString } from "./utils.js";
 
@@ -91,7 +92,7 @@ export class SceneImage extends BaseImage {
       (other instanceof SceneImage &&
         this.width === other.width &&
         this.height === other.height &&
-        this.color === other.color &&
+        equals(this.color, other.color) &&
         this.children.length === other.children.length &&
         this.children.every((child1, i) => {
           const child2 = other.children[i];

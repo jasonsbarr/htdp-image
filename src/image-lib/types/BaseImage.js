@@ -1,4 +1,5 @@
 import hash from "object-hash";
+import equals from "fast-deep-equal/es6/index.js";
 import {
   findWidth,
   findHeight,
@@ -294,7 +295,7 @@ export class BaseImage {
         this.style === other.style &&
         verticesEqual(this.vertices) &&
         verticesEqual(other.vertices) &&
-        this.color === other.color
+        equals(this.color, other.color)
       );
     }
 
