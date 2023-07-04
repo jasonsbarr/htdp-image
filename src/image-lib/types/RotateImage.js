@@ -37,6 +37,7 @@ export class RotateImage extends BaseImage {
       y: v.x * sin + v.y * cos,
     }));
     // extract the xs and ys separately
+    // why do this if we never use it?
     const vs = unzipVertices(vertices);
 
     super({
