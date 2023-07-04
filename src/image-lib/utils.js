@@ -149,3 +149,94 @@ export const makeCanvas = (width, height) => {
   canvas.style.height = `${height}px`;
   return canvas;
 };
+
+export const RGBtoLAB = (r, g, b) => {
+  const RGBtoXYZ = (r, g, b) => {
+    const process = (v) => {
+      v = parseFloat(v / 255);
+      return (
+        (v > 0.04045 ? Math.pow((v + 0.055) / 1.055, 2.4) : v / 12.92) * 100
+      );
+    };
+    const var_R = process(r),
+      var_G = process(g),
+      var_B = process(b);
+    //Observer. = 2°, Illuminant = D65
+    const X = var_R * 0.4124 + var_G * 0.3576 + var_B * 0.1805;
+    const Y = var_R * 0.2126 + var_G * 0.7152 + var_B * 0.0722;
+    const Z = var_R * 0.0193 + var_G * 0.1192 + var_B * 0.9505;
+    return [X, Y, Z];
+  };
+
+  const XYZtoLAB = (x, y, z) => {
+    let var_X = x / 95.047; //ref_X =  95.047   Observer= 2°, Illuminant= D65
+    let var_Y = y / 100.0; //ref_Y = 100.000
+    let var_Z = z / 108.883; //ref_Z = 108.883
+    const process = (v) => {
+      return v > 0.008856 ? Math.pow(v, 1 / 3) : 7.787 * v + 16 / 116;
+    };
+    var_X = process(var_X);
+    var_Y = process(var_Y);
+    var_Z = process(var_Z);
+    const CIE_L = 116 * var_Y - 16;
+    const CIE_a = 500 * (var_X - var_Y);
+    const CIE_b = 200 * (var_Y - var_Z);
+    return [CIE_L, CIE_a, CIE_b];
+  };
+  const xyz = RGBtoXYZ(r, g, b),
+    lab = XYZtoLAB(xyz[0], xyz[1], xyz[2]);
+  return { l: lab[0], a: lab[1], b: lab[2] };
+};
+
+let colorLabs = [],
+  colorRgbs = colorDb.colors;
+
+for (var p in colorRgbs) {
+  if (colorRgbs.hasOwnProperty(p)) {
+    // NOTE(ben): Not flooring numbers here, since RGBtoLAB supports float values
+    var lab = RGBtoLAB(
+      colorRed(colorRgbs[p]),
+      colorGreen(colorRgbs[p]),
+      colorBlue(colorRgbs[p])
+    );
+    colorLabs.push({ name: p, l: lab.l, a: lab.a, b: lab.b });
+  }
+}
+
+export const colorToSpokenString = (aColor, aStyle) => {
+  if (aStyle === 0) {
+    return " transparent ";
+  }
+
+  // NOTE(ben): Not flooring numbers here, since RGBtoLAB supports float values
+  const lab1 = RGBtoLAB(
+    colorRed(aColor),
+    colorGreen(aColor),
+    colorBlue(aColor)
+  );
+  let distances = colorLabs.map(function (lab2) {
+    return {
+      l: lab2.l,
+      a: lab2.a,
+      b: lab2.b,
+      name: lab2.name,
+      d: Math.sqrt(
+        Math.pow(lab1.l - lab2.l, 2) +
+          Math.pow(lab1.a - lab2.a, 2) +
+          Math.pow(lab1.b - lab2.b, 2)
+      ),
+    };
+  });
+
+  distances = distances.sort(function (a, b) {
+    return a.d < b.d ? -1 : a.d > b.d ? 1 : 0;
+  });
+
+  const match = distances[0].name;
+  const style = isNaN(aStyle)
+    ? aStyle === "solid"
+      ? " solid"
+      : "n outline"
+    : " translucent ";
+  return style + " " + match.toLowerCase();
+};
