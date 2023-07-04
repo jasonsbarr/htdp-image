@@ -17,6 +17,7 @@ import { OverlayImage } from "./types/OverlayImage.js";
 import { RotateImage } from "./types/RotateImage.js";
 import { EllipseImage } from "./types/EllipseImage.js";
 import { CropImage } from "./types/CropImage.js";
+import { PinholeImage } from "./types/PinholeImage.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
@@ -32,4 +33,5 @@ export {
   RotateImage,
   EllipseImage,
   CropImage,
+  PinholeImage,
 };
