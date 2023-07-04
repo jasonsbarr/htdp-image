@@ -1,4 +1,5 @@
 import equals from "fast-deep-equal/es6/index.js";
+import { FontFamily, FontWeight, FontStyle } from "../../shared/index.js";
 import { colorToSpokenString } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
@@ -68,8 +69,9 @@ const getTextDimensions = function (str, font) {
  * @prop {string} str
  * @prop {number} size
  * @prop {string} face
- * @prop {string} family
- * @prop {string} weight
+ * @prop {FontFamily} family
+ * @prop {FontStyle} style
+ * @prop {FontWeight} weight
  * @prop {boolean} underline
  * @prop {string} font
  */
@@ -80,9 +82,9 @@ export class TextImage extends BaseImage {
    * @param {number} size
    * @param {Color} color
    * @param {string} face
-   * @param {string} family
-   * @param {string} style
-   * @param {string} weight
+   * @param {FontFamily} family
+   * @param {FontStyle} style
+   * @param {FontWeight} weight
    * @param {boolean} underline
    */
   constructor(str, size, color, face, family, style, weight, underline) {
@@ -126,9 +128,9 @@ export class TextImage extends BaseImage {
    * @param {number} size
    * @param {Color} color
    * @param {string} face
-   * @param {string} family
-   * @param {string} style
-   * @param {string} weight
+   * @param {FontFamily} family
+   * @param {FontStyle} style
+   * @param {FontWeight} weight
    * @param {boolean} underline
    * @returns {TextImage}
    */
