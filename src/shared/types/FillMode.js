@@ -51,6 +51,9 @@ export const FillMode = {
       toString() {
         return `fade ${n}`;
       },
+      valueOf() {
+        return n;
+      },
     };
   },
   /**
