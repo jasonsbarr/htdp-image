@@ -37,6 +37,8 @@ export class OverlayImage extends BaseImage {
     placeX2,
     placeY2
   ) {
+    super();
+
     // To find where to place the two images relative to one another
     // start in a coordinate system with origin at top/left corners
     let x1 = 0,

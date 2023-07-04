@@ -76,6 +76,7 @@ export const verticesEqual = function (v1, v2) {
 
 /**
  * Given an array of {x, y} pairs, unzip them into separate arrays
+ * @returns {{xs: number[]; ys: number[]}}
  */
 export const unzipVertices = (vertices) => {
   return {
