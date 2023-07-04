@@ -1,4 +1,4 @@
-import { findHeight, findWidth } from "../utils.js";
+import { findHeight, findWidth, imageEquals } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
 /**

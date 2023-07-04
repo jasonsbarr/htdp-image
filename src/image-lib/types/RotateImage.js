@@ -3,6 +3,7 @@ import {
   findWidth,
   translateVertices,
   unzipVertices,
+  imageEquals,
 } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 import { EllipseImage } from "./EllipseImage.js";

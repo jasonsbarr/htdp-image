@@ -50,6 +50,24 @@ export const colorString = (color, style) => {
   )}, ${Math.floor(colorBlue(color))}, ${styleAlpha * cAlpha})`;
 };
 
+export const isImage = (thing) => {
+  return (
+    typeof thing.height === number &&
+    typeof thing.width === number &&
+    typeof thing.alphaBaseline === number &&
+    typeof thing.updatePinhole === "function" &&
+    typeof thing.offsetPinhole === "function" &&
+    typeof thing.render === "function"
+  );
+};
+
+export const imageEquals = function (left, right) {
+  if (!isImage(left) || !isImage(right)) {
+    return false;
+  }
+  return left.equals(right);
+};
+
 /**
  * Checks if 2 sets of vertices are equal
  * @param {{x: number; y: number}[]} v1

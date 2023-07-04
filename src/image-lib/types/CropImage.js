@@ -1,4 +1,5 @@
-import { BaseImage } from "./BaseImage";
+import { BaseImage } from "./BaseImage.js";
+import { imageEquals } from "../utils.js";
 
 /**
  * Represents a cropped image
