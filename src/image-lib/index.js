@@ -21,6 +21,7 @@ import { PinholeImage } from "./types/PinholeImage.js";
 import { RegularPolygonImage } from "./types/RegularPolygonImage.js";
 import { PointPolygonImage } from "./types/PointPolygonImage.js";
 import { StarImage } from "./types/StarImage.js";
+import { TriangleImage } from "./types/TriangleImage.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
@@ -40,4 +41,5 @@ export {
   RegularPolygonImage,
   PointPolygonImage,
   StarImage,
+  TriangleImage,
 };
