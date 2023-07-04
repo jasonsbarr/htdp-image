@@ -1,0 +1,51 @@
+import { isImage as isI } from "./utils.js";
+import { EllipseImage } from "./types/EllipseImage.js";
+import { ImageDataImage } from "./types/ImageDataImage.js";
+import { SceneImage } from "./types/SceneImage.js";
+import { StarImage } from "./types/StarImage.js";
+import { RectangleImage } from "./types/RectangleImage.js";
+import { RhombusImage } from "./types/RhombusImage.js";
+import { RegularPolygonImage } from "./types/RegularPolygonImage.js";
+import { PointPolygonImage } from "./types/PointPolygonImage.js";
+import { TriangleImage } from "./types/TriangleImage.js";
+import { WedgeImage } from "./types/WedgeImage.js";
+import { LineImage } from "./types/LineImage.js";
+import { OverlayImage } from "./types/OverlayImage.js";
+import { BaseImage } from "./types/BaseImage.js";
+import { RotateImage } from "./types/RotateImage.js";
+import { ScaleImage } from "./types/ScaleImage.js";
+import { CropImage } from "./types/CropImage.js";
+import { FrameImage } from "./types/FrameImage.js";
+import { PinholeImage } from "./types/PinholeImage.js";
+import { FlipImage } from "./types/FlipImage.js";
+import { TextImage } from "./types/TextImage.js";
+import { FileImage } from "./types/FileImage.js";
+import { FileVideo } from "./types/FileVideo.js";
+
+export const isImage = isI;
+
+export const isSceneImage = (x) => x instanceof SceneImage;
+export const isCircleImage = (x) =>
+  x instanceof EllipseImage && x.width === x.height;
+export const isStarImage = (x) => x instanceof StarImage;
+export const isRectangleImage = (x) => x instanceof RectangleImage;
+export const isRegularPolygonImage = (x) => x instanceof RegularPolygonImage;
+export const isPointPolygonImage = (x) => x instanceof PointPolygonImage;
+export const isRhombusImage = (x) => x instanceof RhombusImage;
+export const isSquareImage = (x) =>
+  x instanceof RectangleImage && x.width === x.height;
+export const isTriangleImage = (x) => x instanceof TriangleImage;
+export const isWedgeImage = (x) => x instanceof WedgeImage;
+export const isEllipseImage = (x) => x instanceof EllipseImage;
+export const isLineImage = (x) => x instanceof LineImage;
+export const isOverlayImage = (x) => x instanceof OverlayImage;
+export const isRotateImage = (x) => x instanceof RotateImage;
+export const isScaleImage = (x) => x instanceof ScaleImage;
+export const isCropImage = (x) => x instanceof CropImage;
+export const isFrameImage = (x) => x instanceof FrameImage;
+export const isPinholeImage = (x) => x instanceof PinholeImage;
+export const isFlipImage = (x) => x instanceof FlipImage;
+export const isTextImage = (x) => x instanceof TextImage;
+export const isFileImage = (x) => x instanceof FileImage;
+export const isFileVideo = (x) => x instanceof FileVideo;
+export const isImageDataImage = (x) => x instanceof ImageDataImage;
