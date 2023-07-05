@@ -1,4 +1,5 @@
 import {
+  Colors,
   FontFamily,
   FontStyle,
   FontWeight,
@@ -15,6 +16,21 @@ import { FillMode } from "../shared/index.js";
  * @typedef {"solid"|"outline"|number|FillMode} Fill
  */
 
+const toFillMode = FillMode.toFillMode;
+
+/**
+ * Converts a string to color or passes a color through
+ * @param {Color|string} val
+ * @returns {Color}
+ */
+const toColor = (val) => {
+  if (Colors.isColor(val)) {
+    return val;
+  }
+
+  return ImageLib.stringToColor(val);
+};
+
 /**
  * Makes a circle image
  * @param {number} radius
@@ -23,7 +39,7 @@ import { FillMode } from "../shared/index.js";
  * @returns {ImageLib.EllipseImage}
  */
 export const circle = (radius, mode, color) =>
-  ImageLib.makeCircleImage(radius, FillMode.toFillMode(mode), color);
+  ImageLib.makeCircleImage(radius, toFillMode(mode), toColor(color));
 
 /**
  * Makes a simple text image with sensible defaults
@@ -36,7 +52,7 @@ export const text = (str, size, color) =>
   ImageLib.makeTextImage(
     str,
     size,
-    color,
+    toColor(color),
     "Arial",
     FontFamily.Default,
     FontStyle.Normal,
@@ -69,7 +85,7 @@ export const textFont = (
   ImageLib.makeTextImage(
     str,
     size,
-    color,
+    toColor(color),
     face,
     family,
     style,
