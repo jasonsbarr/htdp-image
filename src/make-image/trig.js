@@ -1,6 +1,5 @@
 /**
  * Useful trigonometric functions based on htdp teachpack
- * @file
  */
 
 /**
