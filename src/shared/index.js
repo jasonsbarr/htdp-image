@@ -7,6 +7,7 @@ import { FontStyle } from "./types/FontStyle.js";
 import { FontWeight } from "./types/FontWeight.js";
 import * as Colors from "./colors.js";
 import * as Utils from "./utils.js";
+import { makeDocument } from "./document.js";
 
 const Point = P.Point;
 const Point2D = P.Point2D;
@@ -24,4 +25,5 @@ export {
   FontWeight,
   Colors,
   Utils,
+  makeDocument,
 };
