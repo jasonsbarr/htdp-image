@@ -55,7 +55,7 @@ export const FillMode = {
       type: "fade",
       n,
       toString() {
-        return `fade ${n}`;
+        return `fade`;
       },
       valueOf() {
         return n;
