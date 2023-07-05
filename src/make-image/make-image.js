@@ -147,3 +147,14 @@ export const overlayXY = (img1, dx, dy, img2) =>
     XPlace.Left,
     YPlace.Top
   );
+
+/**
+ * Makes an overlay image where you set the alignment
+ * @param {XPlace} placeX
+ * @param {YPlace} placeY
+ * @param {ImageLib.BaseImage} img1
+ * @param {ImageLib.BaseImage} img2
+ * @returns {ImageLib.OverlayImage}
+ */
+export const overlayAlign = (placeX, placeY, img1, img2) =>
+  ImageLib.OverlayImage.new(img1, placeX, placeY, 0, 0, img2, placeX, placeY);
