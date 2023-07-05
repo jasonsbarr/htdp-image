@@ -13,7 +13,11 @@ const document = makeDocument();
 let ua = "",
   baselineFudge = 0;
 
-if (window.navigator && window.navigator.userAgent) {
+if (
+  typeof window !== "undefined" &&
+  window.navigator &&
+  window.navigator.userAgent
+) {
   ua = window.navigator.userAgent;
 }
 
