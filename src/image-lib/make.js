@@ -170,13 +170,13 @@ export const makeLineImage = (x, y, color) => LineImage.new(x, y, color);
 /**
  * Constructs an OverlayImage
  * @param {BaseImage} img1
- * @param {number} x1
- * @param {number} y1
+ * @param {XPlace} placeX1
+ * @param {YPlace} placeY1
  * @param {number} offsetX
  * @param {number} offsetY
  * @param {BaseImage} img2
- * @param {number} x2
- * @param {number} y2
+ * @param {XPlace} placeX2
+ * @param {YPlace} placeY2
  * @returns {OverlayImage}
  */
 export const makeOverlayImage = (
