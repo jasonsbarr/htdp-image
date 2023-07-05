@@ -1,3 +1,4 @@
+import { FillMode } from "../../shared/index.js";
 import { colorToSpokenString } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
@@ -22,7 +23,7 @@ export class LineImage extends BaseImage {
     super({
       width: Math.abs(x),
       height: Math.abs(y),
-      style: "outline",
+      style: FillMode.Outline(),
       color,
       pinholeX: Math.abs(x) / 2,
       pinholeY: Math.abs(y) / 2,

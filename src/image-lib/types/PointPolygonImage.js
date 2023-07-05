@@ -9,12 +9,15 @@ import {
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
  */
+/**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
 
 export class PointPolygonImage extends BaseImage {
   /**
    * PointPolygonImage constructor
    * @param {{x: number; y: number}[]} vertices
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    */
   constructor(vertices, style, color) {
@@ -49,7 +52,7 @@ export class PointPolygonImage extends BaseImage {
   /**
    * PointPolygonImage static constructor
    * @param {{x: number; y: number}[]} vertices
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    * @returns {PointPolygonImage}
    */

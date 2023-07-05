@@ -44,7 +44,7 @@ export const isColorOrColorString = (val) =>
   isColor(val) || typeof colorDb.get(val) !== "undefined";
 
 export const colorString = (color, style) => {
-  const styleAlpha = isNaN(style) ? 1.0 : style;
+  const styleAlpha = isNaN(style.valueOf()) ? 1.0 : style.valueOf();
   const cAlpha = colorAlpha(color);
 
   // note: flooring the numbers here to make sure it's a valid rgba string
@@ -219,7 +219,7 @@ for (var p in colorRgbs) {
 }
 
 export const colorToSpokenString = (aColor, aStyle) => {
-  if (aStyle === 0) {
+  if (aStyle.valueOf() === 0) {
     return " transparent ";
   }
 
@@ -248,8 +248,8 @@ export const colorToSpokenString = (aColor, aStyle) => {
   });
 
   const match = distances[0].name;
-  const style = isNaN(aStyle)
-    ? aStyle === "solid"
+  const style = isNaN(aStyle.valueOf())
+    ? aStyle.toString() === "solid"
       ? " solid"
       : "n outline"
     : " translucent ";

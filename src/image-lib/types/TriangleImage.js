@@ -4,6 +4,9 @@ import { BaseImage } from "./BaseImage.js";
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
  */
+/**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
 
 /**
  * Draws a triangle with the base = sideC, and the angle between sideC and sideB being angleA
@@ -16,7 +19,7 @@ export class TriangleImage extends BaseImage {
    * @param {number} sideC
    * @param {number} angleA
    * @param {number} sideB
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    */
   constructor(sideC, angleA, sideB, style, color) {
@@ -60,7 +63,7 @@ export class TriangleImage extends BaseImage {
    * @param {number} sideC
    * @param {number} angleA
    * @param {number} sideB
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    * @returns {TriangleImage}
    */

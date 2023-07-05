@@ -4,6 +4,9 @@ import { BaseImage } from "./BaseImage.js";
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
  */
+/**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
 
 /**
  * Represents an image in the shape of a rhombus
@@ -14,7 +17,7 @@ export class RhombusImage extends BaseImage {
    * RhombusImage constructor
    * @param {number} side
    * @param {number} angle
-   * @param {number} style
+   * @param {FillMode} style
    * @param {Color} color
    */
   constructor(side, angle, style, color) {
@@ -42,7 +45,7 @@ export class RhombusImage extends BaseImage {
    * RhombusImage static constructor
    * @param {number} side
    * @param {number} angle
-   * @param {number} style
+   * @param {FillMode} style
    * @param {Color} color
    * @returns {RhombusImage}
    */

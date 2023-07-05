@@ -7,9 +7,13 @@ import {
   makeCanvas,
   verticesEqual,
 } from "../utils.js";
-import { Colors, Utils } from "../../shared/index.js";
+import { Colors, FillMode, Utils } from "../../shared/index.js";
 
 const clone = Utils.clone;
+
+/**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
 
 /**
  * Base class for all images
@@ -20,7 +24,7 @@ const clone = Utils.clone;
  * @prop {number} pinholeY
  * @prop {number} alphaBaseline
  * @prop {{x: number; y: number}[]|null} vertices
- * @prop {string} style
+ * @prop {FillMode} style
  * @prop {Colors.Color} color
  * @prop {string} ariaText
  */
@@ -33,7 +37,7 @@ export class BaseImage {
     pinholeY = 0,
     alphaBaseline = null,
     vertices = null,
-    style = "outline",
+    style = FillMode.Solid(),
     color = Colors.black,
     ariaText = "image",
   } = {}) {
@@ -55,7 +59,7 @@ export class BaseImage {
     pinholeY = 0,
     alphaBaseline = 0,
     vertices = null,
-    style = "outline",
+    style = FillMode.Solid(),
     color = Colors.black,
     ariaText = "image",
   } = {}) {
@@ -292,7 +296,7 @@ export class BaseImage {
     // their styles, vertices and color
     if (this.vertices && other.vertices) {
       return (
-        this.style === other.style &&
+        this.style.toString() === other.style.toString() &&
         verticesEqual(this.vertices) &&
         verticesEqual(other.vertices) &&
         equals(this.color, other.color)
@@ -379,7 +383,7 @@ export class BaseImage {
     ctx.save();
     ctx.beginPath();
 
-    let isSolid = this.style.toLowerCase() !== "outline";
+    let isSolid = this.style.toString().toLowerCase() !== "outline";
     let vertices;
 
     if (isSolid || ctx.isEqualityTest) {

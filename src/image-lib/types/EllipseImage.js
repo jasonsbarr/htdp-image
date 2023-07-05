@@ -5,13 +5,16 @@ import { BaseImage } from "./BaseImage.js";
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
  */
+/**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
 
 export class EllipseImage extends BaseImage {
   /**
    * EllipseImage constructor
    * @param {number} width
    * @param {number} height
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    */
   constructor(width, height, style, color) {
@@ -22,7 +25,7 @@ export class EllipseImage extends BaseImage {
       color,
       pinholeX: width / 2,
       pinholeY: height / 2,
-      ariaText: `a ${colorToSpokenString(color, style)} ${
+      ariaText: `a${colorToSpokenString(color, style)} ${
         width === height
           ? `circle of radius ${width / 2}`
           : `ellipse of width ${width} and height ${height}`
@@ -34,7 +37,7 @@ export class EllipseImage extends BaseImage {
    * EllipseImage static constructor
    * @param {number} width
    * @param {number} height
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    * @returns {EllipseImage}
    */
@@ -52,7 +55,7 @@ export class EllipseImage extends BaseImage {
       (other instanceof EllipseImage &&
         this.width === other.width &&
         this.height === other.height &&
-        this.style === other.style &&
+        this.style.toString() === other.style.toString() &&
         equals(this.color, other.color)) ||
       BaseImage.prototype.equals.call(this, other)
     );

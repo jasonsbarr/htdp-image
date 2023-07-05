@@ -2,6 +2,10 @@ import { BaseImage } from "./BaseImage.js";
 import { colorToSpokenString } from "../utils.js";
 
 /**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
+
+/**
  * An image that is a rectangle
  * @class
  */
@@ -10,7 +14,7 @@ export class RectangleImage extends BaseImage {
    * RectangleImage constructor
    * @param {number} width
    * @param {number} height
-   * @param {string} style
+   * @param {FillMode} style
    * @param {import("../../shared/colors").Color} color
    */
   constructor(width, height, style, color) {
@@ -39,7 +43,7 @@ export class RectangleImage extends BaseImage {
    * RectangleImage static constructor
    * @param {number} width
    * @param {number} height
-   * @param {string} style
+   * @param {FillMode} style
    * @param {import("../../shared/colors").Color} color
    * @returns {RectangleImage}
    */

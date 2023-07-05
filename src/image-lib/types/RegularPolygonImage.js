@@ -12,6 +12,9 @@ const gcd = Utils.gcd;
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
  */
+/**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
 
 /**
  * See @link http://www.algebra.com/algebra/homework/Polygons/Inscribed-and-circumscribed-polygons.lesson
@@ -31,7 +34,7 @@ export class RegularPolygonImage extends BaseImage {
    * @param {number} length
    * @param {number} count
    * @param {number} step
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    * @param {boolean} flatBottom
    */
@@ -106,7 +109,7 @@ export class RegularPolygonImage extends BaseImage {
    * @param {number} length
    * @param {number} count
    * @param {number} step
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    * @param {boolean} flatBottom
    * @returns {RegularPolygonImage}

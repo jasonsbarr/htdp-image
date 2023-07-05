@@ -10,6 +10,9 @@ import { BaseImage } from "./BaseImage.js";
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
  */
+/**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
 
 /**
  * An image in the shape of a wedge
@@ -22,7 +25,7 @@ export class WedgeImage extends BaseImage {
    * WedgeImage constructor
    * @param {number} radius
    * @param {number} angle
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    */
   constructor(radius, angle, style, color) {
@@ -68,7 +71,7 @@ export class WedgeImage extends BaseImage {
    * WedgeImage static constructor
    * @param {number} radius
    * @param {number} angle
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    * @returns {WedgeImage}
    */
@@ -86,7 +89,7 @@ export class WedgeImage extends BaseImage {
       (other instanceof WedgeImage &&
         this.radius === other.radius &&
         this.angle === other.angle &&
-        this.style === other.style &&
+        this.style.toString() === other.style.toString() &&
         equals(this.color, other.color)) ||
       BaseImage.prototype.equals.call(this, other)
     );

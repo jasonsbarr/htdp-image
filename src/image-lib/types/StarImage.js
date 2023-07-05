@@ -9,6 +9,9 @@ import { BaseImage } from "./BaseImage.js";
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
  */
+/**
+ * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
+ */
 
 /**
  * Represents an image in the shape of a star
@@ -22,7 +25,7 @@ export class StarImage extends BaseImage {
    * @param {number} points
    * @param {number} outer
    * @param {number} inner
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color
    */
   constructor(points, outer, inner, style, color) {
@@ -71,7 +74,7 @@ export class StarImage extends BaseImage {
    * @param {number} points
    * @param {number} outer
    * @param {number} inner
-   * @param {string} style
+   * @param {FillMode} style
    * @param {Color} color : ;
    * @returns {StarImage}
    */
