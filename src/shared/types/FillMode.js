@@ -62,4 +62,30 @@ export const FillMode = {
       },
     };
   },
+  isFillMode(val) {
+    return (
+      val.type === "solid" ||
+      val.type === "outline" ||
+      (val.type === "fade" && typeof val.n === "number")
+    );
+  },
+  /**
+   * Converts a value to a FillMode
+   * @param {string|number} val
+   * @returns {FillMode}
+   */
+  toFillMode(val) {
+    if (typeof val === "number") {
+      return this.Fade(val);
+    }
+
+    switch (val) {
+      case "solid":
+        return this.Solid();
+      case "outline":
+        return this.Outline();
+      default:
+        throw new Error(`Unknown FillMode case ${val}`);
+    }
+  },
 };
