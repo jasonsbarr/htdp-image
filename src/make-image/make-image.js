@@ -7,22 +7,23 @@ import {
   YPlace,
 } from "../shared/index.js";
 import * as ImageLib from "../image-lib/index.js";
+import { FillMode } from "../shared/index.js";
 /**
  * @typedef {import("../shared/index.js").Colors.Color} Color
  */
 /**
- * @typedef {import("../shared/index.js").FillMode} FillMode
+ * @typedef {"solid"|"outline"|number|FillMode} Fill
  */
 
 /**
  * Makes a circle image
  * @param {number} radius
- * @param {FillMode} mode
+ * @param {Fill} mode
  * @param {Color} color
  * @returns {ImageLib.EllipseImage}
  */
 export const circle = (radius, mode, color) =>
-  ImageLib.makeCircleImage(radius, mode, color);
+  ImageLib.makeCircleImage(radius, FillMode.toFillMode(mode), color);
 
 /**
  * Makes a simple text image with sensible defaults
