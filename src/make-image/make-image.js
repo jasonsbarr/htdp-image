@@ -6,9 +6,10 @@ import {
   Point,
   XPlace,
   YPlace,
+  FillMode,
 } from "../shared/index.js";
 import * as ImageLib from "../image-lib/index.js";
-import { FillMode } from "../shared/index.js";
+
 /**
  * @typedef {import("../shared/index.js").Colors.Color} Color
  */
