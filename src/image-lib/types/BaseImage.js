@@ -7,9 +7,10 @@ import {
   makeCanvas,
   verticesEqual,
 } from "../utils.js";
-import { Colors, FillMode, Utils } from "../../shared/index.js";
+import { Colors, FillMode, Utils, makeDocument } from "../../shared/index.js";
 
 const clone = Utils.clone;
+const document = makeDocument();
 
 /**
  * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode

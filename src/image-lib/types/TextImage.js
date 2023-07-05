@@ -1,7 +1,14 @@
 import equals from "fast-deep-equal/es6/index.js";
-import { FontFamily, FontWeight, FontStyle } from "../../shared/index.js";
+import {
+  FontFamily,
+  FontWeight,
+  FontStyle,
+  makeDocument,
+} from "../../shared/index.js";
 import { colorToSpokenString } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
+
+const document = makeDocument();
 
 let ua = "",
   baselineFudge = 0;

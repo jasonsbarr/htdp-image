@@ -1,5 +1,8 @@
+import { makeDocument } from "../../shared/document.js";
 import { BaseImage } from "./BaseImage.js";
 import { TextImage } from "./TextImage.js";
+
+const document = makeDocument();
 
 /**
  * An image that is taken from a file
@@ -9,7 +12,6 @@ import { TextImage } from "./TextImage.js";
  * @prop {HTMLImageElement} img
  * @prop {HTMLImageElement|undefined} animationHackImg
  */
-
 export class FileImage extends BaseImage {
   static imageCache = {};
 

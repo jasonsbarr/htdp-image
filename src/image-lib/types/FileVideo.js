@@ -1,4 +1,7 @@
+import { makeDocument } from "../../shared/document.js";
 import { BaseImage } from "./BaseImage.js";
+
+const document = makeDocument();
 
 /**
  * Represents a video file

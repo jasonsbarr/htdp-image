@@ -1,4 +1,4 @@
-import { Utils, Colors } from "../shared/index.js";
+import { Utils, Colors, makeDocument } from "../shared/index.js";
 import { colorDb } from "./colorDb.js";
 import { makeImageDataImage } from "./make.js";
 import { BaseImage } from "./types/BaseImage.js";
@@ -9,6 +9,7 @@ import { BaseImage } from "./types/BaseImage.js";
 
 const clamp = Utils.clamp;
 const makeColor = Colors.color;
+const document = makeDocument();
 
 /**
  * Extracts the red value from a color
