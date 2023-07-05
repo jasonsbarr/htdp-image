@@ -54,6 +54,16 @@ export const colorString = (color, style) => {
   )}, ${Math.floor(colorBlue(color))}, ${styleAlpha * cAlpha})`;
 };
 
+/**
+ * Gets a color from a string color name
+ * @param {string} str
+ * @returns {Color}
+ */
+export const stringToColor = (str) => {
+  const result = colorDb.get(str);
+  return result ? result : colorDb.get("transparent");
+};
+
 export const isImage = (thing) => {
   return (
     typeof thing.height === number &&

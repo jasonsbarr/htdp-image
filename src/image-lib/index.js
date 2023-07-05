@@ -85,6 +85,7 @@ import {
   isSideCount,
   isStepCount,
   isPointsCount,
+  stringToColor,
 } from "./utils.js";
 
 export const makeColor = Colors.color;
@@ -182,4 +183,5 @@ export {
   isSideCount,
   isStepCount,
   isPointsCount,
+  stringToColor,
 };
