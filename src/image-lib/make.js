@@ -23,7 +23,10 @@ import { FileVideo } from "./types/FileVideo.js";
 import { FontFamily, FontStyle, FontWeight } from "../shared/index.js";
 
 /**
- * @typedef {import("../../shared/colors.js").Color} Color
+ * @typedef {import("../shared/index.js").Colors.Color} Color
+ */
+/**
+ * @typedef {import("../shared/index.js").FillMode} FillMode
  */
 
 /**
@@ -32,7 +35,7 @@ import { FontFamily, FontStyle, FontWeight } from "../shared/index.js";
  * @param {number} height
  * @param {import("./types/SceneImage.js").Child[]} children
  * @param {boolean} withBorder
- * @param {Color} color: ;
+ * @param {Color} color
  * @returns {SceneImage}
  */
 export const makeSceneImage = (width, height, children, withBorder, color) =>
@@ -41,7 +44,7 @@ export const makeSceneImage = (width, height, children, withBorder, color) =>
 /**
  * Constructs a circle image
  * @param {number} radius
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {EllipseImage}
  */
@@ -53,7 +56,7 @@ export const makeCircleImage = (radius, style, color) =>
  * @param {number} points
  * @param {number} outer
  * @param {number} inner
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {StarImage}
  */
@@ -64,7 +67,7 @@ export const makeStarImage = (points, outer, inner, style, color) =>
  * Constructs a RectangleImage
  * @param {number} width
  * @param {number} height
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {RectangleImage}
  */
@@ -75,7 +78,7 @@ export const makeRectangleImage = (width, height, style, color) =>
  * Constructs a new RhombusImage
  * @param {number} side
  * @param {number} angle
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {RhombusImage}
  */
@@ -87,7 +90,7 @@ export const makeRhombusImage = (side, angle, style, color) =>
  * @param {number} length
  * @param {number} count
  * @param {number} step
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @param {boolean} flatBottom
  * @returns {RegularPolygonImage}
@@ -104,7 +107,7 @@ export const makeRegularPolygonImage = (
 /**
  * Constructs a PointPolygonImage
  * @param {{x: number; y: number}[]} vertices
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {PointPolygonImage}
  */
@@ -114,7 +117,7 @@ export const makePointPolygonImage = (vertices, style, color) =>
 /**
  * Constructs a square image
  * @param {number} length
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {RectangleImage}
  */
@@ -126,7 +129,7 @@ export const makeSquareImage = (length, style, color) =>
  * @param {number} sideA
  * @param {number} angleC
  * @param {number} sideB
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {TriangleImage}
  */
@@ -137,7 +140,7 @@ export const makeTriangleImage = (sideA, angleC, sideB, style, color) =>
  * Constructs an EllipseImage
  * @param {number} width
  * @param {number} height
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {EllipseImage}
  */
@@ -148,7 +151,7 @@ export const makeEllipseImage = (width, height, style, color) =>
  * Constructs a WedgeImage
  * @param {number} radius
  * @param {number} angle
- * @param {string} style
+ * @param {FillMode} style
  * @param {Color} color
  * @returns {WedgeImage}
  */
