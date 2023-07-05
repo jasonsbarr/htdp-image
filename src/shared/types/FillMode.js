@@ -71,10 +71,14 @@ export const FillMode = {
   },
   /**
    * Converts a value to a FillMode
-   * @param {string|number} val
+   * @param {string|number|FillMode} val
    * @returns {FillMode}
    */
   toFillMode(val) {
+    if (this.isFillMode(val)) {
+      return val;
+    }
+
     if (typeof val === "number") {
       return this.Fade(val);
     }
