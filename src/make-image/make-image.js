@@ -46,7 +46,7 @@ export const circle = (radius, mode, color) =>
  * Makes a simple text image with sensible defaults
  * @param {string} str
  * @param {number} size
- * @param {Color} color
+ * @param {Color|string} color
  * @returns {ImageLib.TextImage}
  */
 export const text = (str, size, color) =>
@@ -65,7 +65,7 @@ export const text = (str, size, color) =>
  * Makes a text image with all options set
  * @param {number} str
  * @param {number} size
- * @param {Color} color
+ * @param {Color|string} color
  * @param {string} face
  * @param {FontFamily} family
  * @param {FontStyle} style
