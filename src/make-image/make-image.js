@@ -158,4 +158,4 @@ export const overlayXY = (img1, dx, dy, img2) =>
  * @returns {ImageLib.OverlayImage}
  */
 export const overlayAlign = (placeX, placeY, img1, img2) =>
-  ImageLib.OverlayImage.new(img1, placeX, placeY, 0, 0, img2, placeX, placeY);
+  ImageLib.makeOverlayImage(img1, placeX, placeY, 0, 0, img2, placeX, placeY);

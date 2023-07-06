@@ -20,7 +20,13 @@ import { FlipImage } from "./types/FlipImage.js";
 import { TextImage } from "./types/TextImage.js";
 import { FileImage } from "./types/FileImage.js";
 import { FileVideo } from "./types/FileVideo.js";
-import { FontFamily, FontStyle, FontWeight } from "../shared/index.js";
+import {
+  FontFamily,
+  FontStyle,
+  FontWeight,
+  XPlace,
+  YPlace,
+} from "../shared/index.js";
 
 /**
  * @typedef {import("../shared/index.js").Colors.Color} Color
@@ -181,14 +187,24 @@ export const makeLineImage = (x, y, color) => LineImage.new(x, y, color);
  */
 export const makeOverlayImage = (
   img1,
-  x1,
-  y1,
+  placeX1,
+  placeY1,
   offsetX,
   offsetY,
   img2,
-  x2,
-  y2
-) => OverlayImage.new(img1, x1, y1, offsetX, offsetY, img2, x2, y2);
+  placeX2,
+  placeY2
+) =>
+  OverlayImage.new(
+    img1,
+    placeX1,
+    placeY1,
+    offsetX,
+    offsetY,
+    img2,
+    placeX2,
+    placeY2
+  );
 
 /**
  * Constructs a RotateImage
