@@ -278,3 +278,28 @@ export const underlayXY = (img1, dx, dy, img2) =>
     XPlace.Left,
     YPlace.Top
   );
+
+/**
+ * Constructs an underlay aligned image from a list of images
+ * @param {XPlace} placeX
+ * @param {YPlace} placeY
+ * @param {ImageLib.BaseImage[]} images
+ * @returns {ImageLib.OverlayImage}
+ */
+export const underlayAlignList = (placeX, placeY, images) =>
+  images.reduce((acc, img, i) => {
+    if (i === 0) {
+      return img;
+    }
+
+    return ImageLib.makeOverlayImage(
+      img,
+      placeX,
+      placeY,
+      0,
+      0,
+      acc,
+      placeX,
+      placeY
+    );
+  }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
