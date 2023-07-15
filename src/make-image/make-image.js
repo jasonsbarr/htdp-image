@@ -217,3 +217,21 @@ export const overlayOntoOffset = (
     placeX2,
     placeY2
   );
+
+/**
+ * Makes an underlay image
+ * @param {ImageLib.BaseImage} img1
+ * @param {ImageLib.BaseImage} img2
+ * @returns {ImageLib.OverlayImage}
+ */
+export const underlay = (img1, img2) =>
+  ImageLib.makeOverlayImage(
+    img2,
+    XPlace.Pinhole,
+    YPlace.Pinhole,
+    0,
+    0,
+    img1,
+    XPlace.Pinhole,
+    YPlace.Pinhole
+  );
