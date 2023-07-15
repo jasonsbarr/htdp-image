@@ -184,3 +184,36 @@ export const overlayAlignList = (placeX, placeY, imgs) =>
       placeY
     );
   }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
+
+/**
+ * Makes an overlay image from 2 images with offsets
+ * @param {ImageLib.BaseImage} img1
+ * @param {XPlace} placeX1
+ * @param {YPlace} placeY1
+ * @param {number} offsetX
+ * @param {number} offsetY
+ * @param {ImageLib.BaseImage} img2
+ * @param {XPlace} placeX2
+ * @param {YPlace} placeY2
+ * @returns {ImageLib.OverlayImage}
+ */
+export const overlayOntoOffset = (
+  img1,
+  placeX1,
+  placeY1,
+  offsetX,
+  offsetY,
+  img2,
+  placeX2,
+  placeY2
+) =>
+  ImageLib.makeOverlayImage(
+    img1,
+    placeX1,
+    placeY1,
+    offsetX,
+    offsetY,
+    img2,
+    placeX2,
+    placeY2
+  );
