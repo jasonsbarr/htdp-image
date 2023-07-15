@@ -109,7 +109,7 @@ export const overlay = (img1, img2) =>
 /**
  * Makes a single image from a list of images
  * @param {ImageLib.BaseImage[]} imgs
- * @returns {ImageLib.SceneImage}
+ * @returns {ImageLib.OverlayImage}
  */
 export const overlayList = (imgs) => {
   return imgs.reduce((acc, img, i) => {
@@ -159,3 +159,28 @@ export const overlayXY = (img1, dx, dy, img2) =>
  */
 export const overlayAlign = (placeX, placeY, img1, img2) =>
   ImageLib.makeOverlayImage(img1, placeX, placeY, 0, 0, img2, placeX, placeY);
+
+/**
+ * Overlay a list of images with x and y alignment into a single image
+ * @param {XPlace} placeX
+ * @param {YPlace} placeY
+ * @param {ImageLib.BaseImage[]} imgs
+ * @returns {ImageLib.OverlayImage}
+ */
+export const overlayAlignList = (placeX, placeY, imgs) =>
+  imgs.reduce((acc, img, i) => {
+    if (i === 0) {
+      return img;
+    }
+
+    return ImageLib.makeOverlayImage(
+      acc,
+      placeX,
+      placeY,
+      0,
+      0,
+      img,
+      placeX,
+      placeY
+    );
+  }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
