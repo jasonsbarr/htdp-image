@@ -235,3 +235,26 @@ export const underlay = (img1, img2) =>
     XPlace.Pinhole,
     YPlace.Pinhole
   );
+
+/**
+ * Creates an underlay image from a list of images
+ * @param {ImageLib.BaseImage[]} images
+ * @returns {ImageLib.OverlayImage}
+ */
+export const underlayList = (images) =>
+  images.reduce((acc, img, i) => {
+    if (i === 0) {
+      return img;
+    }
+
+    return ImageLib.makeOverlayImage(
+      img,
+      XPlace.Pinhole,
+      YPlace.Pinhole,
+      0,
+      0,
+      acc,
+      XPlace.Pinhole,
+      YPlace.Pinhole
+    );
+  }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
