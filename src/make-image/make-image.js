@@ -258,3 +258,23 @@ export const underlayList = (images) =>
       YPlace.Pinhole
     );
   }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
+
+/**
+ * Make an underlay image offset by dx and dy
+ * @param {ImageLib.BaseImage} img1
+ * @param {number} dx
+ * @param {number} dy
+ * @param {ImageLib.BaseImage} img2
+ * @returns {ImageLib.OverlayImage}
+ */
+export const underlayXY = (img1, dx, dy, img2) =>
+  ImageLib.makeOverlayImage(
+    img2,
+    XPlace.Left,
+    YPlace.Top,
+    -dx,
+    -dy,
+    img1,
+    XPlace.Left,
+    YPlace.Top
+  );
