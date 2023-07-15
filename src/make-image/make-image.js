@@ -363,3 +363,27 @@ export const besideAlign = (placeY, img1, img2) =>
     XPlace.Left,
     placeY
   );
+
+/**
+ * Creates an aligned beside image from a list of images
+ * @param {YPlace} placeY
+ * @param {ImageLib.BaseImage[]} images
+ * @returns {ImageLib.OverlayImage}
+ */
+export const besideAlignList = (placeY, images) =>
+  images.reduce((acc, img, i) => {
+    if (i === 0) {
+      return img;
+    }
+
+    return ImageLib.OverlayImage(
+      acc,
+      XPlace.Right,
+      placeY,
+      0,
+      0,
+      img,
+      XPlace.Left,
+      placeY
+    );
+  }, ImageLib.SceneImage(0, 0, [], false, Colors.transparent));
