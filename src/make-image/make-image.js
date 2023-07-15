@@ -471,3 +471,86 @@ export const aboveAlignList = (placeX, images) =>
       YPlace.Top
     );
   }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
+
+/**
+ * Places one image below another
+ * @param {ImageLib.BaseImage} img1
+ * @param {ImageLib.BaseImage} img2
+ * @returns {ImageLib.OverlayImage}
+ */
+export const below = (img1, img2) =>
+  ImageLib.makeOverlayImage(
+    img2,
+    XPlace.Middle,
+    YPlace.Bottom,
+    0,
+    0,
+    img1,
+    XPlace.Middle,
+    YPlace.Top
+  );
+
+/**
+ * Makes a below image from a list of images
+ * @param {ImageLib.BaseImage[]} images
+ * @returns {ImageLib.OverlayImage}
+ */
+export const belowList = (images) =>
+  images.reduce((acc, img, i) => {
+    if (i === 0) {
+      return img;
+    }
+
+    return ImageLib.makeOverlayImage(
+      img,
+      XPlace.Middle,
+      YPlace.Bottom,
+      0,
+      0,
+      acc,
+      XPlace.Middle,
+      YPlace.Top
+    );
+  }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
+
+/**
+ * Places 1 image below the other based on placeX alignment
+ * @param {XPlace} placeX
+ * @param {ImageLib.BaseImage} img1
+ * @param {ImageLib.BaseImage} img2
+ * @returns {ImageLib.OverlayImage}
+ */
+export const belowAlign = (placeX, img1, img2) =>
+  ImageLib.makeOverlayImage(
+    img1,
+    placeX,
+    YPlace.Bottom,
+    0,
+    0,
+    img2,
+    placeX,
+    YPlace.Top
+  );
+
+/**
+ * Makes a below image out of a list of images aligned according to placeX
+ * @param {ImageLib.BaseImage[]} images
+ * @returns {ImageLib.OverlayImage}
+ */
+export const belowAlignList = (placeX, images) =>
+  images.reduce((acc, img, i) => {
+    if (i === 0) {
+      return img;
+    }
+
+    return ImageLib.makeOverlayImage(
+      img,
+      placeX,
+      YPlace.Bottom,
+      0,
+      0,
+      acc,
+      placeX,
+      YPlace.Top
+    );
+  }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
