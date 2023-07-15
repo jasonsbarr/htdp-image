@@ -303,3 +303,63 @@ export const underlayAlignList = (placeX, placeY, images) =>
       placeY
     );
   }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
+
+/**
+ * Places one image beside another
+ * @param {ImageLib.BaseImage} img1
+ * @param {ImageLib.BaseImage} img2
+ * @returns {ImageLib.OverlayImage}
+ */
+export const beside = (img1, img2) =>
+  ImageLib.makeOverlayImage(
+    img1,
+    XPlace.Right,
+    YPlace.Center,
+    0,
+    0,
+    img2,
+    XPlace.Left,
+    YPlace.Center
+  );
+
+/**
+ * Turns a list of images into a beside image
+ * @param {ImageLib.BaseImage[]} images
+ * @returns {ImageLib.OverlayImage}
+ */
+export const besideList = (images) =>
+  images.reduce((acc, img, i) => {
+    if (i === 0) {
+      return img;
+    }
+
+    return ImageLib.makeOverlayImage(
+      acc,
+      XPlace.Right,
+      YPlace.Center,
+      0,
+      0,
+      img,
+      XPlace.Left,
+      YPlace.Center
+    );
+  }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
+
+/**
+ * Sets 2 images next to each other based on placeY alignment
+ * @param {YPlace} placeY
+ * @param {ImageLib.BaseImage} img1
+ * @param {ImageLib.BaseImage} img2
+ * @returns {ImageLib.OverlayImage}
+ */
+export const besideAlign = (placeY, img1, img2) =>
+  ImageLib.makeOverlayImage(
+    img1,
+    XPlace.Right,
+    placeY,
+    0,
+    0,
+    img2,
+    XPlace.Left,
+    placeY
+  );
