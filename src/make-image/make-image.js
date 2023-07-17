@@ -653,3 +653,11 @@ export const translate = placeImage;
  * @returns {ImageLib.BaseImage}
  */
 export const placePinhole = (x, y, img) => img.updatePinhole(x, y);
+
+/**
+ * Centers the pinhole of img
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.BaseImage}
+ */
+export const centerPinhole = (img) =>
+  img.updatePinhole(img.width / 2, img.height / 2);
