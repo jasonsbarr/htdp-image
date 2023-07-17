@@ -27,7 +27,7 @@ export const polarToCartesian = (polar) => {
 
 /**
  *
- * @param {Point[]} points
+ * @param {import("../shared/types/Point.js").PointPolar|import("../shared/types/Point.js").PointXY} points
  * @returns {import("../shared/types/Point").PointXY[]}
  */
 export const convertPointsToCartesian = (points) => {
