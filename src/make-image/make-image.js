@@ -9,6 +9,7 @@ import {
   FillMode,
 } from "../shared/index.js";
 import * as ImageLib from "../image-lib/index.js";
+import { canonicalizeAngle } from "./utils.js";
 
 /**
  * @typedef {import("../shared/index.js").Colors.Color} Color
@@ -704,4 +705,9 @@ export const placeImageAlign = (img, x, y, placeX, placeY, background) => {
   newScene = newScene.add(img, x, y);
 
   return newScene;
+};
+
+export const rotate = (angle, img) => {
+  angle = canonicalizeAngle(angle);
+  return ImageLib.makeRotateImage(-angle, img);
 };
