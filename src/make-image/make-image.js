@@ -849,3 +849,12 @@ export const sceneLine = (img, x1, y2, x2, y2, c) => {
     line.height / 2 + topmost
   );
 };
+
+/**
+ *
+ * @param {number} side
+ * @param {FillMode|string|number} mode
+ * @param {string|Color} color
+ */
+export const square = (side, mode, color) =>
+  ImageLib.makeSquareImage(side, toFillMode(mode), toColor(color));
