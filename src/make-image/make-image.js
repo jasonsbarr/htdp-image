@@ -717,3 +717,22 @@ export const rotate = (angle, img) => {
   angle = canonicalizeAngle(angle);
   return ImageLib.makeRotateImage(-angle, img);
 };
+
+/**
+ * Scales an image both horizontally and vertically by factor
+ * @param {number} factor
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.ScaleImage}
+ */
+export const scale = (factor, img) =>
+  ImageLib.makeScaleImage(factor, factor, img);
+
+/**
+ * Scales an image horizontally by x and vertically by y
+ * @param {number} xFactor
+ * @param {number} yFactor
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.ScaleImage}
+ */
+export const scaleXY = (xFactor, yFactor, img) =>
+  ImageLib.makeScaleImage(xFactor, yFactor, img);

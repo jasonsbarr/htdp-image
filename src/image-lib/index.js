@@ -15,6 +15,7 @@ import { PointPolygonImage } from "./types/PointPolygonImage.js";
 import { StarImage } from "./types/StarImage.js";
 import { TriangleImage } from "./types/TriangleImage.js";
 import { WedgeImage } from "./types/WedgeImage.js";
+import { ScaleImage } from "./types/ScaleImage.js";
 import {
   makeSceneImage,
   makeCircleImage,
@@ -110,6 +111,7 @@ export {
   StarImage,
   TriangleImage,
   WedgeImage,
+  ScaleImage,
 
   // constructor functions
   makeSceneImage,
