@@ -563,3 +563,22 @@ export const belowAlignList = (placeX, images) =>
  * @returns {ImageLib.BaseImage}
  */
 export const movePinhole = (dx, dy, img) => img.offsetPinhole(dx, dy);
+
+/**
+ * Creates an empty scene
+ * @param {number} width
+ * @param {number} height
+ * @returns {ImageLib.SceneImage}
+ */
+export const emptyScene = (width, height) =>
+  ImageLib.makeSceneImage(width, height, [], true, Colors.transparent);
+
+/**
+ * Creates an empty scene with the specified color
+ * @param {number} width
+ * @param {number} height
+ * @param {Color|string} color
+ * @returns {ImageLib.SceneImage}
+ */
+export const emptyColorScene = (width, height, color) =>
+  ImageLib.makeSceneImage(width, height, [], true, toColor(color));
