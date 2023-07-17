@@ -817,3 +817,35 @@ export const addLine = (img, x1, y1, x2, y2, c) => {
     YPlace.Center
   );
 };
+
+/**
+ * Overlays a line over an image and constructs a scene to hold them
+ * @param {ImageLib.BaseImage} img
+ * @param {number} x1
+ * @param {number} y2
+ * @param {number} x2
+ * @param {number} y2
+ * @param {string|Color} c
+ * @returns {ImageLib.SceneImage}
+ */
+export const sceneLine = (img, x1, y2, x2, y2, c) => {
+  const line = ImageLib.makeLineImage(x2 - x1, y2 - y1, toColor(color));
+  let newScene = ImageLib.makeSceneImage(
+    img.width,
+    img.height,
+    [],
+    true,
+    Colors.transparent
+  );
+
+  newScene = newScene.add(img, img.width / 2, img.height / 2);
+
+  const leftmost = Math.min(x1, x2);
+  const topmost = Math.min(y1, y2);
+
+  return newScene.add(
+    line,
+    line.width / 2 + leftmost,
+    line.height / 2 + topmost
+  );
+};
