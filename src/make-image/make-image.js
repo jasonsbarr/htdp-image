@@ -644,3 +644,13 @@ export const placeImage = (picture, x, y, background) => {
 };
 
 export const translate = placeImage;
+
+/**
+ * Places the pinhole of img at x, y
+ * @param {number} x
+ * @param {number} y
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.BaseImage}
+ */
+export const placePinhole = (x, y, img) =>
+  img.updatePinhole(img.width / 2, img.height / 2);
