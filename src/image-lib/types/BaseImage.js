@@ -24,7 +24,7 @@ const document = makeDocument();
  * @prop {number} pinholeX
  * @prop {number} pinholeY
  * @prop {number} alphaBaseline
- * @prop {{x: number; y: number}[]|null} vertices
+ * @prop {import("../../shared/types/Point.js").PointXY[]|null} vertices
  * @prop {FillMode} style
  * @prop {Colors.Color} color
  * @prop {string} ariaText
