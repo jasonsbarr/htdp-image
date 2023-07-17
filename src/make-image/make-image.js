@@ -755,3 +755,10 @@ export const flipVertical = (img) => ImageLib.makeFlipImage(img, "vertical");
 export const reflectY = flipHorizontal;
 
 export const reflectX = flipVertical;
+
+/**
+ * Creates a frame around an image
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.FrameImage}
+ */
+export const frame = (img) => ImageLib.makeFrameImage(img);

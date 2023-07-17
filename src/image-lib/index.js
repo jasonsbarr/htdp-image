@@ -17,6 +17,7 @@ import { TriangleImage } from "./types/TriangleImage.js";
 import { WedgeImage } from "./types/WedgeImage.js";
 import { ScaleImage } from "./types/ScaleImage.js";
 import { FlipImage } from "./types/FlipImage.js";
+import { FrameImage } from "./types/FrameImage.js";
 import {
   makeSceneImage,
   makeCircleImage,
@@ -114,6 +115,7 @@ export {
   WedgeImage,
   ScaleImage,
   FlipImage,
+  FrameImage,
 
   // constructor functions
   makeSceneImage,
