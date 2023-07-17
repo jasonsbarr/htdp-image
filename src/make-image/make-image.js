@@ -554,3 +554,12 @@ export const belowAlignList = (placeX, images) =>
       YPlace.Top
     );
   }, ImageLib.makeSceneImage(0, 0, [], false, Colors.transparent));
+
+/**
+ * Creates a new image with the pinhole offset by dx, dy
+ * @param {number} dx
+ * @param {number} dy
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.BaseImage}
+ */
+export const movePinhole = (dx, dy, img) => img.offsetPinhole(dx, dy);
