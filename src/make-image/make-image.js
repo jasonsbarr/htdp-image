@@ -736,3 +736,18 @@ export const scale = (factor, img) =>
  */
 export const scaleXY = (xFactor, yFactor, img) =>
   ImageLib.makeScaleImage(xFactor, yFactor, img);
+
+/**
+ * Flips an image horizontally
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.FlipImage}
+ */
+export const flipHorizontal = (img) =>
+  ImageLib.makeFlipImage(img, "horizontal");
+
+/**
+ * Flips an image vertically
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.FlipImage}
+ */
+export const flipVertical = (img) => ImageLib.makeFlipImage(img, "vertical");

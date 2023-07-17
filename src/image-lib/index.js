@@ -16,6 +16,7 @@ import { StarImage } from "./types/StarImage.js";
 import { TriangleImage } from "./types/TriangleImage.js";
 import { WedgeImage } from "./types/WedgeImage.js";
 import { ScaleImage } from "./types/ScaleImage.js";
+import { FlipImage } from "./types/FlipImage.js";
 import {
   makeSceneImage,
   makeCircleImage,
@@ -112,6 +113,7 @@ export {
   TriangleImage,
   WedgeImage,
   ScaleImage,
+  FlipImage,
 
   // constructor functions
   makeSceneImage,
