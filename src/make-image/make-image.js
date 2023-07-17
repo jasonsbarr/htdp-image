@@ -642,3 +642,5 @@ export const placeImage = (picture, x, y, background) => {
 
   return newScene;
 };
+
+export const translate = placeImage;
