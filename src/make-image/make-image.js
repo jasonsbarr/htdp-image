@@ -783,10 +783,37 @@ export const crop = (x, y, width, height, img) =>
   ImageLib.makeCropImage(x, y, width, height, img);
 
 /**
- * Draws a line from the origin to x, y
+ * Draws a line from the origin (0, 0) to x, y
  * @param {number} x
  * @param {number} y
  * @param {string|Color} c
  * @returns {ImageLib.LineImage}
  */
 export const line = (x, y, c) => ImageLib.makeLineImage(x, y, toColor(c));
+
+/**
+ * Draws a line over an image from x1, y1 to x2, y2
+ * @param {ImageLib.BaseImage} img
+ * @param {number} x1
+ * @param {number} y1
+ * @param {number} x2
+ * @param {number} y2
+ * @param {string|Color} c
+ * @returns {ImageLib.OverlayImage}
+ */
+export const addLine = (img, x1, y1, x2, y2, c) => {
+  const line = ImageLib.makeLineImage(x2 - x1, y2 - y1, toColor(c));
+  const leftmost = Math.min(x1, x2);
+  const topmost = Math.min(y1, y2);
+
+  return ImageLib.makeOverlayImage(
+    line,
+    XPlace.Middle,
+    YPlace.Center,
+    -leftmost,
+    -topmost,
+    img,
+    XPlace.Middle,
+    YPlace.Center
+  );
+};
