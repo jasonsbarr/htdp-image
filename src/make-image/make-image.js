@@ -707,6 +707,12 @@ export const placeImageAlign = (img, x, y, placeX, placeY, background) => {
   return newScene;
 };
 
+/**
+ * Rotates an image by angle
+ * @param {number} angle
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.RotateImage}
+ */
 export const rotate = (angle, img) => {
   angle = canonicalizeAngle(angle);
   return ImageLib.makeRotateImage(-angle, img);
