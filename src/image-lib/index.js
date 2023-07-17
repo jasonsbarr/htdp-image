@@ -18,6 +18,9 @@ import { WedgeImage } from "./types/WedgeImage.js";
 import { ScaleImage } from "./types/ScaleImage.js";
 import { FlipImage } from "./types/FlipImage.js";
 import { FrameImage } from "./types/FrameImage.js";
+import { LineImage } from "./types/LineImage.js";
+import { RectangleImage } from "./types/RectangleImage.js";
+import { RhombusImage } from "./types/RhombusImage.js";
 import {
   makeSceneImage,
   makeCircleImage,
@@ -116,6 +119,9 @@ export {
   ScaleImage,
   FlipImage,
   FrameImage,
+  LineImage,
+  RectangleImage,
+  RhombusImage,
 
   // constructor functions
   makeSceneImage,
