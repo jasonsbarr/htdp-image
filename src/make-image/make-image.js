@@ -751,3 +751,7 @@ export const flipHorizontal = (img) =>
  * @returns {ImageLib.FlipImage}
  */
 export const flipVertical = (img) => ImageLib.makeFlipImage(img, "vertical");
+
+export const reflectY = flipHorizontal;
+
+export const reflectX = flipVertical;
