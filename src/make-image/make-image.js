@@ -652,5 +652,4 @@ export const translate = placeImage;
  * @param {ImageLib.BaseImage} img
  * @returns {ImageLib.BaseImage}
  */
-export const placePinhole = (x, y, img) =>
-  img.updatePinhole(img.width / 2, img.height / 2);
+export const placePinhole = (x, y, img) => img.updatePinhole(x, y);
