@@ -1,5 +1,6 @@
 import { BaseImage } from "./BaseImage.js";
 import { imageEquals } from "../utils.js";
+import { point } from "../../shared/index.js";
 
 /**
  * Scale an image
@@ -28,10 +29,9 @@ export class ScaleImage extends BaseImage {
       }`,
     });
 
-    this._vertices = img.vertices.map((v) => ({
-      x: v.x * xFactor,
-      y: v.y * yFactor,
-    }));
+    this._vertices = img.vertices.map((v) =>
+      point(v.x * xFactor, v.y * yFactor)
+    );
     this.xFactor = xFactor;
     this.yFactor = yFactor;
 

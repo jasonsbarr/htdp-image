@@ -6,6 +6,7 @@ import {
   translateVertices,
 } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
+import { point } from "../../shared/index.js";
 
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
@@ -43,20 +44,19 @@ export class WedgeImage extends BaseImage {
 
     const endPointX = radius * Math.cos(this.angle);
     const endPointY = radius * Math.sin(this.angle);
-    let vertices = [
-      { x: 0, y: 0 },
-      { x: radius, y: 0 },
-    ];
+    let vertices = [point(0, 0), point(radius, 0)];
     // Going in 5-degree increments ensures we hit the extremal points if they are part of the wedge
     // Negate the y-components, because we want y-up behavior
     for (let i = 5; i < angle; i += 5) {
-      vertices.push({
-        x: radius * Math.cos((i * Math.PI) / 180),
-        y: -1 * radius * Math.sin((i * Math.PI) / 180),
-      });
+      vertices.push(
+        point(
+          radius * Math.cos((i * Math.PI) / 180),
+          -1 * radius * Math.sin((i * Math.PI) / 180)
+        )
+      );
     }
 
-    vertices.push({ x: endPointX, y: -endPointY });
+    vertices.push(point(endPointX, -endPointY));
     this.width = findWidth(vertices);
     this.height = findHeight(vertices);
 

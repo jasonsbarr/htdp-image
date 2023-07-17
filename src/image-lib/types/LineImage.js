@@ -1,6 +1,7 @@
 import { FillMode } from "../../shared/index.js";
 import { colorToSpokenString } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
+import { point } from "../../shared/index.js";
 
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
@@ -35,27 +36,15 @@ export class LineImage extends BaseImage {
 
     if (x >= 0) {
       if (y >= 0) {
-        this.vertices = [
-          { x: 0, y: 0 },
-          { x: x, y: y },
-        ];
+        this.vertices = [point(0, 0), point(x, y)];
       } else {
-        this.vertices = [
-          { x: 0, y: -y },
-          { x: x, y: 0 },
-        ];
+        this.vertices = [point(0, -y), point(x, 0)];
       }
     } else {
       if (y >= 0) {
-        this.vertices = [
-          { x: -x, y: 0 },
-          { x: 0, y: y },
-        ];
+        this.vertices = [point(-x, 0), point(0, y)];
       } else {
-        this.vertices = [
-          { x: -x, y: -y },
-          { x: 0, y: 0 },
-        ];
+        this.vertices = [point(-x, -y), point(0, 0)];
       }
     }
   }

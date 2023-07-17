@@ -1,3 +1,4 @@
+import { point } from "../../shared/index.js";
 import { colorToSpokenString } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
@@ -27,10 +28,10 @@ export class RhombusImage extends BaseImage {
       style,
       color,
       vertices: [
-        { x: this.width / 2, y: 0 },
-        { x: this.width, y: this.height / 2 },
-        { x: this.width / 2, y: this.height },
-        { x: 0, y: this.height / 2 },
+        point(this.width / 2, 0),
+        point(this.width, this.height / 2),
+        point(this.width / 2, this.height),
+        point(0, this.height / 2),
       ],
       pinholeX: this.width / 2,
       pinholeY: this.height / 2,

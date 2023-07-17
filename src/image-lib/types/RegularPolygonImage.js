@@ -1,5 +1,5 @@
 import { BaseImage } from "./BaseImage.js";
-import { Utils } from "../../shared/index.js";
+import { Utils, point } from "../../shared/index.js";
 import {
   colorToSpokenString,
   findHeight,
@@ -68,10 +68,12 @@ export class RegularPolygonImage extends BaseImage {
       for (let i = 0; i < pointsPerComponent; i++) {
         radians = radians + step * angle;
 
-        vertices.push({
-          x: Math.round(this.outerRadius * Math.cos(radians - adjust)),
-          y: Math.round(this.outerRadius * Math.sin(radians - adjust)),
-        });
+        vertices.push(
+          point(
+            Math.round(this.outerRadius * Math.cos(radians - adjust)),
+            Math.round(this.outerRadius * Math.sin(radians - adjust))
+          )
+        );
       }
     }
 

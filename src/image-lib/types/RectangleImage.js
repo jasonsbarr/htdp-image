@@ -1,5 +1,6 @@
 import { BaseImage } from "./BaseImage.js";
 import { colorToSpokenString } from "../utils.js";
+import { point } from "../../shared/index.js";
 
 /**
  * @typedef {import("../../shared/types/FillMode.js").FillMode} FillMode
@@ -24,10 +25,10 @@ export class RectangleImage extends BaseImage {
       style,
       color,
       vertices: [
-        { x: 0, y: height },
-        { x: 0, y: 0 },
-        { x: width, y: 0 },
-        { x: width, y: height },
+        point(0, height),
+        point(0, 0),
+        point(width, 0),
+        point(width, height),
       ],
       pinholeX: width / 2,
       pinholeY: height / 2,

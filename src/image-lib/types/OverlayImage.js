@@ -1,6 +1,7 @@
 import { XPlace, YPlace } from "../../shared/index.js";
 import { findHeight, findWidth, imageEquals } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
+import { point } from "../../shared/index.js";
 
 /**
  * Creates an image that overlays img1 on top of the
@@ -166,8 +167,8 @@ export class OverlayImage extends BaseImage {
     let xs = [];
     let ys = [];
 
-    v1 = v1.map((v) => ({ x: v.x + x1, y: v.y + y1 }));
-    v2 = v2.map((v) => ({ x: v.x + x2, y: v.y + y2 }));
+    v1 = v1.map((v) => point(v.x + x1, v.y + y1));
+    v2 = v2.map((v) => point(v.x + x2, v.y + y2));
 
     // store the vertices as something private, so this.vertices will still return null
     this.#vertices = v1.concat(v2);

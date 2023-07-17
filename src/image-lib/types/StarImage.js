@@ -1,3 +1,4 @@
+import { point } from "../../shared/index.js";
 import {
   colorToSpokenString,
   findHeight,
@@ -46,10 +47,12 @@ export class StarImage extends BaseImage {
       const rads = (360 / (2 * points)) * pt * oneDegreeAsRadian - 0.5;
       const whichRadius = pt % 2 === 1 ? outer : inner;
 
-      vertices.push({
-        x: maxRadius + Math.sin(rads) * whichRadius,
-        y: maxRadius + Math.cos(rads) * whichRadius,
-      });
+      vertices.push(
+        point(
+          maxRadius + Math.sin(rads) * whichRadius,
+          maxRadius + Math.cos(rads) * whichRadius
+        )
+      );
     }
 
     // calculate width and height of the bounding box

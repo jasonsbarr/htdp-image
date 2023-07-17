@@ -1,3 +1,4 @@
+import { point } from "../../shared/index.js";
 import {
   findHeight,
   findWidth,
@@ -32,10 +33,9 @@ export class RotateImage extends BaseImage {
 
     const sin = Math.sin((angle * Math.PI) / 180);
     const cos = Math.cos((angle * Math.PI) / 180);
-    const vertices = image.vertices.map((v) => ({
-      x: v.x * cos - v.y * sin,
-      y: v.x * sin + v.y * cos,
-    }));
+    const vertices = image.vertices.map((v) =>
+      point(v.x * cos - v.y * sin, v.x * sin + v.y * cos)
+    );
     // extract the xs and ys separately
     // why do this if we never use it?
     const vs = unzipVertices(vertices);

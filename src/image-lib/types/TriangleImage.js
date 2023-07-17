@@ -1,3 +1,4 @@
+import { point } from "../../shared/index.js";
 import { colorToSpokenString } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
@@ -41,13 +42,13 @@ export class TriangleImage extends BaseImage {
 
     // if angle < 180 start at the top of the canvas, otherwise start at the bottom
     if (thirdY > 0) {
-      vertices.push({ x: offsetX + 0, y: 0 });
-      vertices.push({ x: offsetX + sideC, y: 0 });
-      vertices.push({ x: offsetX + thirdX, y: thirdY });
+      vertices.push(point(offsetX + 0, 0));
+      vertices.push(point(offsetX + sideC, 0));
+      vertices.push(point(offsetX + thirdX, thirdY));
     } else {
-      vertices.push({ x: offsetX + 0, y: -thirdY });
-      vertices.push({ x: offsetX + sideC, y: -thirdY });
-      vertices.push({ x: offsetX + thirdX, y: 0 });
+      vertices.push(point(offsetX + 0, -thirdY));
+      vertices.push(point(offsetX + sideC, -thirdY));
+      vertices.push(point(offsetX + thirdX, 0));
     }
 
     this.width = Math.max(sideC, thirdX) + offsetX;
