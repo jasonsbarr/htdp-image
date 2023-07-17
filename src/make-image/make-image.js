@@ -851,10 +851,21 @@ export const sceneLine = (img, x1, y2, x2, y2, c) => {
 };
 
 /**
- *
+ * Makes a square image
  * @param {number} side
  * @param {FillMode|string|number} mode
  * @param {string|Color} color
  */
 export const square = (side, mode, color) =>
   ImageLib.makeSquareImage(side, toFillMode(mode), toColor(color));
+
+/**
+ * Makes a rectangle image
+ * @param {number} width
+ * @param {number} height
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.RectangleImage}
+ */
+export const rectangle = (width, height, mode, color) =>
+  ImageLib.makeRectangleImage(width, height, toFillMode(mode), toColor(color));
