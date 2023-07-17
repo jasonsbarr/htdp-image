@@ -9,7 +9,7 @@ import {
   FillMode,
 } from "../shared/index.js";
 import * as ImageLib from "../image-lib/index.js";
-import { canonicalizeAngle } from "./utils.js";
+import { canonicalizeAngle, convertPointsToCartesian } from "./utils.js";
 
 /**
  * @typedef {import("../shared/index.js").Colors.Color} Color
@@ -869,3 +869,35 @@ export const square = (side, mode, color) =>
  */
 export const rectangle = (width, height, mode, color) =>
   ImageLib.makeRectangleImage(width, height, toFillMode(mode), toColor(color));
+
+/**
+ * Creates a regular polygon image with count points and sides of length length
+ * @param {number} length
+ * @param {number} count
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.RegularPolygonImage}
+ */
+export const regularPolygon = (length, count, mode, color) =>
+  ImageLib.makeRegularPolygonImage(
+    length,
+    count,
+    1,
+    toFillMode(mode),
+    toColor(color),
+    true
+  );
+
+/**
+ * Creates a point polygon image from a list of x, y coordinates
+ * @param {import("../shared/types/Point.js").PointXY[]} points
+ * @param {FillMode|string|number} mode
+ * @param {string|Color} color
+ * @returns {ImageLib.PointPolygonImage}
+ */
+export const pointPolygon = (points, mode, color) =>
+  ImageLib.makePointPolygonImage(
+    convertPointsToCartesian(points),
+    toFillMode(mode),
+    toColor(color)
+  );

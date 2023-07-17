@@ -25,12 +25,12 @@ export const Point = {
   },
   /**
    * Polar point constructor
-   * @param {number} h
+   * @param {number} r
    * @param {number} theta
    * @returns {PointPolar}
    */
-  Polar(h, theta) {
-    return { type: "polar", h, theta };
+  Polar(r, theta) {
+    return { type: "polar", r, theta };
   },
   /**
    * Predicate to check if a type is a point

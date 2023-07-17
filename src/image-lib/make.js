@@ -27,6 +27,7 @@ import {
   XPlace,
   YPlace,
 } from "../shared/index.js";
+import { Point } from "../shared/types/Point.js";
 
 /**
  * @typedef {import("../shared/index.js").Colors.Color} Color
@@ -112,7 +113,7 @@ export const makeRegularPolygonImage = (
 
 /**
  * Constructs a PointPolygonImage
- * @param {{x: number; y: number}[]} vertices
+ * @param {Point[]} vertices
  * @param {FillMode} style
  * @param {Color} color
  * @returns {PointPolygonImage}
