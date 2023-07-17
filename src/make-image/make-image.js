@@ -762,3 +762,10 @@ export const reflectX = flipVertical;
  * @returns {ImageLib.FrameImage}
  */
 export const frame = (img) => ImageLib.makeFrameImage(img);
+
+/**
+ * Draws the pinhole on an image
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.PinholeImage}
+ */
+export const drawPinhole = (img) => ImageLib.makePinholeImage(img);
