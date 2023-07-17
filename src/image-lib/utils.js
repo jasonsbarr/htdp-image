@@ -54,6 +54,10 @@ export const colorString = (color, style) => {
   )}, ${Math.floor(colorBlue(color))}, ${styleAlpha * cAlpha})`;
 };
 
+const fail = (msg) => {
+  throw new Error(msg);
+};
+
 /**
  * Gets a color from a string color name
  * @param {string} str
@@ -61,7 +65,7 @@ export const colorString = (color, style) => {
  */
 export const stringToColor = (str) => {
   const result = colorDb.get(str);
-  return result ? result : colorDb.get("transparent");
+  return result ? result : fail(`Color ${str} not found`);
 };
 
 export const isImage = (thing) => {
