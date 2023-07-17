@@ -16,7 +16,7 @@ import {
 export class PointPolygonImage extends BaseImage {
   /**
    * PointPolygonImage constructor
-   * @param {{x: number; y: number}[]} vertices
+   * @param {import("../../shared/types/Point.js").PointXY[]} vertices
    * @param {FillMode} style
    * @param {Color} color
    */
