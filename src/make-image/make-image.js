@@ -901,3 +901,14 @@ export const pointPolygon = (points, mode, color) =>
     toFillMode(mode),
     toColor(color)
   );
+
+/**
+ * Creates an ellipse image
+ * @param {number} width
+ * @param {number} height
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.EllipseImage}
+ */
+export const ellipse = (width, height, mode, color) =>
+  ImageLib.makeEllipseImage(width, height, toFillMode(mode), toColor(color));
