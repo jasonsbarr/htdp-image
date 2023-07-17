@@ -612,3 +612,33 @@ export const putImage = (picture, x, y, background) => {
 
   return newScene;
 };
+
+/**
+ * Places an image on a background image
+ * @param {ImageLib.BaseImage} picture
+ * @param {number} x
+ * @param {number} y
+ * @param {ImageLib.BaseImage} background
+ * @returns {ImageLib.SceneImage}
+ */
+export const placeImage = (picture, x, y, background) => {
+  if (ImageLib.isScene(background)) {
+    return background.add(picture, x, y);
+  }
+
+  let newScene = ImageLib.makeSceneImage(
+    background.width,
+    background.height,
+    [],
+    false,
+    Colors.transparent
+  );
+  newScene = newScene.add(
+    background,
+    background.width / 2,
+    background.height / 2
+  );
+  newScene = newScene.add(picture, x, y);
+
+  return newScene;
+};
