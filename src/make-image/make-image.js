@@ -582,3 +582,33 @@ export const emptyScene = (width, height) =>
  */
 export const emptyColorScene = (width, height, color) =>
   ImageLib.makeSceneImage(width, height, [], true, toColor(color));
+
+/**
+ * Puts an image on a background image at x and y coordinates
+ * @param {ImageLib.BaseImage} picture
+ * @param {number} x
+ * @param {number} y
+ * @param {ImageLib.BaseImage} background
+ * @returns {ImageLib.SceneImage}
+ */
+export const putImage = (picture, x, y, background) => {
+  if (ImageLib.isScene(background)) {
+    return background.add(picture, x, background.height - y);
+  }
+
+  let newScene = ImageLib.makeSceneImage(
+    background.width,
+    background.height,
+    [],
+    false,
+    Colors.transparent
+  );
+  newScene = newScene.add(
+    background,
+    background.width / 2,
+    background.height / 2
+  );
+  newScene = newScene.add(picture, x, background.height - y);
+
+  return newScene;
+};
