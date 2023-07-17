@@ -769,3 +769,24 @@ export const frame = (img) => ImageLib.makeFrameImage(img);
  * @returns {ImageLib.PinholeImage}
  */
 export const drawPinhole = (img) => ImageLib.makePinholeImage(img);
+
+/**
+ * Crops an image to the specified dimensions
+ * @param {number} x
+ * @param {number} y
+ * @param {number} width
+ * @param {number} height
+ * @param {ImageLib.BaseImage} img
+ * @returns {ImageLib.CropImage}
+ */
+export const crop = (x, y, width, height, img) =>
+  ImageLib.makeCropImage(x, y, width, height, img);
+
+/**
+ * Draws a line from the origin to x, y
+ * @param {number} x
+ * @param {number} y
+ * @param {string|Color} c
+ * @returns {ImageLib.LineImage}
+ */
+export const line = (x, y, c) => ImageLib.makeLineImage(x, y, toColor(c));
