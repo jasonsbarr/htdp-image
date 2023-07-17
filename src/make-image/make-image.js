@@ -661,3 +661,47 @@ export const placePinhole = (x, y, img) => img.updatePinhole(x, y);
  */
 export const centerPinhole = (img) =>
   img.updatePinhole(img.width / 2, img.height / 2);
+
+/**
+ * Places an image in alignment with x, y according to placeX and placeY
+ * @param {ImageLib.BaseImage} img
+ * @param {number} x
+ * @param {number} y
+ * @param {XPlace} placeX
+ * @param {YPlace} placeY
+ * @param {ImageLib.BaseImage} background
+ * @returns {ImageLib.SceneImage}
+ */
+export const placeImageAlign = (img, x, y, placeX, placeY, background) => {
+  if (placeX === XPlace.Left) {
+    x += img.width / 2;
+  } else if (placeX === XPlace.Right) {
+    x -= img.width / 2;
+  }
+
+  if (placeY === YPlace.Top) {
+    y += img.height / 2;
+  } else if (placeY === YPlace.Bottom) {
+    y -= img.height / 2;
+  }
+
+  if (ImageLib.isScene(background)) {
+    return background.add(img, x, y);
+  }
+
+  let newScene = ImageLib.makeSceneImage(
+    background.width,
+    background.height,
+    [],
+    false,
+    Colors.transparent
+  );
+  newScene = newScene.add(
+    background,
+    background.width / 2,
+    background.height / 2
+  );
+  newScene = newScene.add(img, x, y);
+
+  return newScene;
+};
