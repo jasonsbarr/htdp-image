@@ -1091,3 +1091,35 @@ export const triangleAAS = (angleA, angleB, sideC, mode, color) => {
     toColor(color)
   );
 };
+
+/**
+ * Creates a triangle image from 2 given angles and a given side length
+ * @param {number} angleA
+ * @param {number} sideB
+ * @param {number} angleC
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.TriangleImage}
+ */
+export const triangleASA = (angleA, sideB, angleC, mode, color) => {
+  const angleB = 180 - angleA - angleC;
+
+  if (less(angleB, 0)) {
+    throw new Error("The given side, angle, and side will not form a triangle");
+  }
+
+  const base =
+    (sideB * Math.sin((angleA * Math.PI) / 180)) /
+    Math.sin((angleB * Math.PI) / 180);
+  const sideC =
+    (sideB * Math.sin((angleC * Math.PI) / 180)) /
+    Math.sin((angleB * Math.PI) / 180);
+
+  return ImageLib.makeTriangleImage(
+    sideC,
+    angleA,
+    sideB,
+    toFillMode(mode),
+    toColor(color)
+  );
+};
