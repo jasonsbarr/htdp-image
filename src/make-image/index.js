@@ -1207,3 +1207,21 @@ export const star = (side, mode, color) =>
     toColor(color),
     false
   );
+
+/**
+ * Creates a star with a variable number of points
+ * @param {number} pointCount
+ * @param {number} outer
+ * @param {number} inner
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.RegularPolygonImage}
+ */
+export const starSized = (pointCount, outer, inner, mode, color) =>
+  ImageLib.makeStarImage(
+    pointCount,
+    inner,
+    outer,
+    toFillMode(mode),
+    toColor(color)
+  );
