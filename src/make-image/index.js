@@ -1004,3 +1004,62 @@ export const triangleSSS = (sideA, sideB, sideC, mode, color) => {
     toColor(color)
   );
 };
+
+/**
+ * Creates a triangle image from a given angle and 2 given side lengths
+ * @param {number} angleA
+ * @param {number} sideB
+ * @param {number} sideC
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.TriangleImage}
+ */
+export const triangleASS = (angleA, sideB, sideC, mode, color) => {
+  if (less(180, angleA)) {
+    throw new Error("The given side, angle, and side will not form a triangle");
+  }
+
+  return ImageLib.makeTriangleImage(
+    sideC,
+    angleA,
+    sideB,
+    toFillMode(mode),
+    toColor(color)
+  );
+};
+
+/**
+ * Creates a triangle image from 2 given side lengths and a given angle
+ * @param {number} sideA
+ * @param {number} sideB
+ * @param {number} angleC
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.TriangleImage}
+ */
+export const triangleSSA = (sideA, sideB, angleC, mode, color) => {
+  if (less(180, angleC)) {
+    throw new Error("The given side, angle, and side will not form a triangle");
+  }
+
+  const sideC2 = cosRel(sideA, sideB, angleC);
+  const sideC = Math.sqrt(sideC2);
+
+  if (sideC2 <= 0) {
+    throw new Error("The given side, angle, and side will not form a triangle");
+  } else if (sidesDontFit(sideA, sideB, sideC)) {
+    throw new Error("The given side, angle, and side will not form a triangle");
+  }
+
+  const angleA =
+    Math.acos(excess(sideB, sideC, sideA) / (2 * sideB * sideC)) *
+    (180 / Math.PI);
+
+  return ImageLib.makeTriangleImage(
+    sideC,
+    angleA,
+    sideB,
+    toFillMode(mode),
+    toColor(color)
+  );
+};
