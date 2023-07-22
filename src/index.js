@@ -20,7 +20,7 @@ import {
   FrameImage,
   LineImage,
   RectangleImage,
-  RhombusImage
+  RhombusImage,
 } from "./image-lib/index.js";
 import {
   FillMode,
@@ -189,7 +189,7 @@ export const Types = {
   FrameImage,
   LineImage,
   RectangleImage,
-  RhombusImage
+  RhombusImage,
 };
 
 export {
