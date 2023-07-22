@@ -1,12 +1,8 @@
 import equals from "fast-deep-equal/es6/index.js";
-import {
-  colorToSpokenString,
-  findHeight,
-  findWidth,
-  translateVertices,
-} from "../utils.js";
+import { findHeight, findWidth, translateVertices } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 import { point } from "../../shared/index.js";
+import { colorToSpokenString } from "../colorToSpokenString.js";
 
 /**
  * @typedef {import("../../shared/colors.js").Color} Color

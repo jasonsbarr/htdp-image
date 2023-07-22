@@ -1,5 +1,5 @@
 import equals from "fast-deep-equal/es6/index.js";
-import { colorToSpokenString } from "../utils.js";
+import { colorToSpokenString } from "../colorToSpokenString.js";
 import { BaseImage } from "./BaseImage.js";
 
 /**

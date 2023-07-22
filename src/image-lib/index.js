@@ -92,11 +92,16 @@ import {
   isStepCount,
   isPointsCount,
   stringToColor,
+  RGBtoLAB,
 } from "./utils.js";
 
 export const makeColor = Colors.color;
 export const isColor = Colors.isColor;
 export const isPoint = Point.isPoint;
+
+/**
+ * @typedef {Colors.Color} Color
+ */
 
 export {
   // image types
@@ -190,10 +195,30 @@ export {
   colorBlue,
   colorAlpha,
   colorString,
-  isColorOrColorString,
   isAngle,
   isSideCount,
   isStepCount,
   isPointsCount,
-  stringToColor,
+};
+
+const fail = (msg) => {
+  throw new Error(msg);
+};
+
+/**
+ *
+ * @param {Color|string} val
+ * @returns {boolean}
+ */
+export const isColorOrColorString = (val) =>
+  isColor(val) || typeof colorDb.get(val) !== "undefined";
+
+/**
+ * Gets a color from a string color name
+ * @param {string} str
+ * @returns {Color}
+ */
+export const stringToColor = (str) => {
+  const result = colorDb.get(str);
+  return result ? result : fail(`Color ${str} not found`);
 };

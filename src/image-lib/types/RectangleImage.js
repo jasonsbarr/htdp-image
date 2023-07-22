@@ -1,5 +1,5 @@
 import { BaseImage } from "./BaseImage.js";
-import { colorToSpokenString } from "../utils.js";
+import { colorToSpokenString } from "../colorToSpokenString.js";
 import { point } from "../../shared/index.js";
 
 /**

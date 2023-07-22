@@ -1,11 +1,7 @@
 import { BaseImage } from "./BaseImage.js";
 import { Utils, point } from "../../shared/index.js";
-import {
-  colorToSpokenString,
-  findHeight,
-  findWidth,
-  translateVertices,
-} from "../utils.js";
+import { findHeight, findWidth, translateVertices } from "../utils.js";
+import { colorToSpokenString } from "../colorToSpokenString.js";
 
 const gcd = Utils.gcd;
 

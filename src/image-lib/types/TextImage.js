@@ -5,7 +5,7 @@ import {
   FontStyle,
   makeDocument,
 } from "../../shared/index.js";
-import { colorToSpokenString } from "../utils.js";
+import { colorToSpokenString } from "../colorToSpokenString.js";
 import { BaseImage } from "./BaseImage.js";
 
 const document = makeDocument();

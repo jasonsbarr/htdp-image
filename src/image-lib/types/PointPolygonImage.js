@@ -1,10 +1,6 @@
 import { BaseImage } from "./BaseImage.js";
-import {
-  findWidth,
-  findHeight,
-  translateVertices,
-  colorToSpokenString,
-} from "../utils.js";
+import { findWidth, findHeight, translateVertices } from "../utils.js";
+import { colorToSpokenString } from "../colorToSpokenString.js";
 
 /**
  * @typedef {import("../../shared/colors.js").Color} Color

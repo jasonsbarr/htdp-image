@@ -1,5 +1,4 @@
 import { Utils, Colors, makeDocument } from "../shared/index.js";
-import { colorDb } from "./colorDb.js";
 import { makeImageDataImage } from "./make.js";
 import { BaseImage } from "./types/BaseImage.js";
 
@@ -36,14 +35,6 @@ export const colorBlue = (c) => clamp(c.b, 0, 255);
  */
 export const colorAlpha = (c) => clamp(c.a, 0, 1);
 
-/**
- *
- * @param {Color} val
- * @returns {boolean}
- */
-export const isColorOrColorString = (val) =>
-  isColor(val) || typeof colorDb.get(val) !== "undefined";
-
 export const colorString = (color, style) => {
   const styleAlpha = isNaN(style.valueOf()) ? 1.0 : style.valueOf();
   const cAlpha = colorAlpha(color);
@@ -52,20 +43,6 @@ export const colorString = (color, style) => {
   return `rgba(${Math.floor(colorRed(color))}, ${Math.floor(
     colorGreen(color)
   )}, ${Math.floor(colorBlue(color))}, ${styleAlpha * cAlpha})`;
-};
-
-const fail = (msg) => {
-  throw new Error(msg);
-};
-
-/**
- * Gets a color from a string color name
- * @param {string} str
- * @returns {Color}
- */
-export const stringToColor = (str) => {
-  const result = colorDb.get(str);
-  return result ? result : fail(`Color ${str} not found`);
 };
 
 export const isImage = (thing) => {
@@ -216,59 +193,6 @@ export const RGBtoLAB = (r, g, b) => {
   const xyz = RGBtoXYZ(r, g, b),
     lab = XYZtoLAB(xyz[0], xyz[1], xyz[2]);
   return { l: lab[0], a: lab[1], b: lab[2] };
-};
-
-let colorLabs = [],
-  colorRgbs = colorDb.colors;
-
-for (var p in colorRgbs) {
-  if (colorRgbs.hasOwnProperty(p)) {
-    // NOTE(ben): Not flooring numbers here, since RGBtoLAB supports float values
-    var lab = RGBtoLAB(
-      colorRed(colorRgbs[p]),
-      colorGreen(colorRgbs[p]),
-      colorBlue(colorRgbs[p])
-    );
-    colorLabs.push({ name: p, l: lab.l, a: lab.a, b: lab.b });
-  }
-}
-
-export const colorToSpokenString = (aColor, aStyle) => {
-  if (aStyle.valueOf() === 0) {
-    return " transparent ";
-  }
-
-  // NOTE(ben): Not flooring numbers here, since RGBtoLAB supports float values
-  const lab1 = RGBtoLAB(
-    colorRed(aColor),
-    colorGreen(aColor),
-    colorBlue(aColor)
-  );
-  let distances = colorLabs.map(function (lab2) {
-    return {
-      l: lab2.l,
-      a: lab2.a,
-      b: lab2.b,
-      name: lab2.name,
-      d: Math.sqrt(
-        Math.pow(lab1.l - lab2.l, 2) +
-          Math.pow(lab1.a - lab2.a, 2) +
-          Math.pow(lab1.b - lab2.b, 2)
-      ),
-    };
-  });
-
-  distances = distances.sort(function (a, b) {
-    return a.d < b.d ? -1 : a.d > b.d ? 1 : 0;
-  });
-
-  const match = distances[0].name;
-  const style = isNaN(aStyle.valueOf())
-    ? aStyle.toString() === "solid"
-      ? " solid"
-      : "n outline"
-    : " translucent ";
-  return style + " " + match.toLowerCase();
 };
 
 /**
