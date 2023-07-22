@@ -86,13 +86,10 @@ import {
   colorBlue,
   colorAlpha,
   colorString,
-  isColorOrColorString,
   isAngle,
   isSideCount,
   isStepCount,
   isPointsCount,
-  stringToColor,
-  RGBtoLAB,
 } from "./utils.js";
 
 export const makeColor = Colors.color;
