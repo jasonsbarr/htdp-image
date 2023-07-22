@@ -3,7 +3,6 @@ import {
   FontFamily,
   FontStyle,
   FontWeight,
-  Point,
   XPlace,
   YPlace,
   FillMode,
