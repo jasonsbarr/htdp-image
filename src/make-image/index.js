@@ -1227,3 +1227,22 @@ export const starSized = (pointCount, outer, inner, mode, color) =>
   );
 
 export const radialStar = starSized;
+
+/**
+ * Creates a star-shaped polygon from the given side length and count
+ * @param {number} length
+ * @param {number} count
+ * @param {number} step
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.RegularPolygonImage}
+ */
+export const starPolygon = (length, count, step, mode, color) =>
+  ImageLib.makeRegularPolygonImage(
+    length,
+    count,
+    step,
+    toFillMode(mode),
+    toColor(color),
+    false
+  );
