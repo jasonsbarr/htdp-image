@@ -923,3 +923,19 @@ export const ellipse = (width, height, mode, color) =>
  */
 export const wedge = (r, angle, mode, color) =>
   ImageLib.makeWedgeImage(r, angle, toFillMode(mode), toColor(color));
+
+/**
+ * Creates an equilateral triangle
+ * @param {number} side
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.TriangleImage}
+ */
+export const triangle = (side, mode, color) =>
+  ImageLib.makeTriangleImage(
+    side,
+    360 - 60,
+    side,
+    toFillMode(mode),
+    toColor(color)
+  );
