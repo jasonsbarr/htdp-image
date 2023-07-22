@@ -148,7 +148,6 @@ export {
   makeImageDataImage,
   makeFileImage,
   makeFileVideo,
-  colorListToImage,
 
   // predicates
   isImage,
