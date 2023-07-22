@@ -21,7 +21,7 @@ import {
   LineImage,
   RectangleImage,
   RhombusImage
-} as Types from "./image-lib/index.js";
+} from "./image-lib/index.js";
 import {
   FillMode,
   FontFamily,
@@ -167,6 +167,31 @@ export const isYPlace = (x) =>
     x.toLowerCase() === "pinhole" ||
     x.toLowerCase() === "middle");
 
+export const Types = {
+  BaseImage,
+  SceneImage,
+  FileImage,
+  TextImage,
+  FileVideo,
+  ImageDataImage,
+  OverlayImage,
+  RotateImage,
+  EllipseImage,
+  CropImage,
+  PinholeImage,
+  RegularPolygonImage,
+  PointPolygonImage,
+  StarImage,
+  TriangleImage,
+  WedgeImage,
+  ScaleImage,
+  FlipImage,
+  FrameImage,
+  LineImage,
+  RectangleImage,
+  RhombusImage
+};
+
 export {
   FontFamily,
   FontStyle,
@@ -176,7 +201,6 @@ export {
   point,
   XPlace,
   YPlace,
-  Types,
   circle,
   text,
   textFont,
