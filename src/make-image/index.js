@@ -1152,3 +1152,20 @@ export const triangleSAA = (sideA, angleB, angleC, mode, color) => {
     toColor(color)
   );
 };
+
+/**
+ * Creates a right triangle image from 2 given side lengths
+ * @param {number} side1
+ * @param {number} side2
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.TriangleImage}
+ */
+export const rightTriangle = (side1, side2, mode, color) =>
+  ImageLib.makeTriangleImage(
+    side1,
+    360 - 90,
+    side2,
+    toFillMode(mode),
+    toColor(color)
+  );
