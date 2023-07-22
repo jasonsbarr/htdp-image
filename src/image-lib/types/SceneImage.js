@@ -1,6 +1,6 @@
 import equals from "fast-deep-equal/es6/index.js";
 import { BaseImage } from "./BaseImage.js";
-import { colorString } from "./utils.js";
+import { colorString } from "../utils.js";
 
 /**
  * @typedef {[BaseImage number number]} Child
