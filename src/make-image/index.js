@@ -1257,3 +1257,130 @@ export const starPolygon = (length, count, step, mode, color) =>
  */
 export const rhombus = (length, angle, mode, color) =>
   ImageLib.makeRhombusImage(length, angle, toFillMode(mode), toColor(color));
+
+export const imageToColorList = ImageLib.imageToColorList;
+
+/**
+ * Gets the width of an image
+ * @param {ImageLib.BaseImage} img
+ * @returns {number}
+ */
+export const imageWidth = (img) => img.width;
+
+/**
+ * Gets the height of an image
+ * @param {ImageLib.BaseImage} img
+ * @returns {number}
+ */
+export const imageHeight = (img) => img.height;
+
+/**
+ * Gets the baseline value of an image
+ * @param {ImageLib.BaseImage} img
+ * @returns {number}
+ */
+export const imageBaseline = (img) => img.alphaBaseline;
+
+/**
+ * Gets the pinhole-x value of an image
+ * @param {ImageLib.BaseImage} img
+ * @returns {number}
+ */
+export const imagePinholeX = (img) => img.pinholeX;
+
+/**
+ * Gets the pinhole-y value of an image
+ * @param {ImageLib.BaseImage} img
+ * @returns {number}
+ */
+export const imagePinholeY = (img) => img.pinholeY;
+
+/**
+ * Gets the color at a given x/y coordinate
+ * @param {ImageLib.BaseImage} img
+ * @param {number} x
+ * @param {number} y
+ * @returns {Colors.Color}
+ */
+export const colorAtPosition = (img, x, y) => {
+  const width = img.width;
+  const height = img.height;
+
+  if (x >= width) {
+    throw new Error(
+      `The given x coordinate ${x} must be between 0 (inclusive) and the image width of ${width} (exclusive)`
+    );
+  }
+
+  if (y >= height) {
+    throw new Error(
+      `The given y coordinate ${y} must be between 0 (inclusive) and the image height of ${height} (exclusive)`
+    );
+  }
+
+  return ImageLib.colorAtPosition(img, x, y);
+};
+
+/**
+ * Creates an image from a list of colors
+ * @param {Colors.Color[]} list
+ * @param {number} width
+ * @param {number} height
+ * @param {number} pinholeX
+ * @param {number} pinholeY
+ * @returns {ImageLib.BaseImage}
+ */
+export const colorListToImage = (list, width, height, pinholeX, pinholeY) => {
+  const len = list.length;
+
+  if (len !== width * height) {
+    throw new Error(
+      `The color list does not have the right number of elements: expected ${
+        width * height
+      } but got ${len}`
+    );
+  }
+
+  return ImageLib.colorListToImage(list, width, height, pinholeX, pinholeY);
+};
+
+/**
+ * Creates a bitmap (image) from a list of colors
+ * @param {Colors.Color[]} list
+ * @param {number} width
+ * @param {number} height
+ * @returns {ImageLib.BaseImage}
+ */
+export const colorListToBitmap = (list, width, height) => {
+  const len = list.length;
+
+  if (len !== width * height) {
+    throw new Error(
+      `The color list does not have the right number of elements: expected ${
+        width * height
+      } but got ${len}`
+    );
+  }
+
+  return ImageLib.colorListToImage(list, width, height, width / 2, height / 2);
+};
+
+/**
+ * Get a color from a string color name
+ * @param {string} name
+ * @returns {Colors.Color|undefined}
+ */
+export const nameToColor = (name) => ImageLib.colorDb.get(name);
+
+export const colorNamed = (name) => {
+  const val = ImageLib.colorDb.get(name);
+
+  if (!val) {
+    throw new Error(`Unknown color name ${name}`);
+  }
+
+  return val;
+};
+
+export const emptyImage = () =>
+  ImageLib.makeSceneImage(0, 0, [], true, Colors.transparent);
