@@ -1225,3 +1225,5 @@ export const starSized = (pointCount, outer, inner, mode, color) =>
     toFillMode(mode),
     toColor(color)
   );
+
+export const radialStar = starSized;
