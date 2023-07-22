@@ -1246,3 +1246,14 @@ export const starPolygon = (length, count, step, mode, color) =>
     toColor(color),
     false
   );
+
+/**
+ * Creates a rhombus image
+ * @param {number} length
+ * @param {number} angle
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.RhombusImage}
+ */
+export const rhombus = (length, angle, mode, color) =>
+  ImageLib.makeRhombusImage(length, angle, toFillMode(mode), toColor(color));
