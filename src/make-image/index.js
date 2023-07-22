@@ -1169,3 +1169,24 @@ export const rightTriangle = (side1, side2, mode, color) =>
     toFillMode(mode),
     toColor(color)
   );
+
+/**
+ * Creates an isosceles triangle image from a given side length and angle
+ * @param {number} side
+ * @param {number} angleC
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.TriangleImage}
+ */
+export const isoscelesTriangle = (side, angleC, mode, color) => {
+  const angleAB = (180 - angleC) / 2;
+  const base = 2 * side * Math.sin((angleC * Math.PI) / 180 / 2);
+
+  return ImageLib.makeTriangleImage(
+    base,
+    360 - angleAB,
+    side,
+    toFillMode(mode),
+    toColor(color)
+  );
+};
