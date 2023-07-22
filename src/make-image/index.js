@@ -912,3 +912,14 @@ export const pointPolygon = (points, mode, color) =>
  */
 export const ellipse = (width, height, mode, color) =>
   ImageLib.makeEllipseImage(width, height, toFillMode(mode), toColor(color));
+
+/**
+ * Creates a wedge image
+ * @param {number} r
+ * @param {number} angle
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.WedgeImage}
+ */
+export const wedge = (r, angle, mode, color) =>
+  ImageLib.makeWedgeImage(r, angle, toFillMode(mode), toColor(color));
