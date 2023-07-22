@@ -1190,3 +1190,20 @@ export const isoscelesTriangle = (side, angleC, mode, color) => {
     toColor(color)
   );
 };
+
+/**
+ * Creates a star image with a given side length
+ * @param {number} side
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.RegularPolygonImage}
+ */
+export const star = (side, mode, color) =>
+  ImageLib.makeRegularPolygonImage(
+    side,
+    5,
+    2,
+    toFillMode(mode),
+    toColor(color),
+    false
+  );
