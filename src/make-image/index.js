@@ -828,7 +828,7 @@ export const addLine = (img, x1, y1, x2, y2, c) => {
  * @param {string|Color} c
  * @returns {ImageLib.SceneImage}
  */
-export const sceneLine = (img, x1, y2, x2, y2, c) => {
+export const sceneLine = (img, x1, y1, x2, y2, c) => {
   const line = ImageLib.makeLineImage(x2 - x1, y2 - y1, toColor(color));
   let newScene = ImageLib.makeSceneImage(
     img.width,
