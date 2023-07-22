@@ -45,6 +45,7 @@ import {
   makeImageDataImage,
   makeFileImage,
   makeFileVideo,
+  colorListToImage,
 } from "./make.js";
 import {
   isImage,
