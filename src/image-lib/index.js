@@ -80,7 +80,6 @@ import {
   imageDifference,
   colorAtPosition,
   imageToColorList,
-  colorListToImage,
   colorRed,
   colorGreen,
   colorBlue,
@@ -149,6 +148,7 @@ export {
   makeImageDataImage,
   makeFileImage,
   makeFileVideo,
+  colorListToImage,
 
   // predicates
   isImage,

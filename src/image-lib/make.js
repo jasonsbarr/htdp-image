@@ -304,3 +304,40 @@ export const makeFileImage = (src, rawImage) => FileImage.new(src, rawImage);
  * @returns {FileVideo}
  */
 export const makeFileVideo = (src, rawVideo) => FileVideo.new(src, rawVideo);
+
+/**
+ * Converts a list of colors into an image
+ * @param {Color[]} listOfColors
+ * @param {number} width
+ * @param {number} height
+ * @param {number} pinholeX
+ * @param {number} pinholeY
+ * @returns {BaseImage}
+ */
+export const colorListToImage = (
+  listOfColors,
+  width,
+  height,
+  pinholeX,
+  pinholeY
+) => {
+  const canvas = makeCanvas(width, height),
+    ctx = canvas.getContext("2d"),
+    imageData = ctx.createImageData(width, height),
+    data = imageData.data;
+  let aColor;
+
+  for (var i = 0; i < jsLOC.length * 4; i += 4) {
+    aColor = listOfColors[i / 4];
+    // NOTE(ben): Flooring colors here to make this a proper RGBA image
+    data[i] = Math.floor(colorRed(aColor));
+    data[i + 1] = Math.floor(colorGreen(aColor));
+    data[i + 2] = Math.floor(colorBlue(aColor));
+    data[i + 3] = colorAlpha(aColor) * 255;
+  }
+
+  const ans = makeImageDataImage(imageData);
+  ans.pinholeX = pinholeX;
+  ans.pinholeY = pinholeY;
+  return ans;
+};
