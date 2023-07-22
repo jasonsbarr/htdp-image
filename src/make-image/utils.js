@@ -1,5 +1,4 @@
 import { Point } from "../shared/index.js";
-import { Point } from "../shared/types/Point.js";
 
 export const less = (n, m) => n < m;
 

@@ -9,7 +9,8 @@ import {
   FillMode,
 } from "../shared/index.js";
 import * as ImageLib from "../image-lib/index.js";
-import { canonicalizeAngle, convertPointsToCartesian } from "./utils.js";
+import { canonicalizeAngle, convertPointsToCartesian, less } from "./utils.js";
+import { cosRel, excess } from "./trig.js";
 
 /**
  * @typedef {import("../shared/index.js").Colors.Color} Color
@@ -939,3 +940,39 @@ export const triangle = (side, mode, color) =>
     toFillMode(mode),
     toColor(color)
   );
+
+/**
+ * Creates a triangle image from 2 sides and an angle
+ * @param {number} sideA
+ * @param {number} angleB
+ * @param {number} sideC
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
+ * @returns {ImageLib.TriangleImage}
+ */
+export const triangleSAS = (sideA, angleB, sideC, mode, color) => {
+  const sideB2 = cosRel(sideA, sideC, angleB);
+  const sideB = Math.sqrt(sideB2);
+
+  if (sideB2 <= 0) {
+    throw new Error("The given side, angle, and side will not form a triangle");
+  } else if (
+    less(sideA + sideC, sideB) ||
+    less(sideB + sideC, sideA) ||
+    less(sideA + sideB, sideC)
+  ) {
+    throw new Error("The given side, angle, and side will not form a triangle");
+  }
+
+  const angleA =
+    Math.acos(excess(sideB, sideC, sideA) / (2 * sideB * sideC)) *
+    (180 / Math.PI);
+
+  return ImageLib.makeTriangleImage(
+    sideC,
+    angleA,
+    sideB,
+    toFillMode(mode),
+    toColor(color)
+  );
+};
