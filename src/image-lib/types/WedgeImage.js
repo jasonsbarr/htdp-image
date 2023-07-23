@@ -3,6 +3,7 @@ import { findHeight, findWidth, translateVertices } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 import { point } from "../../shared/index.js";
 import { colorToSpokenString } from "../colorToSpokenString.js";
+import { colorString } from "../utils.js";
 
 /**
  * @typedef {import("../../shared/colors.js").Color} Color
