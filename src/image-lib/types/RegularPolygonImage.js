@@ -46,7 +46,7 @@ export class RegularPolygonImage extends BaseImage {
 
     this.outerRadius = Math.round(length / (2 * Math.sin(Math.PI / count)));
 
-    const adjust = Math.PI / 2; // rotate 1/4 turn, with y pointing down
+    let adjust = Math.PI / 2; // rotate 1/4 turn, with y pointing down
 
     if (flatBottom && count % 2 == 0) {
       adjust += Math.PI / count;
