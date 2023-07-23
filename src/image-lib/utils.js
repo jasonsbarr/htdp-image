@@ -1,5 +1,4 @@
 import { Utils, Colors, makeDocument } from "../shared/index.js";
-import { BaseImage } from "./types/BaseImage.js";
 
 /**
  * @typedef {import("../shared/colors.js").Color} Color
@@ -196,7 +195,7 @@ export const RGBtoLAB = (r, g, b) => {
 
 /**
  *
- * @param {BaseImage} img
+ * @param {import("./types/BaseImage.js").BaseImage} img
  * @param {number} x
  * @param {number} y
  * @returns {Color}
@@ -224,7 +223,7 @@ export const colorAtPosition = (img, x, y) => {
 
 /**
  * Extracts a list of colors from an image
- * @param {BaseImage} img
+ * @param {import("./types/BaseImage.js").BaseImage} img
  * @returns {Color[]}
  */
 export const imageToColorList = (img) => {
