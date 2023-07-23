@@ -18,7 +18,7 @@ import { cosRel, excess } from "./trig.js";
  * @typedef {"solid"|"outline"|number|FillMode} Fill
  */
 
-const toFillMode = FillMode.toFillMode;
+const toFillMode = FillMode.toFillMode.bind(FillMode);
 
 /**
  * Converts a string to color or passes a color through
