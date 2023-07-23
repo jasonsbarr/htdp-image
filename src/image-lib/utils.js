@@ -33,8 +33,8 @@ export const colorBlue = (c) => clamp(c.b, 0, 255);
  */
 export const colorAlpha = (c) => clamp(c.a, 0, 1);
 
-export const colorString = (color, style) => {
-  const styleAlpha = isNaN(style.valueOf()) ? 1.0 : style.valueOf();
+export const colorString = (color, style = null) => {
+  const styleAlpha = isNaN(style?.valueOf()) ? 1.0 : style.valueOf();
   const cAlpha = colorAlpha(color);
 
   // note: flooring the numbers here to make sure it's a valid rgba string
