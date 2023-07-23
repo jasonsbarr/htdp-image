@@ -74,12 +74,11 @@ export class SceneImage extends BaseImage {
    * @returns {SceneImage}
    */
   add(image, x, y) {
+    const child = [image, x - image.width / 2, y - image.height / 2];
     return new SceneImage(
       this.width,
       this.height,
-      this.children.concat([
-        [[image, x - image.width / 2, y - image.height / 2]],
-      ]),
+      this.children.concat([child]),
       this.withBorder,
       this.color
     );
