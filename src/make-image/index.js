@@ -585,7 +585,7 @@ export const emptyColorScene = (width, height, color) =>
   ImageLib.makeSceneImage(width, height, [], true, toColor(color));
 
 /**
- * Puts an image on a background image at x and y coordinates
+ * Puts an image on a background image at x and y coordinates relative to the bottom left
  * @param {ImageLib.BaseImage} picture
  * @param {number} x
  * @param {number} y
@@ -615,7 +615,7 @@ export const putImage = (picture, x, y, background) => {
 };
 
 /**
- * Places an image on a background image
+ * Places an image on a background image with x and y coordinates relative to the top left
  * @param {ImageLib.BaseImage} picture
  * @param {number} x
  * @param {number} y
