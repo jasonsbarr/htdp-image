@@ -69,9 +69,9 @@ export const imageDifference = (left, right) => {
 };
 
 export const isAngle = (x) => typeof x === "number" && x >= 0 && x < 360;
-export const isSideCount = Number.isInteger(x) && x >= 3;
-export const isStepCount = Number.isInteger(x) && x >= 1;
-export const isPointsCount = Number.isInteger(x) && x >= 2;
+export const isSideCount = (x) => Number.isInteger(x) && x >= 3;
+export const isStepCount = (x) => Number.isInteger(x) && x >= 1;
+export const isPointsCount = (x) => Number.isInteger(x) && x >= 2;
 
 /**
  * Checks if 2 sets of vertices are equal
