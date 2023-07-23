@@ -1,4 +1,13 @@
-import jsdom from "jsdom";
+let jsdom = {};
+let JSDOM = function () {};
+
+(async () => {
+  if (typeof window === "undefined") {
+    jsdom = await import("jsdom");
+  } else {
+    jsdom = { JSDOM };
+  }
+})();
 
 export const makeDocument = () => {
   let document;
