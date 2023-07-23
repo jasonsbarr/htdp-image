@@ -27,19 +27,20 @@ export class RhombusImage extends BaseImage {
       height: Math.abs(Math.cos(((angle / 2) * Math.PI) / 180)) * side * 2,
       style,
       color,
-      vertices: [
-        point(this.width / 2, 0),
-        point(this.width, this.height / 2),
-        point(this.width / 2, this.height),
-        point(0, this.height / 2),
-      ],
-      pinholeX: this.width / 2,
-      pinholeY: this.height / 2,
       ariaText: `a ${colorToSpokenString(
         color,
         style
       )} rhombus of size ${side} and angle ${angle}`,
     });
+
+    this.vertices = [
+      point(this.width / 2, 0),
+      point(this.width, this.height / 2),
+      point(this.width / 2, this.height),
+      point(0, this.height / 2),
+    ];
+    this.pinholeX = this.width / 2;
+    this.pinholeY = this.height / 2;
   }
 
   /**
