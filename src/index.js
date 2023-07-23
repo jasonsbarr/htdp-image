@@ -1,3 +1,4 @@
+import * as ImageLib from "./image-lib/index.js";
 import {
   BaseImage,
   SceneImage,
