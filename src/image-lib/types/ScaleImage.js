@@ -29,6 +29,7 @@ export class ScaleImage extends BaseImage {
       }`,
     });
 
+    this.img = img;
     this._vertices = img.vertices.map((v) =>
       point(v.x * xFactor, v.y * yFactor)
     );
