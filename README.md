@@ -6,6 +6,8 @@ Shared via the MIT License under the terms of [the original HTDP library's licen
 
 Special thanks to [Joe Gibbs Politz](https://twitter.com/joepolitz) for all his work on the Pyret language, including translating this library into a JavaScript module for Pyret, the developers of [Whalesong](https://www.hashcollision.org/whalesong/) who originally translated it (or at least parts of it, I'm not 100% sure) into JavaScript, and to all others who have worked on the code for this library. All I'm really doing is updating their work to use modern JavaScript syntax and idioms.
 
+**Warning:** This port is still in extremely early, pre-alpha status and should not be used for anything remotely important. I've ported over the entire library, but I haven't tested everything yet so YMMV.
+
 ## Installation
 
 Simply run `npm install @jasonsbarr/htdp-image` to install the package. There are bundles for CJS modules, ES modules, and UMD modules.
