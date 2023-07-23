@@ -1,4 +1,4 @@
-import * as ImageLib from "./image-lib/index.js";
+import * as Lib from "./image-lib/index.js";
 import {
   BaseImage,
   SceneImage,
@@ -194,6 +194,7 @@ export const Types = {
 };
 
 export {
+  Lib,
   FontFamily,
   FontStyle,
   FontWeight,
