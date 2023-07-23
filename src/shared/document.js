@@ -1,6 +1,11 @@
 let jsdom = {};
 let JSDOM = function () {};
 
+// Have to use this ugly hack to populate the jsdom value because microbundle
+// doesn't support top-level await and otherwise we either have to bundle
+// a bunch of Node.js modules that don't work in the browser and take
+// forever to bundle anyway or else let a bad import specifier for jsdom
+// crash the program when you import the main bundle.
 (async () => {
   if (typeof window === "undefined") {
     jsdom = await import("jsdom");
