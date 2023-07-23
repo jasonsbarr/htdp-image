@@ -78,7 +78,7 @@ export class SceneImage extends BaseImage {
       this.width,
       this.height,
       this.children.concat([
-        [image, x - image.width / 2, y - image.height / 2],
+        [[image, x - image.width / 2, y - image.height / 2]],
       ]),
       this.withBorder,
       this.color
