@@ -1,5 +1,4 @@
 import { Utils, Colors, makeDocument } from "../shared/index.js";
-import { makeImageDataImage } from "./make.js";
 import { BaseImage } from "./types/BaseImage.js";
 
 /**
