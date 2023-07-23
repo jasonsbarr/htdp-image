@@ -1,3 +1,4 @@
+import { Colors } from "../shared/index.js";
 import { colorRed, colorGreen, colorBlue, colorAlpha } from "./utils.js";
 /**
  * @typedef {import("../shared/colors.js").Color} Color
