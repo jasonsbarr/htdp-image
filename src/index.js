@@ -125,7 +125,7 @@ const document = makeDocument();
  * @param {HTMLElement} element
  */
 export const render = (image, element = document.body) => {
-  const canvas = ImageLib.makeCanvas(image.width, image.height);
+  const canvas = Lib.makeCanvas(image.width, image.height);
   const context = canvas.getContext("2d");
 
   element.appendChild(canvas);
