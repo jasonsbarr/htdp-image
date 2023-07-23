@@ -1,4 +1,5 @@
 import { colorDb } from "./colorDb.js";
+import { RGBtoLAB } from "./utils.js";
 
 let colorLabs = [],
   colorRgbs = colorDb.colors;
