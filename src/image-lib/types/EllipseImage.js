@@ -26,7 +26,7 @@ export class EllipseImage extends BaseImage {
       color,
       pinholeX: width / 2,
       pinholeY: height / 2,
-      ariaText: `a${colorToSpokenString(color, style)} ${
+      ariaText: `a ${colorToSpokenString(color, style)} ${
         width === height
           ? `circle of radius ${width / 2}`
           : `ellipse of width ${width} and height ${height}`
