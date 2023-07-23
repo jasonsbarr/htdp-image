@@ -18,12 +18,13 @@ For use with ES Modules:
 import * as Image from "@jasonsbarr/htdp-image";
 
 const square = Image.square(20, "solid", "red");
+Image.render(square);
 ```
 
 Or import a single function:
 
 ```js
-import { square } from "@jasonsbarr/htdp-image";
+import { square, render } from "@jasonsbarr/htdp-image";
 ```
 
 For use with CommonJS (classic Node.js) modules:
@@ -33,7 +34,18 @@ const Image = require("@jasonsbarr/htdp-image");
 
 // or
 
-const { square } = require("@jasonsbarr/htdp-image");
+const { square, render } = require("@jasonsbarr/htdp-image");
+```
+
+If you need the library available as a global variable in the browser you can simply include the bundle from unpkg:
+
+```html
+<script src="https://www.unpkg.com/browse/@jasonsbarr/htdp-image@0.0.5/dist/index.umd.js"></script>
+
+<script>
+  const square = htdpImage.square(20, "solid", "red");
+  htdpImage.render(square);
+</script>
 ```
 
 Rendering functions should run in both browser and Node.js (via JSDom) environments, so you should be able to do testing with a test runner like Mocha using this library.
@@ -45,13 +57,5 @@ The documentation is very much still a work in progress, if you can even call it
 ### Rendering Images
 
 Note that I've added an additional `render` function that is exported as a member of the main library that is necessary to render images to the screen in a vanilla JavaScript environment. It calls the `render` method on the image given to it and takes as an optional 2nd parameter a selected DOM element to render the image to (defaults to `document.body`).
-
-Example usage:
-
-```js
-import { square, render } from "@jasonsbarr/htdp-image";
-
-render(square(20, "solid", "red")); // should render a solid, red 20x20 square to the screen
-```
 
 The original Racket package obviously doesn't need this extra rendering function, so you won't find it in the documentation for it.
