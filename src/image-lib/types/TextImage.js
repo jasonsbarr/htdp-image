@@ -122,8 +122,8 @@ export class TextImage extends BaseImage {
     this.font = this.style ? `${this.style} ` : "";
     this.font += this.weight ? `${this.weight} ` : "normal ";
     this.font += this.size ? `${this.size}px ` : "";
-    this.font += '"' + this.face ? this.face : "Arial" + '" ';
-    this.font += this.family ? `, ${this.family}` : "";
+    this.font += `"${this.face ? this.face : "Arial"}"`;
+    // this.font += this.family ? `, ${this.family}"` : '"'; // this was keeping font faces from properly rendering
 
     const metrics = getTextDimensions(str, this.font);
 
