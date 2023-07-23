@@ -94,7 +94,7 @@ export class EllipseImage extends BaseImage {
     ctx.bezierCurveTo(mX - hB, eY, aX, mY + vB, aX, mY);
     ctx.closePath();
     if (this.style.toString().toLowerCase() === "outline") {
-      ctx.strokeStyle = colorString(this.color);
+      ctx.strokeStyle = colorString(this.color, this.style);
       ctx.stroke();
     } else {
       ctx.fillStyle = colorString(this.color, this.style);
