@@ -6,7 +6,7 @@ Shared via the MIT License under the terms of [the original HTDP library's licen
 
 Special thanks to [Joe Gibbs Politz](https://twitter.com/joepolitz) for all his work on the Pyret language, Danny Yoo, Emmanuel Schanzer, and Ben Lerner for doing the bulk of the work translating the Image library from Racket into the original JavaScript version that was adapted for Pyret, and to all others who have worked on the code for this library. All I'm really doing is updating their work to use modern JavaScript syntax and idioms.
 
-**Warning:** This port is still in extremely early, pre-alpha status and should not be used for anything remotely important. I've ported over the entire library, but I haven't tested everything yet so YMMV.
+**Warning:** This port is still in beta status as we continue testing it. Use at your own risk.
 
 ## Installation
 
