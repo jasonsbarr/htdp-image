@@ -36,6 +36,8 @@ const Image = require("@jasonsbarr/htdp-image");
 const { square } = require("@jasonsbarr/htdp-image");
 ```
 
+Rendering functions should run in both browser and Node.js (via JSDom) environments, so you should be able to do testing with a test runner like Mocha using this library.
+
 ## Documentation
 
 The documentation is very much still a work in progress, if you can even call it that. I recommend using [the documentation for the original Racket library](https://docs.racket-lang.org/teachpack/2htdpimage.html) for now while I translate it into JavaScript.
@@ -45,3 +47,11 @@ The documentation is very much still a work in progress, if you can even call it
 Note that I've added an additional `render` function that is exported as a member of the main library that is necessary to render images to the screen in a vanilla JavaScript environment. It calls the `render` method on the image given to it and takes as an optional 2nd parameter a selected DOM element to render the image to (defaults to `document.body`).
 
 Example usage:
+
+```js
+import { square, render } from "@jasonsbarr/htdp-image";
+
+render(square(20, "solid", "red")); // should render a solid, red 20x20 square to the screen
+```
+
+The original Racket package obviously doesn't need this extra rendering function, so you won't find it in the documentation for it.
