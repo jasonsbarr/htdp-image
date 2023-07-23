@@ -40,7 +40,7 @@ Rendering functions should run in both browser and Node.js (via JSDom) environme
 
 ## Documentation
 
-The documentation is very much still a work in progress, if you can even call it that. I recommend using [the documentation for the original Racket library](https://docs.racket-lang.org/teachpack/2htdpimage.html) for now while I translate it into JavaScript.
+The documentation is very much still a work in progress, if you can even call it that. I recommend using [the documentation for the original Racket library](https://docs.racket-lang.org/teachpack/2htdpimage.html) for now while I translate it into JavaScript. Note that in this library all function names are written in camelCase. The `triangle-*` functions have the letters all capitalized, e.g. `triangleSAS`.
 
 ### Rendering Images
 
