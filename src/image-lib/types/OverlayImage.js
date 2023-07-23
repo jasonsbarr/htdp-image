@@ -143,6 +143,10 @@ export class OverlayImage extends BaseImage {
     }
 
     // Next, offset x2/y2 by the given offsetX/Y
+    x2 += offsetX;
+    y2 += offsetY;
+
+    // Translate both offset pairs by the smaller of the half-dimensions
     const xMax = Math.max(img1.width, img2.width);
     const yMax = Math.max(img1.height, img2.height);
 
