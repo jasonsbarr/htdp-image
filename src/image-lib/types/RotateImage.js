@@ -43,8 +43,6 @@ export class RotateImage extends BaseImage {
     super({
       width: findWidth(vertices),
       height: findHeight(vertices),
-      pinholeX: image.pinholeX * cos - image.pinholeY * sin + translate.x,
-      pinholeY: image.pinholeX * sin + image.pinholeY * cos + translate.y,
       ariaText: `Rotated image, ${-1 * angle} degrees: ${image.ariaText}`,
     });
 
@@ -55,6 +53,8 @@ export class RotateImage extends BaseImage {
     this.angle = Math.round(angle);
     this.translateX = translate.x;
     this.translateY = translate.y;
+    this.pinholeX = image.pinholeX * cos - image.pinholeY * sin + translate.x;
+    this.pinholeY = image.pinholeX * sin + image.pinholeY * cos + translate.y;
   }
 
   /**
