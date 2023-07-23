@@ -17,7 +17,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier -w ./src",
-    "build": "microbundle --external jsdom --name Image"
+    "build": "microbundle --external jsdom"
   },
   "repository": {
     "type": "git",
