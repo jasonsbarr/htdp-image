@@ -272,11 +272,11 @@ export class OverlayImage extends BaseImage {
   render(ctx) {
     ctx.save();
     ctx.translate(this.x2, this.y2);
-    this.img2.render();
+    this.img2.render(ctx);
     ctx.restore();
     ctx.save();
     ctx.translate(this.x1, this.y1);
-    this.img1.render();
+    this.img1.render(ctx);
     ctx.restore();
   }
 }
