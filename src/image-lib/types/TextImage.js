@@ -6,6 +6,7 @@ import {
   makeDocument,
 } from "../../shared/index.js";
 import { colorToSpokenString } from "../colorToSpokenString.js";
+import { colorString } from "../utils.js";
 import { BaseImage } from "./BaseImage.js";
 
 const document = makeDocument();
@@ -190,11 +191,13 @@ export class TextImage extends BaseImage {
     ctx.font = this.font;
 
     // if 'outline' is enabled, use strokeText. Otherwise use fillText
-    ctx.fillStyle = this.outline ? "white" : colorString(this.color);
+    ctx.fillStyle = this.outline
+      ? "white"
+      : colorString(this.color, this.style);
     ctx.fillText(this.str, 0, this.alphaBaseline - 1); // handle the baseline offset here
 
     if (this.outline) {
-      ctx.strokeStyle = colorString(this.color);
+      ctx.strokeStyle = colorString(this.color, this.style);
       ctx.strokeText(this.str, 0, this.alphaBaseline - 1);
     }
 
@@ -204,7 +207,7 @@ export class TextImage extends BaseImage {
       // we use this.size, as it is more accurate for underlining than this.height
       ctx.lineTo(this.width, this.size);
       ctx.closePath();
-      ctx.strokeStyle = colorString(this.color);
+      ctx.strokeStyle = colorString(this.color, this.style);
       ctx.stroke();
     }
 
