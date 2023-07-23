@@ -117,7 +117,7 @@ export class SceneImage extends BaseImage {
   render(ctx) {
     // create a clipping region around the boundaries of the scene
     ctx.save();
-    ctx.fillStyle = colorString(this.color);
+    ctx.fillStyle = colorString(this.color, this.style);
     ctx.fillRect(0, 0, this.width, this.height);
     ctx.restore();
 
