@@ -160,6 +160,11 @@ export const isXPlace = (x) =>
     x.toLowerCase() === "pinhole" ||
     x.toLowerCase() === "middle");
 
+/**
+ * Checks if a given value is a PlaceY value
+ * @param {any} x
+ * @returns {boolean}
+ */
 export const isYPlace = (x) =>
   typeof x === "string" &&
   (x.toLowerCase() === "top" ||
