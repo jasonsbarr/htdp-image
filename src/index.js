@@ -33,6 +33,7 @@ import {
   point,
   XPlace,
   YPlace,
+  Colors,
 } from "./shared/index.js";
 import {
   circle,
@@ -203,6 +204,7 @@ export {
   point,
   XPlace,
   YPlace,
+  Colors,
   circle,
   text,
   textFont,
