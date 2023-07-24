@@ -116,6 +116,8 @@ import {
   colorListToBitmap,
   nameToColor,
   emptyImage,
+  fileImage,
+  fileVideo,
 } from "./make-image/index.js";
 
 const document = makeDocument();
@@ -289,4 +291,6 @@ export {
   colorListToBitmap,
   nameToColor,
   emptyImage,
+  fileImage,
+  fileVideo,
 };

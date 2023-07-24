@@ -6,10 +6,13 @@ import {
   XPlace,
   YPlace,
   FillMode,
+  makeDocument,
 } from "../shared/index.js";
 import * as ImageLib from "../image-lib/index.js";
 import { canonicalizeAngle, convertPointsToCartesian, less } from "./utils.js";
 import { cosRel, excess } from "./trig.js";
+
+const document = makeDocument();
 
 /**
  * @typedef {import("../shared/index.js").Colors.Color} Color
@@ -1383,3 +1386,17 @@ export const colorNamed = (name) => {
 
 export const emptyImage = () =>
   ImageLib.makeSceneImage(0, 0, [], true, Colors.transparent);
+
+export const fileImage = (src) => {
+  const rawImage = document.createElement("img");
+  rawImage.src = src;
+
+  return ImageLib.makeFileImage(src, rawImage);
+};
+
+export const fileVideo = (src) => {
+  const rawVideo = document.createElement("video");
+  rawVideo.src = src;
+
+  return ImageLib.makeFileVideo(src, rawVideo);
+};
