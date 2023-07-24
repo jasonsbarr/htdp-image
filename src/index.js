@@ -34,6 +34,7 @@ import {
   XPlace,
   YPlace,
   Colors,
+  makeDocument,
 } from "./shared/index.js";
 import {
   circle,
@@ -116,7 +117,6 @@ import {
   nameToColor,
   emptyImage,
 } from "./make-image/index.js";
-import { makeDocument } from "./shared/document.js";
 
 const document = makeDocument();
 
