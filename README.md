@@ -42,7 +42,7 @@ const { square, render } = require("@jasonsbarr/htdp-image");
 If you need the library available as a global variable in the browser you can simply include the bundle from unpkg:
 
 ```html
-<script src="https://www.unpkg.com/@jasonsbarr/htdp-image@0.6.1/dist/index.umd.js"></script>
+<script src="https://www.unpkg.com/@jasonsbarr/htdp-image@0.6.2/dist/index.umd.js"></script>
 
 <script>
   const square = htdpImage.square(20, "solid", "red");
