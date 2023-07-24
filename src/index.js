@@ -138,6 +138,11 @@ const renderImage = (image, element) => {
  */
 export const render = (image, element = document.body) => {
   if (image instanceof FileImage || image instanceof FileVideo) {
+    if (imageIsLoaded(image)) {
+      renderImage(image, element);
+      return;
+    }
+
     let interval = setInterval(() => {
       if (imageIsLoaded(image)) {
         renderImage(image, element);
