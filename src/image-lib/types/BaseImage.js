@@ -220,6 +220,13 @@ export class BaseImage {
   }
 
   /**
+   * Sets it so instead of [object Object] it shows [object Image]
+   */
+  get [Symbol.toStringTag]() {
+    return "Image";
+  }
+
+  /**
    * Calculates the difference between 2 images and returns the result. If a difference
    * can be calculated, it returns it as a number. Otherwise, it returns a string
    * of the reason why a difference cannot be calculated.
