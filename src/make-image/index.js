@@ -36,8 +36,8 @@ const toColor = (val) => {
 /**
  * Makes a circle image
  * @param {number} radius
- * @param {Fill} mode
- * @param {Color} color
+ * @param {FillMode|string|number} mode
+ * @param {Color|string} color
  * @returns {ImageLib.EllipseImage}
  */
 export const circle = (radius, mode, color) =>
