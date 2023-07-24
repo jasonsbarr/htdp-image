@@ -122,17 +122,31 @@ import {
 
 const document = makeDocument();
 
+const imageIsLoaded = (img) => img.isLoaded;
+const renderImage = (image, element) => {
+  const canvas = Lib.makeCanvas(image.width, image.height);
+  const context = canvas.getContext("2d");
+
+  element.appendChild(canvas);
+  image.render(context);
+};
+
 /**
  * Renders an image to the DOM
  * @param {Lib.BaseImage} image
  * @param {HTMLElement} element
  */
 export const render = (image, element = document.body) => {
-  const canvas = Lib.makeCanvas(image.width, image.height);
-  const context = canvas.getContext("2d");
-
-  element.appendChild(canvas);
-  image.render(context);
+  if (image instanceof FileImage || image instanceof FileVideo) {
+    let interval = setInterval(() => {
+      if (imageIsLoaded(image)) {
+        renderImage(image, element);
+        clearInterval(interval);
+      }
+    }, 100);
+  } else {
+    renderImage(image, element);
+  }
 };
 
 /**

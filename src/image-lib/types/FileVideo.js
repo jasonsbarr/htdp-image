@@ -20,6 +20,7 @@ export class FileVideo extends BaseImage {
     super({ ariaText: `video file from ${decodeURIComponent(src).slice(16)}` });
 
     this.src = src;
+    this._isLoaded = false;
 
     if (rawVideo) {
       this.video = rawVideo;
@@ -30,6 +31,7 @@ export class FileVideo extends BaseImage {
       this.video.autoplay = true;
       this.video.buffered = true;
       this.video.loop = true;
+      this._isLoaded = true;
       this.video.play();
     } else {
       this.video = document.createElement("video");
@@ -42,6 +44,7 @@ export class FileVideo extends BaseImage {
         this.video.autoplay = true;
         this.video.buffered = true;
         this.video.loop = true;
+        this._isLoaded = true;
         this.video.play();
       });
 
@@ -64,6 +67,10 @@ export class FileVideo extends BaseImage {
     }
 
     return FileVideo.videoCache[src];
+  }
+
+  get isLoaded() {
+    return this._isLoaded;
   }
 
   /**
