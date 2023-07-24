@@ -50,7 +50,7 @@ If you need the library available as a global variable in the browser you can si
 </script>
 ```
 
-Rendering functions should run in both browser and Node.js (via JSDom) environments, so you should be able to do testing with a test runner like Mocha using this library.
+Image functions should run in both browser and Node.js (via JSDom) environments, so you should be able to do testing with a test runner like Mocha using this library.
 
 ## Documentation
 
