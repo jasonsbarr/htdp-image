@@ -36,7 +36,7 @@ export class FileImage extends BaseImage {
       self.pinholeX = this.width / 2;
       self.pinholeY = this.height / 2;
     } else {
-      this._img = new Image();
+      this._img = document.createElement("img");
       this.img.onload = function () {
         self._isLoaded = true;
         self.width = self.img.width;
@@ -55,7 +55,7 @@ export class FileImage extends BaseImage {
 
   static installBrokenImage(src) {
     imageCache[path] = TextImage.new(
-      "Unable to load " + path,
+      "Unable to load " + src,
       10,
       colorDb.get("red"),
       "normal",
@@ -82,7 +82,7 @@ export class FileImage extends BaseImage {
    * @returns {FileImage}
    */
   static new(src, rawImage) {
-    if (!(path in FileImage.imageCache)) {
+    if (!(src in FileImage.imageCache)) {
       FileImage.imageCache[src] = new FileImage(src, rawImage);
     }
 
