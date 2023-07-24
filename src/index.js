@@ -122,7 +122,7 @@ const document = makeDocument();
 
 /**
  * Renders an image to the DOM
- * @param {ImageLib.BaseImage} image
+ * @param {Lib.BaseImage} image
  * @param {HTMLElement} element
  */
 export const render = (image, element = document.body) => {
@@ -138,7 +138,7 @@ export const render = (image, element = document.body) => {
  * @param {string} color
  * @returns {boolean}
  */
-export const isImageColor = (color) => ImageLib.isColorOrColorString(color);
+export const isImageColor = (color) => Lib.isColorOrColorString(color);
 
 /**
  * Checks if the value is a FillMode
