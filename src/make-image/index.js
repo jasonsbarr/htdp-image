@@ -58,6 +58,8 @@ export const imageURL = (src) => {
   return ImageLib.makeFileImage(src, rawImage);
 };
 
+export const bitmapURL = imageURL;
+
 /**
  * Makes a file video from a source URL
  * @param {string} src
@@ -1328,8 +1330,6 @@ export const isSideCount = ImageLib.isSideCount;
 export const isStepCount = ImageLib.isStepCount;
 
 export const isImage = ImageLib.isImage;
-
-export const bitmapURL = imageURL;
 
 export const imagesDifference = ImageLib.imageDifference;
 
