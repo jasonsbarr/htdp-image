@@ -1400,3 +1400,17 @@ export const videoURL = (src) => {
 
   return ImageLib.makeFileVideo(src, rawVideo);
 };
+
+export const isAngle = ImageLib.isAngle;
+
+export const isSideCount = ImageLib.isSideCount;
+
+export const isStepCount = ImageLib.isStepCount;
+
+export const isImage = ImageLib.isImage;
+
+export const bitmapURL = imageURL;
+
+export const imagesDifference = ImageLib.imageDifference;
+
+export const imagesEqual = ImageLib.imageEquals;
