@@ -47,6 +47,44 @@ export const circle = (radius, mode, color) =>
   ImageLib.makeCircleImage(radius, toFillMode(mode), toColor(color));
 
 /**
+ * Makes a file image from a source URL
+ * @param {string} src
+ * @returns {ImageLib.FileImage}
+ */
+export const imageURL = (src) => {
+  const rawImage = document.createElement("img");
+  rawImage.src = src;
+
+  return ImageLib.makeFileImage(src, rawImage);
+};
+
+/**
+ * Makes a file video from a source URL
+ * @param {string} src
+ * @returns {ImageLib.FileVideo}
+ */
+export const videoURL = (src) => {
+  const rawVideo = document.createElement("video");
+  rawVideo.src = src;
+
+  return ImageLib.makeFileVideo(src, rawVideo);
+};
+
+export const isAngle = ImageLib.isAngle;
+
+export const isSideCount = ImageLib.isSideCount;
+
+export const isStepCount = ImageLib.isStepCount;
+
+export const isImage = ImageLib.isImage;
+
+export const bitmapURL = imageURL;
+
+export const imagesDifference = ImageLib.imageDifference;
+
+export const imagesEqual = ImageLib.imageEquals;
+
+/**
  * Makes a simple text image with sensible defaults
  * @param {string} str
  * @param {number} size
@@ -1386,31 +1424,3 @@ export const colorNamed = (name) => {
 
 export const emptyImage = () =>
   ImageLib.makeSceneImage(0, 0, [], true, Colors.transparent);
-
-export const imageURL = (src) => {
-  const rawImage = document.createElement("img");
-  rawImage.src = src;
-
-  return ImageLib.makeFileImage(src, rawImage);
-};
-
-export const videoURL = (src) => {
-  const rawVideo = document.createElement("video");
-  rawVideo.src = src;
-
-  return ImageLib.makeFileVideo(src, rawVideo);
-};
-
-export const isAngle = ImageLib.isAngle;
-
-export const isSideCount = ImageLib.isSideCount;
-
-export const isStepCount = ImageLib.isStepCount;
-
-export const isImage = ImageLib.isImage;
-
-export const bitmapURL = imageURL;
-
-export const imagesDifference = ImageLib.imageDifference;
-
-export const imagesEqual = ImageLib.imageEquals;
