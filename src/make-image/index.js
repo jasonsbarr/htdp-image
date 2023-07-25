@@ -1387,14 +1387,14 @@ export const colorNamed = (name) => {
 export const emptyImage = () =>
   ImageLib.makeSceneImage(0, 0, [], true, Colors.transparent);
 
-export const fileImage = (src) => {
+export const imageURL = (src) => {
   const rawImage = document.createElement("img");
   rawImage.src = src;
 
   return ImageLib.makeFileImage(src, rawImage);
 };
 
-export const fileVideo = (src) => {
+export const videoURL = (src) => {
   const rawVideo = document.createElement("video");
   rawVideo.src = src;
 
