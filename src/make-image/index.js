@@ -70,20 +70,6 @@ export const videoURL = (src) => {
   return ImageLib.makeFileVideo(src, rawVideo);
 };
 
-export const isAngle = ImageLib.isAngle;
-
-export const isSideCount = ImageLib.isSideCount;
-
-export const isStepCount = ImageLib.isStepCount;
-
-export const isImage = ImageLib.isImage;
-
-export const bitmapURL = imageURL;
-
-export const imagesDifference = ImageLib.imageDifference;
-
-export const imagesEqual = ImageLib.imageEquals;
-
 /**
  * Makes a simple text image with sensible defaults
  * @param {string} str
@@ -1334,6 +1320,20 @@ export const imagePinholeX = (img) => img.pinholeX;
  * @returns {number}
  */
 export const imagePinholeY = (img) => img.pinholeY;
+
+export const isAngle = ImageLib.isAngle;
+
+export const isSideCount = ImageLib.isSideCount;
+
+export const isStepCount = ImageLib.isStepCount;
+
+export const isImage = ImageLib.isImage;
+
+export const bitmapURL = imageURL;
+
+export const imagesDifference = ImageLib.imageDifference;
+
+export const imagesEqual = ImageLib.imageEquals;
 
 /**
  * Gets the color at a given x/y coordinate
