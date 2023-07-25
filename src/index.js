@@ -116,8 +116,15 @@ import {
   colorListToBitmap,
   nameToColor,
   emptyImage,
-  fileImage,
-  fileVideo,
+  imageURL,
+  videoURL,
+  isAngle,
+  isSideCount,
+  isStepCount,
+  isImage,
+  bitmapURL,
+  imagesDifference,
+  imagesEqual,
 } from "./make-image/index.js";
 
 const document = makeDocument();
@@ -310,6 +317,13 @@ export {
   colorListToBitmap,
   nameToColor,
   emptyImage,
-  fileImage,
-  fileVideo,
+  imageURL,
+  videoURL,
+  isAngle,
+  isSideCount,
+  isStepCount,
+  isImage,
+  bitmapURL,
+  imagesDifference,
+  imagesEqual,
 };
