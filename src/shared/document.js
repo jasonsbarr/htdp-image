@@ -22,9 +22,19 @@ export const makeDocument = () => {
   <head></head>
   <body></body>
 </html>`;
-    const dom = new jsdom.JSDOM(html);
-
-    document = dom.window.document;
+    let dom;
+    if (jsdom.JSDOM === undefined) {
+      let interval = setInterval(() => {
+        if (jsdom.JSDOM) {
+          dom = new jsdom.JSDOM(html);
+          document = dom.window.document;
+          clearInterval(interval);
+        }
+      }, 100);
+    } else {
+      dom = new jsdom.JSDOM(html);
+      document = dom.window.document;
+    }
   } else {
     document = window.document;
   }
