@@ -1,6 +1,8 @@
 import equals from "fast-deep-equal/es6/index.js";
 import { BaseImage } from "./BaseImage.js";
 import { colorString } from "../utils.js";
+import { FileImage } from "./FileImage.js";
+import { FileVideo } from "./FileVideo.js";
 
 /**
  * @typedef {[BaseImage number number]} Child
@@ -132,10 +134,29 @@ export class SceneImage extends BaseImage {
       let childX = child[1];
       let childY = child[2];
 
-      ctx.save();
-      ctx.translate(childX, childY);
-      childImage.render(ctx);
-      ctx.restore();
+      const renderImage = (childImage) => {
+        ctx.save();
+        ctx.translate(childX, childY);
+        childImage.render(ctx);
+        ctx.restore();
+      };
+
+      if (childImage instanceof FileImage || childImage instanceof FileVideo) {
+        if (childImage.isLoaded) {
+          renderImage(childImage);
+        } else {
+          const interval = setInterval(() => {
+            if (childImage.isLoaded) {
+              childX = childImage.width;
+              childY = childImage.height;
+              renderImage(childImage);
+              clearInterval(interval);
+            }
+          }, 100);
+        }
+      } else {
+        renderImage(childImage);
+      }
     });
 
     // unclip
