@@ -4,7 +4,7 @@ A JavaScript port of the Racket Image library used in How To Design Programs.
 
 Shared via the MIT License under the terms of [the original HTDP library's license](https://github.com/racket/htdp/blob/master/htdp-lib/LICENSE).
 
-Special thanks to [Joe Gibbs Politz](https://twitter.com/joepolitz) for all his work on the Pyret language, Danny Yoo, Emmanuel Schanzer, and Ben Lerner for doing the bulk of the work translating the Image library from Racket into the original JavaScript version that was adapted for Pyret, and to all others who have worked on the code for this library. All I'm really doing is updating their work to use modern JavaScript syntax and idioms.
+Special thanks to [Joe Gibbs Politz](https://twitter.com/joepolitz) and [Ben Lerner](https://www.khoury.northeastern.edu/people/benjamin-lerner/) for all their work on the Pyret language, Danny Yoo, Emmanuel Schanzer, and Ben Lerner for doing the bulk of the work translating the Image library from Racket into the original JavaScript version that was adapted for Pyret, and to all others who have worked on the code for this library. All I'm really doing is updating their work to use modern JavaScript syntax and idioms.
 
 **Warning:** This port is still in beta status as we continue testing it. Use at your own risk.
 
