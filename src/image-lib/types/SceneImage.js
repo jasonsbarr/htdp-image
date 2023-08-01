@@ -76,7 +76,7 @@ export class SceneImage extends BaseImage {
    * @returns {SceneImage}
    */
   add(image, x, y) {
-    const child = [image, x - image.width / 2, y - image.height / 2];
+    const child = [image, x, y];
     return new SceneImage(
       this.width,
       this.height,
@@ -136,7 +136,10 @@ export class SceneImage extends BaseImage {
 
       const renderImage = (childImage) => {
         ctx.save();
-        ctx.translate(childX, childY);
+        ctx.translate(
+          childX - childImage.width / 2,
+          childY - childImage.height / 2
+        );
         childImage.render(ctx);
         ctx.restore();
       };
@@ -147,8 +150,6 @@ export class SceneImage extends BaseImage {
         } else {
           const interval = setInterval(() => {
             if (childImage.isLoaded) {
-              childX = childImage.width;
-              childY = childImage.height;
               renderImage(childImage);
               clearInterval(interval);
             }
