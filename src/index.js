@@ -161,6 +161,10 @@ export const render = (image, element = document.body) => {
   }
 };
 
+export const clear = (element = document.body) => {
+  element.innerHTML = "";
+};
+
 /**
  * Checks if a given string matches a color in the color DB
  * @param {string} color
