@@ -5,7 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.7.3",
+  "version": "0.8.0",
   "main": "./dist/index.cjs",
   "source": "./src/index.js",
   "exports": {
